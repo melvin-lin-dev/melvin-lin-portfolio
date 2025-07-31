@@ -21,6 +21,9 @@ export default function Home() {
                     </button>
                 </div>
             </section>
+            <section>
+                
+            </section>
         </>
     );
 }
