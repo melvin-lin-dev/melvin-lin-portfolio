@@ -71,6 +71,9 @@ export default function HomePage(): ReactElement {
                     </ReactFlow>
                 </div>
             </section>
+            <section>
+                
+            </section>
         </>
     );
 }
