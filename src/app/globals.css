@@ -136,3 +136,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+.floating-edges .react-flow__handle {
+  opacity: 0;
+}
