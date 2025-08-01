@@ -1,10 +1,10 @@
-"use client";
-
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
 import { Background, Edge, Node, ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import type { ReactElement } from "react";
 import { FaLinkedin } from "react-icons/fa6";
+
+import WindRoseChartClient from "@/components/react-plotly/WindRoseChartClient";
 
 const nodes: Node[] = [
     {
@@ -72,7 +72,50 @@ export default function HomePage(): ReactElement {
                 </div>
             </section>
             <section>
-                
+                <WindRoseChartClient
+                    data={[
+                        {
+                            type: "barpolar",
+                            r: [10, 15, 13, 17, 22, 18, 12, 8],
+                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                            name: "Beginner",
+                            marker: {
+                                color: "rgba(93, 164, 214, 0.6)",
+                            },
+                        },
+                        {
+                            type: "barpolar",
+                            r: [5, 10, 7, 12, 15, 10, 8, 6],
+                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                            name: "Intermediate",
+                            marker: {
+                                color: "rgba(255, 144, 14, 0.6)",
+                            },
+                        },
+                        {
+                            type: "barpolar",
+                            r: [2, 5, 3, 6, 7, 5, 3, 2],
+                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                            name: "Advanced",
+                            marker: {
+                                color: "rgba(44, 160, 101, 0.6)",
+                            },
+                        },
+                    ]}
+                    layout={{
+                        title: { text: "Skill Wind Rose Chart" },
+                        width: 500,
+                        height: 500,
+                        polar: {
+                            radialaxis: {
+                                ticksuffix: "%",
+                                angle: 45,
+                                visible: true,
+                            },
+                        },
+                        showlegend: true,
+                    }}
+                ></WindRoseChartClient>
             </section>
         </>
     );

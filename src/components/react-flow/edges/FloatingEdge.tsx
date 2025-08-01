@@ -3,7 +3,7 @@
 import { getEdgeParams } from '@/lib/utils/react-flow/floating-edge';
 import { getBezierPath, useInternalNode } from '@xyflow/react';
 
-type FloatingEdgeProps = {
+interface FloatingEdgeProps {
   id: string;
   source: string;
   target: string;
