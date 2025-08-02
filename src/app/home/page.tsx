@@ -130,6 +130,12 @@ export default function HomePage(): ReactElement {
                     </div>
                 </div>
             </section>
+            <section>
+                <div className="container">
+                    <h1 className="text-3xl mb-8">Work Experiences</h1>
+                    
+                </div>
+            </section>
         </>
     );
 }
