@@ -143,6 +143,35 @@ export default function HomePage(): ReactElement {
                     <Timeline></Timeline>
                 </div>
             </section>
+            <section className="py-20 bg-blue-200 relative">
+                <div className="container">
+                    <h1 className="text-3xl mb-8">Lets Work Together</h1>
+                    <div className="h-40">
+                        <ul>
+                            <li className="absolute top-[30%] left-[50%]">
+                                <a href="" className="inline-block p-4 rounded-full bg-gray-200 scale-[0.5] opacity-50 cursor-not-allowed">
+                                    <FaLinkedin />
+                                </a>
+                            </li>
+                            <li className="absolute top-[50%] left-[50%]">
+                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
+                                    <FaLinkedin />
+                                </a>
+                            </li>
+                            <li className="absolute top-[30%] left-[40%]">
+                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
+                                    <FaLinkedin />
+                                </a>
+                            </li>
+                            <li className="absolute top-[70%] left-[80%]">
+                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
+                                    <FaLinkedin />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </>
     );
 }
