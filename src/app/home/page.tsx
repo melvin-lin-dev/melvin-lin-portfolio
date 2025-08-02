@@ -122,7 +122,7 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20">
                 <div className="container">
-                    <h1 className="text-3xl mb-8">Projects Highlight</h1>
+                    <h1 className="text-3xl mb-8">Project Highlight</h1>
                     <div className="image-perspective grid grid-cols-4 gap-x-3 gap-y-4">
                         <div></div>
                         <div></div>
@@ -133,7 +133,13 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20 bg-gray-400">
                 <div className="container">
-                    <h1 className="text-3xl mb-8">Work Experiences</h1>
+                    <h1 className="text-3xl mb-8">Work Experience</h1>
+                    <Timeline></Timeline>
+                </div>
+            </section>
+            <section className="py-20 bg-gray-400">
+                <div className="container">
+                    <h1 className="text-3xl mb-8">Education</h1>
                     <Timeline></Timeline>
                 </div>
             </section>
