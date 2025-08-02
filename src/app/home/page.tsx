@@ -5,6 +5,7 @@ import type { ReactElement } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 
 import WindRoseChartClient from "@/components/react-plotly/WindRoseChartClient";
+import Timeline from "@/components/react-vertical-timeline/Timeline";
 
 const nodes: Node[] = [
     {
@@ -119,7 +120,7 @@ export default function HomePage(): ReactElement {
                     ></WindRoseChartClient>
                 </div>
             </section>
-            <section>
+            <section className="py-20">
                 <div className="container">
                     <h1 className="text-3xl mb-8">Projects Highlight</h1>
                     <div className="image-perspective grid grid-cols-4 gap-x-3 gap-y-4">
@@ -130,10 +131,10 @@ export default function HomePage(): ReactElement {
                     </div>
                 </div>
             </section>
-            <section>
+            <section className="py-20 bg-gray-400">
                 <div className="container">
                     <h1 className="text-3xl mb-8">Work Experiences</h1>
-                    
+                    <Timeline></Timeline>
                 </div>
             </section>
         </>
