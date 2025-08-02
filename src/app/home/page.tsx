@@ -46,8 +46,8 @@ const edgeTypes = {
 export default function HomePage(): ReactElement {
     return (
         <>
-            <section className="container">
-                <div className="py-20">
+            <section>
+                <div className="container py-20">
                     <h1 className="text-6xl">Melvin Lin</h1>
                     <h4 className="mt-4 mb-8">Problem Solver...</h4>
                     <ul className="flex space-x-2">
@@ -72,50 +72,63 @@ export default function HomePage(): ReactElement {
                 </div>
             </section>
             <section>
-                <WindRoseChartClient
-                    data={[
-                        {
-                            type: "barpolar",
-                            r: [10, 15, 13, 17, 22, 18, 12, 8],
-                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
-                            name: "Beginner",
-                            marker: {
-                                color: "rgba(93, 164, 214, 0.6)",
+                <div className="container">
+                    <WindRoseChartClient
+                        data={[
+                            {
+                                type: "barpolar",
+                                r: [10, 15, 13, 17, 22, 18, 12, 8],
+                                theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                                name: "Beginner",
+                                marker: {
+                                    color: "rgba(93, 164, 214, 0.6)",
+                                },
                             },
-                        },
-                        {
-                            type: "barpolar",
-                            r: [5, 10, 7, 12, 15, 10, 8, 6],
-                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
-                            name: "Intermediate",
-                            marker: {
-                                color: "rgba(255, 144, 14, 0.6)",
+                            {
+                                type: "barpolar",
+                                r: [5, 10, 7, 12, 15, 10, 8, 6],
+                                theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                                name: "Intermediate",
+                                marker: {
+                                    color: "rgba(255, 144, 14, 0.6)",
+                                },
                             },
-                        },
-                        {
-                            type: "barpolar",
-                            r: [2, 5, 3, 6, 7, 5, 3, 2],
-                            theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
-                            name: "Advanced",
-                            marker: {
-                                color: "rgba(44, 160, 101, 0.6)",
+                            {
+                                type: "barpolar",
+                                r: [2, 5, 3, 6, 7, 5, 3, 2],
+                                theta: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+                                name: "Advanced",
+                                marker: {
+                                    color: "rgba(44, 160, 101, 0.6)",
+                                },
                             },
-                        },
-                    ]}
-                    layout={{
-                        title: { text: "Skill Wind Rose Chart" },
-                        width: 500,
-                        height: 500,
-                        polar: {
-                            radialaxis: {
-                                ticksuffix: "%",
-                                angle: 45,
-                                visible: true,
+                        ]}
+                        layout={{
+                            title: { text: "Skill Wind Rose Chart" },
+                            width: 500,
+                            height: 500,
+                            polar: {
+                                radialaxis: {
+                                    ticksuffix: "%",
+                                    angle: 45,
+                                    visible: true,
+                                },
                             },
-                        },
-                        showlegend: true,
-                    }}
-                ></WindRoseChartClient>
+                            showlegend: true,
+                        }}
+                    ></WindRoseChartClient>
+                </div>
+            </section>
+            <section>
+                <div className="container">
+                    <h1 className="text-3xl mb-8">Projects Highlight</h1>
+                    <div className="image-perspective grid grid-cols-4 gap-x-3 gap-y-4">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
             </section>
         </>
     );

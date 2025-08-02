@@ -143,3 +143,41 @@
 .floating-edges .react-flow__handle {
   opacity: 0;
 }
+
+
+.image-perspective > div {
+    height: 200px;
+    width: 200px;
+    transform: perspective(300px) rotateY(-20deg);
+    transition: .4s transform;
+    margin: 0 20px;
+    background-color: red;
+}
+
+.image-perspective > div:hover {
+    transform: rotate(0);
+}
+
+.image-perspective > div:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+}
+
+.image-perspective > div:nth-child(1):after {
+    content: '1';
+}
+
+.image-perspective > div:nth-child(2):after {
+    content: '2';
+}
+
+.image-perspective > div:nth-child(3):after {
+    content: '3';
+}
+
+.image-perspective > div:nth-child(4):after {
+    content: '4';
+}
