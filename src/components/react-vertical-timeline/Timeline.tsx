@@ -10,7 +10,7 @@ interface TimelineProps {
 
 export default function Timeline({ data }: TimelineProps) {
     return (
-        <VerticalTimeline>
+        <VerticalTimeline lineColor="#d1d5db">
             {data.map((timeline, i) =>
                 timeline.endDate == "today" ? (
                     <VerticalTimelineElement
@@ -19,7 +19,7 @@ export default function Timeline({ data }: TimelineProps) {
                         contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                         contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
                         date={`${timeline.startDate} - ${timeline.endDate}`}
-                        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff", boxShadow: "0 0 0 4px #d1d5db,inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)" }}
                         icon={timeline.icon}
                     >
                         <h3 className="vertical-timeline-element-title">{timeline.position}</h3>
