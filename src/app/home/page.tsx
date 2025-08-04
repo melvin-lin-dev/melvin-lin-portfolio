@@ -294,7 +294,7 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20 bg-[#f9fafb]">
                 <div className="container">
-                    <h1 className="text-3xl mb-8">Work Experience</h1>
+                    <h2 className="text-3xl mb-8">Work Experience</h2>
                     <Timeline
                         data={[
                             {
@@ -327,7 +327,7 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20 bg-gray-150">
                 <div className="container">
-                    <h1 className="text-3xl mb-8">Education</h1>
+                    <h2 className="text-3xl mb-8">Education</h2>
                     <Timeline
                         data={[
                             {
@@ -360,28 +360,29 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20 bg-blue-200 relative">
                 <div className="container">
-                    <h1 className="text-3xl mb-8">Lets Work Together</h1>
-                    <div className="h-40">
-                        <ul>
-                            <li className="absolute top-[30%] left-[50%]">
-                                <a href="" className="inline-block p-4 rounded-full bg-gray-200 scale-[0.5] opacity-50 cursor-not-allowed">
-                                    <FaLinkedin />
-                                </a>
+                    <h2 className="text-3xl mb-8">Lets Work Together</h2>
+                    <div>
+                        <ul className="space-y-6">
+                            <li className="flex space-x-3">
+                                <FaLinkedin className="mt-0.5 w-6 h-6" />
+                                <div>
+                                    <h3 className="text-xl">LinkedIn</h3>
+                                    <a href="">https://www.linkedin.com/in/melvin-lin-dev/</a>
+                                </div>
                             </li>
-                            <li className="absolute top-[50%] left-[50%]">
-                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
-                                    <FaLinkedin />
-                                </a>
+                            <li className="flex space-x-3">
+                                <FaLinkedin className="mt-0.5 w-6 h-6" />
+                                <div>
+                                    <h3 className="text-xl">LinkedIn</h3>
+                                    <a href="">https://www.linkedin.com/in/melvin-lin-dev/</a>
+                                </div>
                             </li>
-                            <li className="absolute top-[30%] left-[40%]">
-                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
-                                    <FaLinkedin />
-                                </a>
-                            </li>
-                            <li className="absolute top-[70%] left-[80%]">
-                                <a href="" className="inline-block p-4 rounded-full bg-gray-200">
-                                    <FaLinkedin />
-                                </a>
+                            <li className="flex space-x-3">
+                                <FaLinkedin className="mt-0.5 w-6 h-6" />
+                                <div>
+                                    <h3 className="text-xl">LinkedIn</h3>
+                                    <a href="">https://www.linkedin.com/in/melvin-lin-dev/</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
