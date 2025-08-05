@@ -1,0 +1,110 @@
+[
+    {
+        "image": "e-shia.png",
+        "position": "Software Engineer",
+        "company": "E-Shia Digital Solution",
+        "workType": "On-site",
+        "about": "Inventory, Accounting, POS, & Custom Applications",
+        "employmentType": "Full-time",
+        "url": "",
+        "startDate": "February 2024",
+        "endDate": "March 2025",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "leftReason": "Pursuing better long-term growth and alignment with technical and cultural goals.",
+        "note": "",
+        "descriptions": [
+            "Developed multiple Inventory & Accounting web applications using PHP, MySQL",
+            "Contributed to the development of POS web application using PHP, MySQL, Vue & Laravel",
+            "Developed Inventory mobile application using Flutter",
+            "Developed Absence mobile application with fingerprint authentication using Flutter",
+            "Implemented AI Face Recognition in Absence mobile application using Python",
+            "Created designs for Pharmacy Business using Figma",
+            "Refactored code to improve performance and maintainability across projects",
+            "Refined app architecture by structuring services, components, and data handling",
+            "Configured, deployed, & maintained web servers using Nginx"
+        ]
+    },
+    {
+        "image": "kemnaker.png",
+        "position": "Frontend Web Developer",
+        "company": "PT. Pandawa Teknologi Nusantara",
+        "workType": "Flexible (Remote or On-site)",
+        "about": "Government Ministry Application",
+        "employmentType": "Full-time",
+        "url": "https://www.kemnaker.go.id",
+        "startDate": "April 2023",
+        "endDate": "October 2023",
+        "location": "Central Jakarta, Indonesia",
+        "leftReason": "Laid off due to project closure and client shift in priorities.",
+        "note": "",
+        "descriptions": [
+            "Developed a government ministry web application with modern responsive design and user experience",
+            "Developed using code pattern for consistency and flexibility in development",
+            "Created a reusable component library using Angular Material, resulting in faster development time for new features",
+            "Developed using Angular, SASS, and Tailwind CSS"
+        ]
+    },
+    {
+        "image": "samsung.png",
+        "position": "Software Engineer",
+        "company": "Samsung R&D Institute Indonesia",
+        "workType": "Remote (Occasional On-site Requirements)",
+        "about": "Data Analysis Application",
+        "employmentType": "Internship",
+        "url": "",
+        "startDate": "March 2022",
+        "endDate": "February 2023",
+        "location": "Central Jakarta, Indonesia",
+        "leftReason": "Internship contract ended",
+        "note": "College internship",
+        "descriptions": [
+            "Developed an analysis web application",
+            "Created a reusable component library for faster development",
+            "Defined folder/code patterns to maintain project scalability and readability",
+            "Optimized app performance and load time",
+            "Worked on side projects such as admin dashboard and decrypt algorithm",
+            "Participated in Scrum practices across the full SDLC, including sprint planning, development, and delivery",
+            "Developed using ReactJS, TypeScript, PostgreSQL, Java, Python, and CodeIgniter"
+        ]
+    },
+    {
+        "image": "kemnaker.png",
+        "position": "Frontend Web Developer",
+        "company": "PT. Ammana Fintek Syariah",
+        "workType": "Remote (Occasional On-site Requirements)",
+        "about": "Government Ministry Application",
+        "employmentType": "Freelance",
+        "url": "https://www.kemnaker.go.id",
+        "startDate": "July 2021",
+        "endDate": "October 2022",
+        "location": "South Jakarta, Indonesia",
+        "leftReason": "Decided to focus on college education and training for ASC competition",
+        "note": "Worked during college",
+        "descriptions": [
+            "Developed an analysis web application",
+            "Developed using code pattern for consistency and flexibility in development",
+            "Created a reusable component library for the web application using Angular Material",
+            "Developed using Angular, SASS, and Tailwind CSS"
+        ]
+    },
+    {
+        "image": "satumarket.png",
+        "position": "Full Stack Developer",
+        "company": "PT. Satu Aplikasi Untuk Semua",
+        "workType": "On-site",
+        "about": "Ecommerce Web Application",
+        "employmentType": "Freelance",
+        "url": "https://www.satumarket.com",
+        "startDate": "July 2018",
+        "endDate": "May 2019",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "leftReason": "Preparing to leave for college (BINUS) in Jakarta and training for ASC competition",
+        "note": "Worked during 12th grade of vocational high school",
+        "descriptions": [
+            "Developed an ecommerce web application with a modern, responsive user interface, and database structure",
+            "Created a reusable component library for faster development time for new features",
+            "Created app architecture by structuring services, components, and data handling",
+            "Developed using Vue, Laravel, and MySQL"
+        ]
+    }
+]

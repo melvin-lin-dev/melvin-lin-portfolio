@@ -1,0 +1,24 @@
+[
+    {
+        "thumbnail": "star-battle.jpg",
+        "title": "Best Student Award - Jawara Game Indonesia",
+        "repositoryLink": "",
+        "code": [
+            {
+                "language": "html",
+                "label": "HTML",
+                "source": "<div class=\"game-container\">Star Battle</div>"
+            },
+            {
+                "language": "css",
+                "label": "CSS",
+                "source": ".game-container { font-weight: bold; }"
+            },
+            {
+                "language": "javascript",
+                "label": "JavaScript",
+                "source": "console.log('Game started!');"
+            }
+        ]
+    }
+]

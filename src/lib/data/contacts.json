@@ -1,0 +1,7 @@
+[
+    { "platform": "Email", "url": "mailto:melvin.lin.work@gmail.com", "icon": "mail", "description": "melvin.lin.work@gmail.com" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/melvin-lin-dev", "icon": "linkedin", "description": null },
+    { "platform": "GitHub", "url": "https://github.com/username", "icon": "github", "description": null },
+    { "platform": "LeetCode", "url": "https://leetcode.com/username", "icon": "leetcode", "description": null },
+    { "platform": "Codewars", "url": "https://www.codewars.com/users/username", "icon": "codewars", "description": null }
+]

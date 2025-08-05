@@ -1,0 +1,34 @@
+[
+    {
+        "id": "vsc",
+        "name": "5th Place - Web Technologies - Second Virtual Skills Competition",
+        "image": "5th Place - Web Technologies - Second Virtual Skills Competition.jpg",
+        "organization": "WorldSkills India",
+        "organizationImage": "world-skills-india.jpg",
+        "date": "May 2020"
+    },
+    {
+        "id": "hago",
+        "name": "Best Student Award - Jawara Game Indonesia",
+        "image": "Best Student Award - Jawara Game Indonesia.jpg",
+        "organization": "Hago Indonesia",
+        "organizationImage": "hago.jpg",
+        "date": "Dec 2019"
+    },
+    {
+        "id": "asc-selection",
+        "name": "2nd Place - Web Technologies - National Selection for The 13th ASEAN Skills Competition",
+        "image": "2nd Place - Web Technologies - National Selection for The 13th ASEAN Skills Competition.jpeg",
+        "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
+        "organizationImage": "kemnaker.jpg",
+        "date": "Aug 2019"
+    },
+    {
+        "id": "lks",
+        "name": "2nd Place - Web Design & Development - National Competition",
+        "image": "2nd Place - Web Design & Development - National Competition.jpeg",
+        "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
+        "organizationImage": "kemnaker.jpg",
+        "date": "May 2018"
+    }
+]
