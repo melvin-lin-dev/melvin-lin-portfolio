@@ -1,5 +1,7 @@
 [
     {
+        "id": 5,
+        "icon": "company",
         "image": "e-shia.png",
         "position": "Software Engineer",
         "company": "E-Shia Digital Solution",
@@ -25,6 +27,8 @@
         ]
     },
     {
+        "id": 4,
+        "icon": "company",
         "image": "kemnaker.png",
         "position": "Frontend Web Developer",
         "company": "PT. Pandawa Teknologi Nusantara",
@@ -45,6 +49,8 @@
         ]
     },
     {
+        "id": 3,
+        "icon": "company",
         "image": "samsung.png",
         "position": "Software Engineer",
         "company": "Samsung R&D Institute Indonesia",
@@ -68,6 +74,8 @@
         ]
     },
     {
+        "id": 2,
+        "icon": "company",
         "image": "kemnaker.png",
         "position": "Frontend Web Developer",
         "company": "PT. Ammana Fintek Syariah",
@@ -88,6 +96,8 @@
         ]
     },
     {
+        "id": 1,
+        "icon": "company",
         "image": "satumarket.png",
         "position": "Full Stack Developer",
         "company": "PT. Satu Aplikasi Untuk Semua",

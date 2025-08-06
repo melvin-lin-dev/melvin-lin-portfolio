@@ -103,6 +103,10 @@
             width: 90px;
 
             li {
+                transform-style: preserve-3d;
+            }
+
+            a {
                 $top-color: #3a3a3a;
                 $side-color: #1f1f1f;
                 $top-color-hover: #ffaa55;

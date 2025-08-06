@@ -176,12 +176,13 @@
 }
 
 @theme {
+  --default-transition-duration: 0.25s;
+  
     --breakpoint-*: initial;
     --breakpoint-sm: 480px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 976px;
 
-    
     /* Base Colors */
     --color-base-100: oklch(98% 0.01 230); /* very light background */
     --color-base-200: oklch(95% 0.02 230);
@@ -248,4 +249,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 100px;
+}
+
+.vertical-timeline-element-date {
+    padding-bottom: 0 !important;
+    float: right !important;
+}
+
+
+svg {
+    overflow: visible;
 }

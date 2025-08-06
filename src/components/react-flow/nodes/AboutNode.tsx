@@ -1,17 +1,18 @@
 "use client";
 
-import { Handle, NodeProps, Position } from "@xyflow/react";
-import { FaLinkedin } from "react-icons/fa6";
+import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
+import { Handle, Position } from "@xyflow/react";
 
 export default function AboutNode({ data }: any) {
     return (
         <button onClick={() => alert('a') }>
-            <div className="p-4 bg-white border rounded shadow-md flex items-center space-x-2">
-                <FaLinkedin className="text-blue-600" />
-                <span>{data.label}</span>
-                <Handle type="source" position={Position.Right} />
-                <Handle type="target" position={Position.Left} />
+            <div className="p-4 bg-white border rounded shadow-md space-y-1 w-60">
+                <IconWrapper name={data.icon} className="mx-auto text-gray-700" />
+                <h3 className="font-semibold text-gray-700">{data.label}</h3>
+                <p className="text-sm text-gray-500">{data.description}</p>
             </div>
+            <Handle type="source" position={Position.Right} />
+            <Handle type="target" position={Position.Left} />
         </button>
     );
 }

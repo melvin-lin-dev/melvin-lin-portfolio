@@ -1,7 +1,9 @@
 [
     {
+        "id": 1,
         "thumbnail": "star-battle.jpg",
-        "title": "Best Student Award - Jawara Game Indonesia",
+        "title": "Star Battle",
+        "description": "Best Student Award - Jawara Game Indonesia",
         "repositoryLink": "",
         "code": [
             {

@@ -1,0 +1,5 @@
+[
+    { "platform": "Email", "url": "mailto:melvin.lin.work@gmail.com", "icon": "mail", "description": "melvin.lin.work@gmail.com" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/melvin-lin-dev", "icon": "linkedin", "description": null },
+    { "platform": "GitHub", "url": "https://github.com/melvin-lin-dev", "icon": "github", "description": null }
+]
