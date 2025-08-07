@@ -2,7 +2,7 @@
 
 import { Edge, Node, ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { useEffect, useRef, type ReactElement } from "react";
+import { useEffect, useRef, useState, type ReactElement } from "react";
 
 import { FaDownload, FaLocationPin } from "react-icons/fa6";
 
@@ -22,6 +22,7 @@ import Image from "next/image";
 import EducationTimelineItem from "./components/EducationTimelineItem";
 import WorkExperienceTimelineItem from "./components/WorkExperienceTimelineItem";
 import styles from "./home.module.scss";
+import { TypeAnimation } from "react-type-animation";
 
 const nodes: Node[] = [
     // Row 1
@@ -191,12 +192,12 @@ export default function HomePage(): ReactElement {
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
     const applyCenterGradient = (el: HTMLDivElement) => {
-        el.style.backgroundImage = "radial-gradient(circle at center, #00D492, #00D3F2)";
-        el.style.backgroundSize = "185% 185%";
+        el.style.backgroundImage = "radial-gradient(circle at center, #00D492 25%, #00D3F2 65%)";
+        el.style.backgroundSize = "175% 175%";
     };
 
     const applyMouseGradient = (el: HTMLDivElement, x: number, y: number) => {
-        el.style.backgroundImage = `radial-gradient(circle at ${x}% ${y}%, #00D492, #00D3F2)`;
+        el.style.backgroundImage = `radial-gradient(circle at ${x}% ${y}%, #00D492 25%, #00D3F2 50%)`;
         el.style.backgroundSize = `100% 100%`;
     };
 
@@ -218,6 +219,36 @@ export default function HomePage(): ReactElement {
             applyCenterGradient(sectionRef.current);
         }
     }, []);
+
+    const titleGroups = [
+        { text: "Software Engineer", category: "role" },
+        { text: "Full Stack Developer", category: "role" },
+        { text: "Frontend Engineer", category: "role" },
+        { text: "Backend Engineer", category: "role" },
+        { text: "Web Developer", category: "role" },
+
+        { text: "Problem Solver", category: "mindset" },
+        { text: "Lifelong Learner", category: "mindset" },
+        { text: "Flow-based Thinker", category: "mindset" },
+        { text: "Detail-Oriented Developer", category: "mindset" },
+
+        { text: "UI/UX Enthusiast", category: "design" },
+        { text: "Design-Oriented Developer", category: "design" },
+        { text: "Interactive UI Builder", category: "design" },
+
+        { text: "Clean Code Advocate", category: "philosophy" },
+    ];
+
+    const colorMap: any = {
+        role: "text-blue-600",
+        mindset: "text-green-600",
+        design: "text-pink-600",
+        philosophy: "text-purple-600",
+    };
+
+    const [textColor, setTextColor] = useState('');
+
+    const sequence = titleGroups.flatMap((item) => ['', () => setTextColor(colorMap[item.category]), item.text, 1500]);
 
     return (
         <>
@@ -259,21 +290,24 @@ export default function HomePage(): ReactElement {
                             </div>
                         </div>
                         <div>
-                            <div className="mt-8 space-y-4">
-                                <h1 className="text-7xl font-bold tracking-wide">Melvin Lin</h1>
-                                <p className="text-4xl">Problem Solver...</p>
+                            <div className="space-y-6">
+                                <h1 className="text-7xl font-bold tracking-wider">Melvin Lin</h1>
+                                <div className={`py-1.5 px-3 inline-block bg-white/70 rounded-lg text-3xl ${textColor}`}>
+                                    <TypeAnimation sequence={sequence} wrapper="span" speed={50} repeat={Infinity} />
+                                </div>
+                                {/* <p className="text-4xl">Problem Solver...</p> */}
                             </div>
-                            <div className="mt-6 space-y-3 text-xl">
+                            <div className="mt-8 mb-12 space-y-4 text-[22px]">
                                 <div className="flex items-center space-x-3">
                                     <FaLocationPin />
                                     <p>Indonesia (Willing to Relocate Overseas)</p>
                                 </div>
                                 <div className="flex items-center space-x-3">
-                                    <span className="w-5 h-5 bg-green-300 rounded-full border border-white" aria-label="Available"></span>
+                                    <span className="w-5 h-5 bg-green-400 rounded-full border-2 border-white" aria-label="Available"></span>
                                     <p>Available Immediately</p>
                                 </div>
                             </div>
-                            <div className="mt-12 flex space-x-4">
+                            <div className="flex space-x-4">
                                 <button type="button" className="btn btn-secondary py-6 px-8 rounded-full text-xl">
                                     Discover More
                                 </button>

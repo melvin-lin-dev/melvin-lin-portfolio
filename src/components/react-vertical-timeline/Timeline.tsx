@@ -17,7 +17,6 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
     return (
         <VerticalTimeline lineColor="#06b6d4" layout={layout}>
             {data.map((timeline, i) => {
-                console.log('debug', timeline.style);
                 const defaultStyle: any = {
                     dateClassNames: ['!pb-0', '!float-right'],
                     iconStyle: timeline.style?.icon || {},
