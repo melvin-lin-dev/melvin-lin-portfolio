@@ -15,17 +15,23 @@ interface TimelineProps {
 
 export default function Timeline({ data, layout, style = {}, children }: TimelineProps) {
     return (
-        <VerticalTimeline lineColor="#d1d5db" layout={layout}>
+        <VerticalTimeline lineColor="#06b6d4" layout={layout}>
             {data.map((timeline, i) => {
+                console.log('debug', timeline.style);
                 const defaultStyle: any = {
-                    iconStyle: { background: "#1e40af", color: "#fff" },
+                    dateClassNames: ['!pb-0', '!float-right'],
+                    iconStyle: timeline.style?.icon || {},
                     contentStyle: { ...style.contentStyle },
                     contentArrowStyle: { ...style.contentArrowStyle },
                 };
 
-                const isActive = timeline.endDate == "today";
+                const isActive = timeline.endDate == "Today";
 
                 if (isActive) {
+                    const activeBackgroundColor = "#06b6d4";
+
+                    defaultStyle.dateClassNames.push('!opacity-100');
+
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
                         boxShadow: "0 0 0 4px #d1d5db,inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)",
@@ -33,13 +39,13 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
 
                     defaultStyle.contentStyle = {
                         ...defaultStyle.contentStyle,
-                        background: "rgb(33, 150, 243)",
+                        background: activeBackgroundColor,
                         color: "#fff",
                     };
 
                     defaultStyle.contentArrowStyle = {
                         ...defaultStyle.contentArrowStyle,
-                        borderRight: "7px solid  rgb(33, 150, 243)",
+                        borderRight: "7px solid "+ activeBackgroundColor,
                     };
                 }
 
@@ -47,6 +53,7 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
                     <VerticalTimelineElement
                         key={i}
                         date={`${timeline.startDate} - ${timeline.endDate}`}
+                        dateClassName={defaultStyle.dateClassNames.join(' ')}
                         icon={<IconWrapper name={timeline.icon} />}
                         iconStyle={defaultStyle.iconStyle}
                         contentStyle={defaultStyle.contentStyle}
@@ -56,7 +63,7 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
                     </VerticalTimelineElement>
                 );
             })}
-            <VerticalTimelineElement iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }} icon={<StarIcon />} />
+            <VerticalTimelineElement iconStyle={{ background: "#00BC7D", color: "#fff" }} icon={<StarIcon />} />
         </VerticalTimeline>
     );
 }

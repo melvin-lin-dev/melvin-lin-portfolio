@@ -1,7 +1,32 @@
 [
     {
+        "id": 6,
+        "image": "e-shia.png",
+        "position": "Software Engineer",
+        "company": "E-Shia Digital Solution",
+        "workType": "On-site",
+        "about": "Inventory, Accounting, POS, & Custom Applications",
+        "employmentType": "Full-time",
+        "url": "",
+        "startDate": "February 2024",
+        "endDate": "Today",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "leftReason": "Pursuing better long-term growth and alignment with technical and cultural goals.",
+        "note": "",
+        "descriptions": [
+            "Developed multiple Inventory & Accounting web applications using PHP, MySQL",
+            "Contributed to the development of POS web application using PHP, MySQL, Vue & Laravel",
+            "Developed Inventory mobile application using Flutter",
+            "Developed Absence mobile application with fingerprint authentication using Flutter",
+            "Implemented AI Face Recognition in Absence mobile application using Python",
+            "Created designs for Pharmacy Business using Figma",
+            "Refactored code to improve performance and maintainability across projects",
+            "Refined app architecture by structuring services, components, and data handling",
+            "Configured, deployed, & maintained web servers using Nginx"
+        ]
+    },
+    {
         "id": 5,
-        "icon": "company",
         "image": "e-shia.png",
         "position": "Software Engineer",
         "company": "E-Shia Digital Solution",
@@ -28,7 +53,6 @@
     },
     {
         "id": 4,
-        "icon": "company",
         "image": "kemnaker.png",
         "position": "Frontend Web Developer",
         "company": "PT. Pandawa Teknologi Nusantara",
@@ -50,7 +74,6 @@
     },
     {
         "id": 3,
-        "icon": "company",
         "image": "samsung.png",
         "position": "Software Engineer",
         "company": "Samsung R&D Institute Indonesia",
@@ -75,7 +98,6 @@
     },
     {
         "id": 2,
-        "icon": "company",
         "image": "kemnaker.png",
         "position": "Frontend Web Developer",
         "company": "PT. Ammana Fintek Syariah",
@@ -97,7 +119,6 @@
     },
     {
         "id": 1,
-        "icon": "company",
         "image": "satumarket.png",
         "position": "Full Stack Developer",
         "company": "PT. Satu Aplikasi Untuk Semua",

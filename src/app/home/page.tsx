@@ -2,7 +2,7 @@
 
 import { Edge, Node, ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import type { ReactElement } from "react";
+import { useEffect, useRef, type ReactElement } from "react";
 
 import { FaDownload, FaLocationPin } from "react-icons/fa6";
 
@@ -43,7 +43,7 @@ const nodes: Node[] = [
         position: { x: 300, y: 160 },
         data: {
             icon: "school",
-            label: "Background",
+            label: "Journey",
             description: "College in BINUS • National-level web tech competition",
         },
     },
@@ -53,7 +53,7 @@ const nodes: Node[] = [
         position: { x: 1100, y: 160 },
         data: {
             icon: "briefcase",
-            label: "Work Status",
+            label: "Current Status",
             description: "Open to onsite work • Willing to relocate",
         },
     },
@@ -65,7 +65,7 @@ const nodes: Node[] = [
         position: { x: 100, y: 340 },
         data: {
             icon: "wrench",
-            label: "Strongest Skills",
+            label: "Core Strengths",
             description: "Vue, Angular, Laravel • Open to improve other skills",
         },
     },
@@ -95,7 +95,7 @@ const nodes: Node[] = [
         position: { x: 1300, y: 340 },
         data: {
             icon: "code",
-            label: "Currently Working On",
+            label: "Current Projects",
             description: "Rebuilding AI face recognition app • Portfolio",
         },
     },
@@ -107,7 +107,7 @@ const nodes: Node[] = [
         position: { x: 700, y: 520 },
         data: {
             icon: "book",
-            label: "Learning",
+            label: "Daily Learning",
             description: "React/Next clean code • Competitive programming • Chinese • Psychology & self-discipline",
         },
     },
@@ -119,7 +119,7 @@ const nodes: Node[] = [
         position: { x: 700, y: 730 },
         data: {
             icon: "target",
-            label: "Goal",
+            label: "Goals",
             description: "Build solid work experience • Work overseas",
         },
     },
@@ -150,27 +150,27 @@ const edgeTypes = {
 const thresholds = [
     {
         max: 2,
-        color: "rgba(86, 156, 214, 0.7)",
+        color: "rgba(204, 251, 241, 0.8)", // teal-100
         label: "Beginner",
     },
     {
         max: 4,
-        color: "rgba(104, 204, 255, 0.7)",
+        color: "rgba(153, 246, 228, 0.8)", // teal-200
         label: "Novice",
     },
     {
         max: 6,
-        color: "rgba(255, 206, 86, 0.75)",
+        color: "rgba(94, 234, 212, 0.8)", // teal-300
         label: "Intermediate",
     },
     {
         max: 8,
-        color: "rgba(255, 144, 104, 0.8)",
+        color: "rgba(103, 232, 249, 0.8)", // cyan-300
         label: "Advanced",
     },
     {
         max: 10,
-        color: "rgba(108, 255, 181, 0.85)",
+        color: "rgba(34, 211, 238, 0.8)", // cyan-400
         label: "Expert",
     },
 ];
@@ -185,13 +185,43 @@ const educations = getEducations();
 const skillLanguages = buildThresholdLayers(thresholds, skill.languages);
 const skillFrameworks = buildThresholdLayers(thresholds, skill.frameworks);
 
-const getExternalProfileProps = (platform: string) =>
-  platform === 'Email' ? {} : { target: "_blank", rel: "noopener noreferrer" };
+const getExternalProfileProps = (platform: string) => (platform === "Email" ? {} : { target: "_blank", rel: "noopener noreferrer" });
 
 export default function HomePage(): ReactElement {
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+
+    const applyCenterGradient = (el: HTMLDivElement) => {
+        el.style.backgroundImage = "radial-gradient(circle at center, #00D492, #00D3F2)";
+        el.style.backgroundSize = "185% 185%";
+    };
+
+    const applyMouseGradient = (el: HTMLDivElement, x: number, y: number) => {
+        el.style.backgroundImage = `radial-gradient(circle at ${x}% ${y}%, #00D492, #00D3F2)`;
+        el.style.backgroundSize = `100% 100%`;
+    };
+
+    const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+        applyCenterGradient(e.currentTarget);
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const el = e.currentTarget;
+        const rect = el.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        applyMouseGradient(el, x, y);
+    };
+
+    useEffect(() => {
+        if (sectionRef.current) {
+            applyCenterGradient(sectionRef.current);
+        }
+    }, []);
+
     return (
         <>
-            <section className={`${styles.heroSection} h-[80vh] bg-gradient-to-r from-emerald-400 to-cyan-400 text-white`}>
+            <section ref={sectionRef} className={`${styles.heroSection} h-[80vh] text-white transition-all duration-[.4s] bg-center`} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                 <div className="container h-full py-20 flex">
                     <div className="self-center">
                         <div className={`${styles.cube3d} ${styles.rotateY}`}>
@@ -267,7 +297,7 @@ export default function HomePage(): ReactElement {
                 </div>
             </section>
             <section>
-                <div className="relative floating-edges h-[1000px] border">
+                <div className="bg-slate-50 relative floating-edges h-[1000px] border">
                     <ReactFlow
                         fitView
                         nodes={nodes}
@@ -290,13 +320,15 @@ export default function HomePage(): ReactElement {
             </section>
             <section>
                 <div className="container py-20">
-                    <h2 className="text-3xl font-bold text-center">Skills</h2>
+                    <h2 className="text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">Tech Stack</h2>
                     <div className="mt-8 flex justify-center">
-                        <ul className="mx-auto py-3 px-4 flex items-center space-x-4 bg-gray-100 rounded-lg">
-                            {thresholds.map((threshold) => (
+                        <ul className="mx-auto py-3 px-4 flex items-center space-x-4 bg-slate-100 rounded-lg">
+                            {thresholds.map((threshold, i) => (
                                 <li key={threshold.color} className="flex items-center space-x-2">
-                                    <div className="w-3 h-3 border border-white" style={{ backgroundColor: threshold.color }} aria-hidden="true"></div>
-                                    <span className="text-sm">{threshold.label}</span>
+                                    <div className="w-3 h-3 border border-gray-400 rounded-xs" style={{ backgroundColor: threshold.color }} aria-hidden="true"></div>
+                                    <span className="text-sm">
+                                        {threshold.label} ({i === 0 ? 0 : thresholds[i - 1].max + 1} - {threshold.max})
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -304,7 +336,7 @@ export default function HomePage(): ReactElement {
                     <div className="mt-6">
                         <div className="grid grid-cols-2">
                             <div>
-                                <h3 className="mb-5 text-xl font-semibold text-center text-gray-700">Core Technologies</h3>
+                                <h3 className="mb-5 text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>
                                 <WindRoseChartClient
                                     data={skillLanguages}
                                     layout={{
@@ -331,7 +363,7 @@ export default function HomePage(): ReactElement {
                                 />
                             </div>
                             <div>
-                                <h3 className="mb-5 text-xl font-semibold text-center text-gray-700">Frameworks</h3>
+                                <h3 className="mb-5 text-2xl font-semibold text-center text-gray-700">Frameworks</h3>
                                 <WindRoseChartClient
                                     data={skillFrameworks}
                                     layout={{
@@ -358,10 +390,10 @@ export default function HomePage(): ReactElement {
                             </div>
                         </div>
                         <div className="mt-6">
-                            <h3 className="text-xl font-semibold text-center text-gray-700">Tools</h3>
+                            <h3 className="text-2xl font-semibold text-center text-gray-700">Dev Tools</h3>
                             <div className="mt-5 flex space-x-4">
                                 {skill.tools.map((tool) => (
-                                    <div key={tool.name} className="relative top-0 flex-1 rounded-lg p-4 bg-gray-100 text-white shadow-gray-300 group transition-all hover:-top-2 hover:shadow-lg">
+                                    <div key={tool.name} className="relative top-0 flex-1 rounded-lg p-4 bg-slate-100 text-white shadow-gray-300 group transition-all hover:-top-2 hover:shadow-lg">
                                         <div className="relative w-10 h-10 mx-auto transition group-hover:scale-[1.2]">
                                             <Image src={`/images/tools/${tool.image}`} alt={`${tool.name} Logo`} className="object-contain" fill />
                                         </div>
@@ -375,7 +407,7 @@ export default function HomePage(): ReactElement {
             </section>
             <section className="py-20">
                 <div className="container">
-                    <h2 className="text-3xl mb-8">Project Highlight</h2>
+                    <h2 className="mb-8 text-4xl font-bold text-emerald-600 uppercase tracking-wider">Project Highlights</h2>
                     <div className="image-perspective grid grid-cols-4 gap-x-3 gap-y-3">
                         {projects.map((project) => (
                             <div key={project.id} className="w-full relative rounded-lg overflow-hidden group">
@@ -397,39 +429,55 @@ export default function HomePage(): ReactElement {
                     </div>
                 </div>
             </section>
-            <section className="py-20 bg-[#f9fafb]">
+            <section className="pt-20 bg-slate-100">
                 <div className="container">
-                    <h2 className="text-3xl mb-8">Work Experience</h2>
-                    <Timeline data={workExperiences} style={{ contentStyle: { borderRadius: "8px" } }} layout="1-column-left">
+                    <h2 className="mb-8 text-4xl font-bold uppercase tracking-wider">Work Experience</h2>
+                    <Timeline
+                        data={workExperiences.map((workExperience) => ({
+                            ...workExperience,
+                            icon: "briefcasebusiness",
+                            style: { icon: { background: "#0ea5e9", color: "#fff" } },
+                        }))}
+                        style={{ contentStyle: { borderRadius: "8px" } }}
+                        layout="1-column-left"
+                    >
                         {(item, isActive) => <WorkExperienceTimelineItem workExperience={item} isActive={isActive} />}
                     </Timeline>
                 </div>
             </section>
-            <section className="pt-20 bg-gray-150">
+            <section className="pt-40 bg-linear-to-b from-slate-100 to-transparent">
                 <div className="container">
-                    <h2 className="text-3xl mb-8">Education</h2>
-                    <Timeline data={educations} style={{ contentStyle: { borderRadius: "8px", boxShadow: "0 2px 10px 0 #ccc" }, contentArrowStyle: { display: "none" } }}>
+                    <h2 className="mb-8 text-4xl font-bold uppercase tracking-wider">Education</h2>
+                    <Timeline
+                        data={educations.map((workExperience) => ({
+                            ...workExperience,
+                            icon: "graduationcap",
+                            style: { icon: { background: "#14b8a6", color: "#fff" } },
+                        }))}
+                        style={{ contentStyle: { borderRadius: "8px", boxShadow: "0 2px 10px 0 #ccc" }, contentArrowStyle: { display: "none" } }}
+                    >
                         {(item, isActive) => <EducationTimelineItem education={item} isActive={isActive} />}
                     </Timeline>
                 </div>
             </section>
-            <section className="pt-40 pb-20 bg-linear-to-t from-blue-200 to-transparent relative">
+            <section className="pt-40 pb-28 relative bg-[radial-gradient(closest-corner_at_50%_60%,_#CFFBE4,_white)]">
                 <div className="container">
-                    <h2 className="text-3xl font-bold mb-8">Let&apos;s Connect</h2>
+                    <h2 className="mb-8 text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
 
-                    <div className="flex space-x-4">
-                        <div className="flex-1">
-                            <ul className="space-y-3">
+                    <div className="flex space-x-6">
+                        <div className="flex-1 py-4 px-4 bg-white rounded-xl shadow-[0_2px_10px_#ccc]">
+                            <h3 className="mb-3 text-xl font-semibold text-center">Contacts</h3>
+                            <ul className="space-y-0.5">
                                 {contactLinks.map((externalProfile) => (
                                     <li key={externalProfile.platform}>
                                         <a
                                             href={externalProfile.url}
                                             target="_blank"
-                                            className="py-2 px-3 flex space-x-3 border border-transparent cursor-pointer transition hover:bg-white/60 hover:text-blue-700 rounded-lg"
+                                            className="py-2 px-3 flex space-x-3 border border-transparent cursor-pointer transition hover:bg-slate-100 hover:text-cyan-600 rounded-lg"
                                         >
                                             <IconWrapper name={externalProfile.icon} className="mt-0.5 w-6 h-6" />
                                             <div>
-                                                <h3 className="text-xl font-semibold">{externalProfile.platform}</h3>
+                                                <h3 className="text-xl font-medium">{externalProfile.platform}</h3>
                                                 <p className="text-sm text-gray-700">{externalProfile.description ?? externalProfile.url}</p>
                                             </div>
                                         </a>
@@ -437,18 +485,19 @@ export default function HomePage(): ReactElement {
                                 ))}
                             </ul>
                         </div>
-                        <div className="flex-1">
-                            <ul className="space-y-3">
+                        <div className="flex-1 py-4 px-4 bg-white rounded-xl shadow-[0_2px_10px_#ccc]">
+                            <h3 className="mb-3 text-xl font-semibold text-center">Coding Profiles</h3>
+                            <ul className="space-y-0.5">
                                 {codingProfiles.map((externalProfile) => (
                                     <li key={externalProfile.platform}>
                                         <a
                                             href={externalProfile.url}
-                                            className="py-2 px-3 flex space-x-3 border border-transparent cursor-pointer transition hover:bg-white/60 hover:text-blue-700 rounded-lg"
-                                            {...getExternalProfileProps(externalProfile.platform)}
+                                            target="_blank"
+                                            className="py-2 px-3 flex space-x-3 border border-transparent cursor-pointer transition hover:bg-slate-100 hover:text-cyan-600 rounded-lg"
                                         >
                                             <IconWrapper name={externalProfile.icon} className="mt-0.5 w-6 h-6" />
                                             <div>
-                                                <h3 className="text-xl font-semibold">{externalProfile.platform}</h3>
+                                                <h3 className="text-xl font-medium">{externalProfile.platform}</h3>
                                                 <p className="text-sm text-gray-700">{externalProfile.description ?? externalProfile.url}</p>
                                             </div>
                                         </a>
