@@ -23,125 +23,27 @@ import EducationTimelineItem from "./components/EducationTimelineItem";
 import WorkExperienceTimelineItem from "./components/WorkExperienceTimelineItem";
 import styles from "./home.module.scss";
 import { TypeAnimation } from "react-type-animation";
+import { Carousel } from "react-responsive-3d-carousel";
 
-const nodes: Node[] = [
-    // Row 1
-    {
-        id: "about",
-        type: "about",
-        position: { x: 700, y: 0 },
-        data: {
-            icon: "user",
-            label: "About Me",
-            description: "Software Engineer passionate about AI integrations",
-        },
-    },
-
-    // Row 2
-    {
-        id: "background",
-        type: "about",
-        position: { x: 300, y: 160 },
-        data: {
-            icon: "school",
-            label: "Journey",
-            description: "College in BINUS • National-level web tech competition",
-        },
-    },
-    {
-        id: "work_status",
-        type: "about",
-        position: { x: 1100, y: 160 },
-        data: {
-            icon: "briefcase",
-            label: "Current Status",
-            description: "Open to onsite work • Willing to relocate",
-        },
-    },
-
-    // Row 3
-    {
-        id: "skills",
-        type: "about",
-        position: { x: 100, y: 340 },
-        data: {
-            icon: "wrench",
-            label: "Core Strengths",
-            description: "Vue, Angular, Laravel • Open to improve other skills",
-        },
-    },
-    {
-        id: "traits",
-        type: "about",
-        position: { x: 500, y: 340 },
-        data: {
-            icon: "puzzle",
-            label: "Values & Traits",
-            description: "Detail-oriented, introspective • Working on soft skills",
-        },
-    },
-    {
-        id: "recent_work",
-        type: "about",
-        position: { x: 900, y: 340 },
-        data: {
-            icon: "folder",
-            label: "Recent Work",
-            description: "Portfolio rebuild • SPA/state management in vanilla JS",
-        },
-    },
-    {
-        id: "working_on",
-        type: "about",
-        position: { x: 1300, y: 340 },
-        data: {
-            icon: "code",
-            label: "Current Projects",
-            description: "Rebuilding AI face recognition app • Portfolio",
-        },
-    },
-
-    // Row 4
-    {
-        id: "learning",
-        type: "about",
-        position: { x: 700, y: 520 },
-        data: {
-            icon: "book",
-            label: "Daily Learning",
-            description: "React/Next clean code • Competitive programming • Chinese • Psychology & self-discipline",
-        },
-    },
-
-    // Row 5
-    {
-        id: "goal",
-        type: "about",
-        position: { x: 700, y: 730 },
-        data: {
-            icon: "target",
-            label: "Goals",
-            description: "Build solid work experience • Work overseas",
-        },
-    },
-];
+import "react-responsive-3d-carousel/dist/styles.css";
+import { Quote } from "lucide-react";
 
 const edges: Edge[] = [
-    { id: "e_about_background", source: "about", target: "background" },
-    { id: "e_about_work_status", source: "about", target: "work_status" },
+    { id: "e_about_background", source: "about", target: "background", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_about_work_status", source: "about", target: "work_status", style: { strokeWidth: 5 }, animated: true },
 
-    { id: "e_background_skills", source: "background", target: "skills" },
-    { id: "e_background_traits", source: "background", target: "traits" },
+    { id: "e_background_skills", source: "background", target: "skills", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_background_traits", source: "background", target: "traits", style: { strokeWidth: 5 }, animated: true },
 
-    { id: "e_work_status_recent_work", source: "work_status", target: "recent_work" },
-    { id: "e_work_status_working_on", source: "work_status", target: "working_on" },
+    { id: "e_work_status_recent_work", source: "work_status", target: "recent_work", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_work_status_working_on", source: "work_status", target: "working_on", style: { strokeWidth: 5 }, animated: true },
 
-    { id: "e_skills_learning", source: "skills", target: "learning" },
-    { id: "e_traits_learning", source: "traits", target: "learning" },
-    { id: "e_recent_work_learning", source: "recent_work", target: "learning" },
-    { id: "e_working_on_learning", source: "working_on", target: "learning" },
+    { id: "e_skills_learning", source: "skills", target: "learning", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_traits_learning", source: "traits", target: "learning", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_recent_work_learning", source: "recent_work", target: "learning", style: { strokeWidth: 5 }, animated: true },
+    { id: "e_working_on_learning", source: "working_on", target: "learning", style: { strokeWidth: 5 }, animated: true },
 
-    { id: "e_learning_goal", source: "learning", target: "goal" },
+    { id: "e_learning_goal", source: "learning", target: "goal", style: { strokeWidth: 5 }, animated: true },
 ];
 
 const edgeTypes = {
@@ -246,9 +148,229 @@ export default function HomePage(): ReactElement {
         philosophy: "text-purple-600",
     };
 
-    const [textColor, setTextColor] = useState('');
+    const [textColor, setTextColor] = useState("");
 
-    const sequence = titleGroups.flatMap((item) => ['', () => setTextColor(colorMap[item.category]), item.text, 1500]);
+    const sequence = titleGroups.flatMap((item) => ["", () => setTextColor(colorMap[item.category]), item.text, 1500]);
+
+    const parentRef = useRef<HTMLDivElement>(null);
+    const effectRef = useRef<HTMLDivElement>(null);
+
+    //     const handleParentMouseEnter = () => {
+    //     setStatus("Status: mouse entered parent");
+    //   };
+
+    //   const handleParentMouseLeave = (e) => {
+    //     // e.relatedTarget is the element mouse moved into
+    //     if (
+    //       overlapRef.current &&
+    //       (e.relatedTarget === overlapRef.current || overlapRef.current.contains(e.relatedTarget))
+    //     ) {
+    //       setStatus("Status: moved into overlap (ignore mouseleave)");
+    //       return;
+    //     }
+    //     setStatus("Status: mouse left parent");
+    //   };
+
+    //     const handleHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    //     if (
+    //       overlapRef.current &&
+    //       (e.relatedTarget === overlapRef.current || overlapRef.current.contains(e.relatedTarget))
+    //     ) {
+    //       setStatus("Status: moved into overlap (ignore mouseleave)");
+    //       return;
+    //     }
+    //     setStatus("Status: mouse left parent");
+
+    //         const el = e.currentTarget;
+    //         const rect = el.getBoundingClientRect();
+    //         const x = ((e.clientX - rect.left) / rect.width) * 100;
+    //         const y = ((e.clientY - rect.top) / rect.height) * 100;
+    //         effectRef.current!.style.left = x + "%";
+    //         effectRef.current!.style.top = y + "%";
+    //     };
+
+    const nodes: Node[] = [
+        // Row 1
+        {
+            id: "about",
+            type: "about",
+            position: { x: 700, y: 0 },
+            data: {
+                icon: "user",
+                label: "About Me",
+                description: "Software Engineer passionate about AI integrations",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+
+        // Row 2
+        {
+            id: "background",
+            type: "about",
+            position: { x: 300, y: 190 },
+            data: {
+                icon: "school",
+                label: "Journey",
+                description: "College in BINUS • National-level web tech competition",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
+            id: "work_status",
+            type: "about",
+            position: { x: 1100, y: 190 },
+            data: {
+                icon: "briefcase",
+                label: "Current Status",
+                description: "Open to onsite work • Willing to relocate",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+
+        // Row 3
+        {
+            id: "skills",
+            type: "about",
+            position: { x: 100, y: 420 },
+            data: {
+                icon: "wrench",
+                label: "Core Strengths",
+                description: "Vue, Angular, Laravel • Open to improve other skills",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
+            id: "traits",
+            type: "about",
+            position: { x: 500, y: 380 },
+            data: {
+                icon: "puzzle",
+                label: "Values & Traits",
+                description: "Detail-oriented, introspective • Working on soft skills",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
+            id: "recent_work",
+            type: "about",
+            position: { x: 900, y: 380 },
+            data: {
+                icon: "folder",
+                label: "Recent Work",
+                description: "Portfolio rebuild • SPA/state management in vanilla JS",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
+            id: "working_on",
+            type: "about",
+            position: { x: 1300, y: 420 },
+            data: {
+                icon: "code",
+                label: "Current Projects",
+                description: "Rebuilding AI face recognition app • Portfolio",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+
+        // Row 4
+        {
+            id: "learning",
+            type: "about",
+            position: { x: 700, y: 570 },
+            data: {
+                icon: "book",
+                label: "Daily Learning",
+                description: "React/Next clean code • Competitive programming • Chinese • Psychology & self-discipline",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+
+        // Row 5
+        {
+            id: "goal",
+            type: "about",
+            position: { x: 700, y: 790 },
+            data: {
+                icon: "target",
+                label: "Goals",
+                description: "Build solid work experience • Work overseas",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+    ];
+
+    const quotes = [
+        {
+            text: "No matter how messed up things get, you can always figure out the best solution.",
+            by: "Eren Yeager",
+            why: "Reminds me that no matter how tangled things get, there's always a solution if I keep trying.",
+            time: 11000,
+        },
+        {
+            text: "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
+            by: "Naruto Uzumaki",
+            why: "Encourages me to take control of my future despite doubt and fear.",
+            time: 13000,
+        },
+        {
+            text: "If you begin to regret, you'll dull your future decisions and let others make your choices for you. Nobody can foretell the outcome, therefore each decision you make holds meaning only by affecting your next decision.",
+            by: "Erwin Smith",
+            why: "Helps me stop overthinking and own my decisions without regret.",
+            time: 17000,
+        },
+        {
+            text: "Stay hungry, stay foolish.",
+            by: "Steve Jobs",
+            why: "Reminds me to stay curious and keep growing without fear.",
+            time: 7500,
+        },
+    ];
+
+    const [rotateDegree, setRotateDegree] = useState(0);
+    const rotateDegreeRef = useRef(0);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const startTimer = () => {
+        clearTimer();
+        timeoutRef.current = setTimeout(() => {
+            setRotateDegree((prev) => {
+                const next = prev + 90;
+                rotateDegreeRef.current = next;
+                return next;
+            });
+            startTimer();
+        }, quotes[(rotateDegreeRef.current / 90) % 4].time);
+    };
+
+    const clearTimer = () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+        }
+    };
+
+    const handleQuoteEnter = () => {
+        clearTimer();
+    };
+
+    const handleQuoteLeave = () => {
+        startTimer();
+    };
+
+    useEffect(() => {
+        startTimer();
+        return () => clearTimer();
+    }, []);
 
     return (
         <>
@@ -330,8 +452,27 @@ export default function HomePage(): ReactElement {
                     </div>
                 </div>
             </section>
+            <section className={`${styles.quoteSection} py-28`}>
+                <div className="container relative">
+                    <div style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }} className={styles.box3d}>
+                        {quotes.map((quote) => (
+                            <div key={quote.text} className="mx-auto p-6 bg-white flex flex-col" onMouseEnter={handleQuoteEnter} onMouseLeave={handleQuoteLeave}>
+                                <div className="flex-1">
+                                    <Quote className="w-12 h-12 text-yellow-500" />
+                                    <div className="mt-4 space-y-3 pl-16">
+                                        <p className="text-3xl text-gray-800 italic tracking-wider leading-[1.45]">{quote.text}</p>
+                                        <p className="text-xl text-gray-900 font-semibold text-right tracking-wider">— {quote.by}</p>
+                                    </div>
+                                </div>
+                                <p className="mt-5 text-lg text-gray-500">{quote.why}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
             <section>
-                <div className="bg-slate-50 relative floating-edges h-[1000px] border">
+                <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1200px] pointer-events-none overflow-hidden">
+                    <div ref={effectRef} className="absolute bg-emerald-500 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[7s]" style={{ padding: "110%" }}></div>
                     <ReactFlow
                         fitView
                         nodes={nodes}
@@ -349,7 +490,6 @@ export default function HomePage(): ReactElement {
                         panOnScrollSpeed={0}
                         nodesDraggable={false}
                     ></ReactFlow>
-                    <div className="absolute top-0 left-0 w-full h-full"></div>
                 </div>
             </section>
             <section>
@@ -368,7 +508,7 @@ export default function HomePage(): ReactElement {
                         </ul>
                     </div>
                     <div className="mt-6">
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <h3 className="mb-5 text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>
                                 <WindRoseChartClient
@@ -388,10 +528,14 @@ export default function HomePage(): ReactElement {
                                             angularaxis: { fixedrange: true },
                                         },
                                         showlegend: false,
+                                        hoverlabel: {
+                                            bgcolor: "rgba(50,50,50,0.9)",
+                                            bordercolor: "#888",
+                                            font: { color: "#eee" },
+                                        },
                                     }}
                                     config={{
                                         displayModeBar: false,
-                                        staticPlot: true,
                                         scrollZoom: false,
                                     }}
                                 />
@@ -414,10 +558,14 @@ export default function HomePage(): ReactElement {
                                             angularaxis: { fixedrange: true },
                                         },
                                         showlegend: false,
+                                        hoverlabel: {
+                                            bgcolor: "rgba(50,50,50,0.9)",
+                                            bordercolor: "#888",
+                                            font: { color: "#eee" },
+                                        },
                                     }}
                                     config={{
                                         displayModeBar: false,
-                                        staticPlot: true,
                                         scrollZoom: false,
                                     }}
                                 />
@@ -442,24 +590,35 @@ export default function HomePage(): ReactElement {
             <section className="py-20">
                 <div className="container">
                     <h2 className="mb-8 text-4xl font-bold text-emerald-600 uppercase tracking-wider">Project Highlights</h2>
-                    <div className="image-perspective grid grid-cols-4 gap-x-3 gap-y-3">
-                        {projects.map((project) => (
-                            <div key={project.id} className="w-full relative rounded-lg overflow-hidden group">
-                                <Image src={`/images/${project.thumbnail}`} alt={`${project.title} Thumbnail`} fill />
-                                <div className="relative p-4 w-full h-full bg-black/50 text-white transition opacity-0 group-hover:opacity-100">
-                                    <h3 className="text-xl font-semibold">{project.title}</h3>
-                                    <p className="mt-1.5">{project.description}</p>
-                                    <div className="mt-3 space-x-2">
-                                        <a href="" className="btn btn-secondary px-2">
-                                            Repository
-                                        </a>
-                                        <button type="button" className="btn btn-white px-2">
-                                            Code
-                                        </button>
+                    <div>
+                        <Carousel
+                            items={projects.map((project) => (
+                                <div key={project.id} className="bg-white group flex flex-col">
+                                    <div className="relative h-48">
+                                        <Image src={`/images/${project.thumbnail}`} alt={`${project.title} Thumbnail`} fill className="object-cover" />
+                                    </div>
+                                    <div className="flex-1 py-3 px-4 text-gray-700 flex flex-col justify-between">
+                                        <div>
+                                            <h3 className="mb-3 text-2xl font-semibold">{project.title}</h3>
+                                            <p>{project.description}</p>
+                                        </div>
+                                        <div className="ml-auto space-x-2">
+                                            <a href="" className="btn btn-secondary px-2">
+                                                Repository
+                                            </a>
+                                            <button type="button" className="btn btn-white px-2">
+                                                Code
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                            height="350px"
+                            startIndex={0}
+                            autoPlay={false}
+                            showStatus={false}
+                            showIndicators={false}
+                        />
                     </div>
                 </div>
             </section>

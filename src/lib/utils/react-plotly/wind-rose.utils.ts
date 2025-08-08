@@ -1,13 +1,15 @@
 import { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
 
 interface Threshold {
-  max: number;
-  color: string;
-  label: string;
+    max: number;
+    color: string;
+    label: string;
 }
 
 export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProficiency[]) {
-    const remaining = skills.map((skill: SkillProficiency) => skill.proficiency as number);
+    const proficiencies = skills.map((skill: SkillProficiency) => skill.proficiency as number);
+    const remaining = [...proficiencies];
+    const customdata: any = proficiencies.map((proficiency) => [null, proficiency]);
 
     return thresholds.map((threshold, i) => {
         const r: number[] = [];
@@ -22,6 +24,9 @@ export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProfi
             r.push(portion);
             theta.push(skill.name);
             remaining[j] -= portion;
+            if (remaining[j] == 0 && customdata[j][0] == null) {
+                customdata[j][0] = threshold.label;
+            }
         });
 
         return {
@@ -32,6 +37,8 @@ export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProfi
             marker: {
                 color: threshold.color,
             },
+            customdata,
+            hovertemplate: `<b>%{theta}</b><br><i>%{customdata[0]}</i><br>Proficiency: %{customdata[1]} / ${thresholds[thresholds.length - 1].max}<extra></extra>`,
         };
     });
 }

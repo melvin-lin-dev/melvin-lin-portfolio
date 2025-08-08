@@ -19,6 +19,7 @@
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
     "react-plotly.js": "^2.6.0",
+    "react-responsive-3d-carousel": "^2.1.5",
     "react-type-animation": "^3.2.0",
     "react-vertical-timeline-component": "^3.5.3",
     "sass": "^1.89.2",

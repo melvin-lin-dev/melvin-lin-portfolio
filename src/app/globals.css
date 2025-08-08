@@ -176,8 +176,8 @@
 }
 
 @theme {
-  --default-transition-duration: 0.25s;
-  
+    --default-transition-duration: 0.25s;
+
     --breakpoint-*: initial;
     --breakpoint-sm: 480px;
     --breakpoint-md: 768px;
@@ -232,31 +232,33 @@
     opacity: 0;
 }
 
-.image-perspective > div {
-    width: 100%;
-    transform: perspective(300px) rotateY(-20deg);
-    transition: 0.4s transform;
-    background-color: red;
+.react-responsive-3d-carousel__item {
+    border-radius: 16px;
+    overflow: hidden;
 }
 
-.image-perspective > div:hover {
-    transform: rotate(0);
+.react-responsive-3d-carousel__indicators-container {
+    bottom: 0 !important;
 }
 
-.image-perspective > div:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 100px;
+.react-responsive-3d-carousel__arrows > button {
+    color: #0093b8 !important;
 }
 
-/* .vertical-timeline-element-date {
-    padding-bottom: 0 !important;
-    float: right !important;
-} */
+.react-responsive-3d-carousel__arrows > button:hover {
+    color: #00d3f2 !important;
+}
 
+.react-flow__edge-path,
+.react-flow__node {
+    cursor: default !important;
+}
 
 svg {
     overflow: visible;
+}
+
+
+.react-flow {
+  --xy-edge-stroke-default: white !important;
 }
