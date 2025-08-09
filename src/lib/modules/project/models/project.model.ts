@@ -1,4 +1,4 @@
-import type { ProjectCode } from "./project-code.model";
+import type { ProjectCodeSnippet } from "./project-code-snippet.model";
 
 export interface Project {
     id: number;
@@ -6,5 +6,5 @@ export interface Project {
     title: string;
     description: string;
     repositoryLink: string;
-    code: ProjectCode[];
+    codeSnippets: ProjectCodeSnippet[];
 }

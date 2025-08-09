@@ -23,13 +23,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <header></header>
                 <main>{children}</main>
-                <footer className="py-4 text-center text-white bg-teal-700 text-white">
-                    &copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.
-                </footer>
+                <footer className="py-4 text-center text-white bg-teal-700 text-white">&copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.</footer>
             </body>
         </html>
     );

@@ -30,6 +30,7 @@ import type { Education } from "@/lib/modules/education/models/education.model";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { Quote } from "lucide-react";
 import "react-responsive-3d-carousel/dist/styles.css";
+import ProjectCodeModal from "./components/ProjectCodeModal";
 
 const edges: Edge[] = [
     { id: "e_about_background", source: "about", target: "background", style: { strokeWidth: 5 }, animated: true },
@@ -434,9 +435,9 @@ export default function HomePage(): ReactElement {
                                 </div>
                             </div>
                             <div className="flex space-x-4">
-                                <button type="button" className="btn btn-secondary py-6 px-8 rounded-full text-xl">
+                                <a href="#quote-section" role="button" className="btn btn-secondary py-6 px-8 rounded-full text-xl">
                                     Discover More
-                                </button>
+                                </a>
                                 <a href="" download title="Resume" className="py-6 btn btn-white rounded-full text-xl">
                                     <FaDownload />
                                 </a>
@@ -456,7 +457,7 @@ export default function HomePage(): ReactElement {
                     </div>
                 </div>
             </section>
-            <section className={`${styles.quoteSection} py-28`}>
+            <section id="quote-section" className={`${styles.quoteSection} py-28`}>
                 <div className="container relative">
                     <div style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }} className={styles.box3d}>
                         {quotes.map((quote) => (
@@ -610,9 +611,10 @@ export default function HomePage(): ReactElement {
                                             <a href="" className="btn btn-secondary px-2">
                                                 Repository
                                             </a>
-                                            <button type="button" className="btn btn-white px-2">
+                                            {/* <button type="button" className="btn btn-white px-2">
                                                 Code
-                                            </button>
+                                            </button> */}
+                                            <ProjectCodeModal project={project}></ProjectCodeModal>
                                         </div>
                                     </div>
                                 </div>
