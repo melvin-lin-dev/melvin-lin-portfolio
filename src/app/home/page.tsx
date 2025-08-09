@@ -163,6 +163,7 @@ export default function HomePage(): ReactElement {
         { text: "Lifelong Learner", category: "mindset" },
         { text: "Flow-based Thinker", category: "mindset" },
         { text: "Detail-Oriented Developer", category: "mindset" },
+        { text: "Curious Developer", category: "mindset" },
 
         { text: "UI/UX Enthusiast", category: "design" },
         { text: "Design-Oriented Developer", category: "design" },
