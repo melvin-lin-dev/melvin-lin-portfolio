@@ -1,4 +1,4 @@
-import { ExternalProfileType } from "../enums/external-profile-type.enum";
+import type { ExternalProfileType } from "../enums/external-profile-type.enum";
 
 export interface ExternalProfile {
     platform: string;

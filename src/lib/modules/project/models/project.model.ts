@@ -1,4 +1,4 @@
-import { ProjectCode } from "./project-code.model";
+import type { ProjectCode } from "./project-code.model";
 
 export interface Project {
     id: number;

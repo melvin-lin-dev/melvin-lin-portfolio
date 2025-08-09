@@ -1,24 +1,26 @@
 "use client";
 
+import type { Timeline } from "@/lib/shared/models/timeline.model";
 import { StarIcon } from "lucide-react";
+import type { ComponentProps } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { IconWrapper } from "../icon/lucide/IconWrapper";
 
-interface TimelineProps {
-    data: any[];
+type TimelineProps<T extends Timeline> = {
+    data: T[];
     layout?: string;
-    style?: any;
+    style?: Partial<Pick<ComponentProps<typeof VerticalTimelineElement>, 'contentStyle' | 'contentArrowStyle'>>;
 
-    children: (item: any, isActive: boolean) => React.ReactNode;
+    children: (item: T, isActive: boolean) => React.ReactNode;
 }
 
-export default function Timeline({ data, layout, style = {}, children }: TimelineProps) {
+export default function Timeline<T extends Timeline>({ data, layout, style = {}, children }: TimelineProps<T>) {
     return (
         <VerticalTimeline lineColor="#06b6d4" layout={layout}>
             {data.map((timeline, i) => {
-                const defaultStyle: any = {
-                    dateClassNames: ['!pb-0', '!float-right'],
+                const defaultStyle: Pick<ComponentProps<typeof VerticalTimelineElement>, 'dateClassName' | 'iconStyle' | 'contentStyle' | 'contentArrowStyle'> = {
+                    dateClassName: ['!pb-0', '!float-right'],
                     iconStyle: timeline.style?.icon || {},
                     contentStyle: { ...style.contentStyle },
                     contentArrowStyle: { ...style.contentArrowStyle },
@@ -29,7 +31,7 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
                 if (isActive) {
                     const activeBackgroundColor = "#06b6d4";
 
-                    defaultStyle.dateClassNames.push('!opacity-100');
+                    defaultStyle.dateClassName.push('!opacity-100');
 
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
@@ -52,7 +54,7 @@ export default function Timeline({ data, layout, style = {}, children }: Timelin
                     <VerticalTimelineElement
                         key={i}
                         date={`${timeline.startDate} - ${timeline.endDate}`}
-                        dateClassName={defaultStyle.dateClassNames.join(' ')}
+                        dateClassName={defaultStyle.dateClassName.join(' ')}
                         icon={<IconWrapper name={timeline.icon} />}
                         iconStyle={defaultStyle.iconStyle}
                         contentStyle={defaultStyle.contentStyle}

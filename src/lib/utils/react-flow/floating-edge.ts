@@ -1,7 +1,9 @@
-import {
+import type {
     InternalNode,
-    Position,
     XYPosition
+} from "@xyflow/react";
+import {
+    Position
 } from "@xyflow/react";
 
 // Get intersection point between two nodes

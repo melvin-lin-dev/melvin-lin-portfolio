@@ -1,8 +1,9 @@
 "use client";
 
-import { Edge, Node, ReactFlow } from "@xyflow/react";
+import type { Edge, Node } from "@xyflow/react";
+import { ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { useEffect, useRef, useState, type ReactElement } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 
 import { FaDownload, FaLocationPin } from "react-icons/fa6";
 
@@ -19,14 +20,16 @@ import { getSkill } from "@/lib/modules/skill/services/skill.service";
 import { getWorkExperiences } from "@/lib/modules/work-experience/services/work-experience.service";
 import { buildThresholdLayers } from "@/lib/utils/react-plotly/wind-rose.utils";
 import Image from "next/image";
+import { Carousel } from "react-responsive-3d-carousel";
+import { TypeAnimation } from "react-type-animation";
 import EducationTimelineItem from "./components/EducationTimelineItem";
 import WorkExperienceTimelineItem from "./components/WorkExperienceTimelineItem";
 import styles from "./home.module.scss";
-import { TypeAnimation } from "react-type-animation";
-import { Carousel } from "react-responsive-3d-carousel";
 
-import "react-responsive-3d-carousel/dist/styles.css";
+import type { Education } from "@/lib/modules/education/models/education.model";
+import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { Quote } from "lucide-react";
+import "react-responsive-3d-carousel/dist/styles.css";
 
 const edges: Edge[] = [
     { id: "e_about_background", source: "about", target: "background", style: { strokeWidth: 5 }, animated: true },
@@ -90,6 +93,33 @@ const skillFrameworks = buildThresholdLayers(thresholds, skill.frameworks);
 
 const getExternalProfileProps = (platform: string) => (platform === "Email" ? {} : { target: "_blank", rel: "noopener noreferrer" });
 
+const quotes = [
+    {
+        text: "No matter how messed up things get, you can always figure out the best solution.",
+        by: "Eren Yeager",
+        why: "Reminds me that no matter how tangled things get, there's always a solution if I keep trying.",
+        time: 11000,
+    },
+    {
+        text: "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
+        by: "Naruto Uzumaki",
+        why: "Encourages me to take control of my future despite doubt and fear.",
+        time: 13000,
+    },
+    {
+        text: "If you begin to regret, you'll dull your future decisions and let others make your choices for you. Nobody can foretell the outcome, therefore each decision you make holds meaning only by affecting your next decision.",
+        by: "Erwin Smith",
+        why: "Helps me stop overthinking and own my decisions without regret.",
+        time: 17000,
+    },
+    {
+        text: "Stay hungry, stay foolish.",
+        by: "Steve Jobs",
+        why: "Reminds me to stay curious and keep growing without fear.",
+        time: 7500,
+    },
+];
+
 export default function HomePage(): ReactElement {
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -141,7 +171,7 @@ export default function HomePage(): ReactElement {
         { text: "Clean Code Advocate", category: "philosophy" },
     ];
 
-    const colorMap: any = {
+    const colorMap: Record<string, string> = {
         role: "text-blue-600",
         mindset: "text-green-600",
         design: "text-pink-600",
@@ -189,7 +219,7 @@ export default function HomePage(): ReactElement {
     //         effectRef.current!.style.top = y + "%";
     //     };
 
-    const nodes: Node[] = [
+    const nodes: Node<AboutNodeData>[] = [
         // Row 1
         {
             id: "about",
@@ -309,38 +339,11 @@ export default function HomePage(): ReactElement {
         },
     ];
 
-    const quotes = [
-        {
-            text: "No matter how messed up things get, you can always figure out the best solution.",
-            by: "Eren Yeager",
-            why: "Reminds me that no matter how tangled things get, there's always a solution if I keep trying.",
-            time: 11000,
-        },
-        {
-            text: "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
-            by: "Naruto Uzumaki",
-            why: "Encourages me to take control of my future despite doubt and fear.",
-            time: 13000,
-        },
-        {
-            text: "If you begin to regret, you'll dull your future decisions and let others make your choices for you. Nobody can foretell the outcome, therefore each decision you make holds meaning only by affecting your next decision.",
-            by: "Erwin Smith",
-            why: "Helps me stop overthinking and own my decisions without regret.",
-            time: 17000,
-        },
-        {
-            text: "Stay hungry, stay foolish.",
-            by: "Steve Jobs",
-            why: "Reminds me to stay curious and keep growing without fear.",
-            time: 7500,
-        },
-    ];
-
     const [rotateDegree, setRotateDegree] = useState(0);
     const rotateDegreeRef = useRef(0);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const startTimer = () => {
+    const startTimer = useCallback(() => {
         clearTimer();
         timeoutRef.current = setTimeout(() => {
             setRotateDegree((prev) => {
@@ -350,7 +353,7 @@ export default function HomePage(): ReactElement {
             });
             startTimer();
         }, quotes[(rotateDegreeRef.current / 90) % 4].time);
-    };
+    }, []);
 
     const clearTimer = () => {
         if (timeoutRef.current) {
@@ -370,7 +373,7 @@ export default function HomePage(): ReactElement {
     useEffect(() => {
         startTimer();
         return () => clearTimer();
-    }, []);
+    }, [startTimer]);
 
     return (
         <>
@@ -641,7 +644,7 @@ export default function HomePage(): ReactElement {
             <section className="pt-40 bg-linear-to-b from-slate-100 to-transparent">
                 <div className="container">
                     <h2 className="mb-8 text-4xl font-bold uppercase tracking-wider">Education</h2>
-                    <Timeline
+                    <Timeline<Education>
                         data={educations.map((workExperience) => ({
                             ...workExperience,
                             icon: "graduationcap",

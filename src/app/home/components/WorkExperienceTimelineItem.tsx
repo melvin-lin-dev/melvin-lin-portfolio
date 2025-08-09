@@ -1,7 +1,7 @@
 'use client';
 
-import { WorkExperience } from "@/lib/modules/work-experience/models/work-experience.model";
-import { ReactElement } from "react";
+import type { WorkExperience } from "@/lib/modules/work-experience/models/work-experience.model";
+import type { ReactElement } from "react";
 
 interface WorkExperienceTimelineItemProps {
     workExperience: WorkExperience;
@@ -9,7 +9,7 @@ interface WorkExperienceTimelineItemProps {
 }
 
 export default function WorkExperienceTimelineItem({ workExperience, isActive }: WorkExperienceTimelineItemProps): ReactElement {
-    const style: any = {
+    const style: Record<string, Record<string, string>> = {
         content: {
             position: "text-gray-500",
             location: "text-gray-500",

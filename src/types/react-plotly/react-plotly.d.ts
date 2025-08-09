@@ -1,6 +1,6 @@
 declare module 'react-plotly.js' {
-  import { ComponentType } from 'react';
-  import { Layout, Data, Config } from 'plotly.js';
+  import type { ComponentType } from 'react';
+  import type { Layout, Data, Config } from 'plotly.js';
 
   interface PlotlyProps {
     data: Data[];

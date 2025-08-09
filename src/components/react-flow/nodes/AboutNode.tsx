@@ -1,10 +1,10 @@
 "use client";
 
 import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
-import { Handle, Position } from "@xyflow/react";
-import { useRef } from "react";
+import { Handle, Position, type NodeProps } from "@xyflow/react";
+import React, { useRef } from "react";
 
-export default function AboutNode({ data }: any) {
+export default function AboutNode({ data }: NodeProps) {
     const effectRef = useRef<HTMLDivElement>(null);
 
     const handleHover = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -13,9 +13,10 @@ export default function AboutNode({ data }: any) {
         const mainY = ((e.clientY - mainRect.top) / mainRect.height) * 100;
         data.mainEffectRef.current.style.left = mainX + "%";
         data.mainEffectRef.current.style.top = mainY + "%";
-        const edges = document.querySelectorAll(".react-flow__edge-path");
 
-        if (data.mainEffectRef.current.style.padding === "0px") { // Enter
+        const edges: NodeListOf<SVGPathElement> = document.querySelectorAll(".react-flow__edge-path");
+
+        if (data.mainEffectRef.current.style.padding === "0px") {
             data.mainEffectRef.current.style.padding = "110%";
             data.mainEffectRef.current.style.transitionDuration = "1.4s";
             edges.forEach((edge) => {
@@ -31,7 +32,6 @@ export default function AboutNode({ data }: any) {
             });
         }
 
-        // console.log("debug", mainX, mainY, mainRect);
         const rect = e.currentTarget.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;

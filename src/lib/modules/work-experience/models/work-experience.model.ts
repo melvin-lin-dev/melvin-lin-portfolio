@@ -1,5 +1,6 @@
-export interface WorkExperience {
-    id: number;
+import type { Timeline } from "@/lib/shared/models/timeline.model";
+
+export interface WorkExperience extends Timeline {
     image: string;
     position: string;
     company: string;
@@ -7,9 +8,6 @@ export interface WorkExperience {
     about: string;
     employmentType: string;
     url: string;
-    startDate: string;
-    endDate: string;
-    location: string;
     leftReason: string;
     note: string;
     descriptions: string[];

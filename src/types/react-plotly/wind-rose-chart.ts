@@ -1,15 +1,7 @@
-export interface WindRoseChartProps {
-  data: WindRosePlotlyData[];
-  layout: Partial<Plotly.Layout>;
-  config: any;
-}
+import type { Config, Layout, PlotData } from "plotly.js";
 
-export type WindRosePlotlyData = {
-    type: "barpolar";
-    r: number[];
-    theta: string[];
-    name: string;
-    marker?: {
-        color?: string;
-    };
-};
+export interface WindRoseChartProps {
+    data: Partial<PlotData>[];
+    layout: Partial<Layout>;
+    config: Partial<Config>;
+}

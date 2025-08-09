@@ -1,4 +1,5 @@
-import { IconNode, createLucideIcon } from "lucide-react";
+import type { IconNode} from "lucide-react";
+import { createLucideIcon } from "lucide-react";
 
 const codewarsNode: IconNode = [
   [

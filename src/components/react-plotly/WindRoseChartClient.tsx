@@ -1,8 +1,8 @@
 'use client';
 
-import { WindRoseChartProps } from "@/types/react-plotly/wind-rose-chart";
+import type { WindRoseChartProps } from "@/types/react-plotly/wind-rose-chart";
 import dynamic from "next/dynamic";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 
 const WindRoseChart = dynamic(() => import('./WindRoseChart'), {
   ssr: false,

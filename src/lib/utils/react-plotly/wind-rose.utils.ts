@@ -1,4 +1,5 @@
-import { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
+import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
+import type { Datum, PlotData } from "plotly.js";
 
 interface Threshold {
     max: number;
@@ -6,10 +7,10 @@ interface Threshold {
     label: string;
 }
 
-export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProficiency[]) {
+export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProficiency[]): Partial<PlotData>[] {
     const proficiencies = skills.map((skill: SkillProficiency) => skill.proficiency as number);
     const remaining = [...proficiencies];
-    const customdata: any = proficiencies.map((proficiency) => [null, proficiency]);
+    const customdata: Datum[] | Datum[][] = proficiencies.map((proficiency) => [null, proficiency]);
 
     return thresholds.map((threshold, i) => {
         const r: number[] = [];
