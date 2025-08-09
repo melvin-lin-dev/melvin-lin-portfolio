@@ -1,23 +1,18 @@
 import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
+import type { SkillLevelWindRoseChart } from "@/types/react-plotly/skill-level-wind-rose-chart";
 import type { Datum, PlotData } from "plotly.js";
 
-interface Threshold {
-    max: number;
-    color: string;
-    label: string;
-}
-
-export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProficiency[]): Partial<PlotData>[] {
+export function buildSkillLevelLayers(skillLevels: SkillLevelWindRoseChart[], skills: SkillProficiency[]): Partial<PlotData>[] {
     const proficiencies = skills.map((skill: SkillProficiency) => skill.proficiency as number);
     const remaining = [...proficiencies];
     const customdata: Datum[] | Datum[][] = proficiencies.map((proficiency) => [null, proficiency]);
 
-    return thresholds.map((threshold, i) => {
+    return skillLevels.map((skillLevel, i) => {
         const r: number[] = [];
         const theta: string[] = [];
 
-        const lower = i === 0 ? 0 : thresholds[i - 1].max;
-        const diff = threshold.max - lower;
+        const lower = i === 0 ? 0 : skillLevels[i - 1].max;
+        const diff = skillLevel.max - lower;
 
         skills.forEach((skill, j) => {
             const available = remaining[j];
@@ -26,7 +21,7 @@ export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProfi
             theta.push(skill.name);
             remaining[j] -= portion;
             if (remaining[j] == 0 && customdata[j][0] == null) {
-                customdata[j][0] = threshold.label;
+                customdata[j][0] = skillLevel.label;
             }
         });
 
@@ -34,12 +29,12 @@ export function buildThresholdLayers(thresholds: Threshold[], skills: SkillProfi
             type: "barpolar",
             r,
             theta,
-            name: threshold.label,
+            name: skillLevel.label,
             marker: {
-                color: threshold.color,
+                color: skillLevel.color,
             },
             customdata,
-            hovertemplate: `<b>%{theta}</b><br><i>%{customdata[0]}</i><br>Proficiency: %{customdata[1]} / ${thresholds[thresholds.length - 1].max}<extra></extra>`,
+            hovertemplate: `<b>%{theta}</b><br><i>%{customdata[0]}</i><br>Proficiency: %{customdata[1]} / ${skillLevels[skillLevels.length - 1].max}<extra></extra>`,
         };
     });
 }
