@@ -14,7 +14,7 @@ interface ProjectCodeModal {
 export default function ProjectCodeModal({ project }: ProjectCodeModal): ReactElement {
     return (
         <Dialog>
-            <DialogTrigger>Open Code</DialogTrigger>
+            <DialogTrigger className="btn btn-white px-2">Code</DialogTrigger>
             <DialogContent>
                 <Tabs defaultValue={project.codeSnippets[0].language}>
                     <TabsList>
