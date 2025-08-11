@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { Carousel } from "react-responsive-3d-carousel";
 import ProjectCarouselItem from "../../components/ProjectCarouselItem";
 
-export default function ProjectCarousel(): ReactElement {
+export default function ProjectCarouselContainer(): ReactElement {
     const projects = getProjects();
 
     return (

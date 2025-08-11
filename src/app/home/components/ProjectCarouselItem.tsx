@@ -15,7 +15,7 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
             </div>
             <div className="flex-1 py-3 px-4 text-gray-700 flex flex-col justify-between">
                 <div>
-                    <h3 className="mb-3 text-2xl font-semibold">{project.title}</h3>
+                    <h3 className="mb-3 md:text-xl lg:text-2xl font-semibold">{project.title}</h3>
                     <p>{project.description}</p>
                 </div>
                 <div className="ml-auto space-x-2">

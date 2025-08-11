@@ -1,5 +1,5 @@
-import type { ProfileRole } from "../../../shared/types/profile-role";
-import type { ProfileTitle } from "../../../shared/types/profile-title";
+import type { ProfileRole } from "../types/profile-role";
+import type { ProfileTitle } from "../types/profile-title";
 
 export const profileTitles: ProfileTitle[] = [
     { text: "Software Engineer", category: "role" },

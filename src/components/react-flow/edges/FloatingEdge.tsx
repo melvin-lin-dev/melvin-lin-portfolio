@@ -1,31 +1,53 @@
-'use client';
+"use client";
 
-import { getEdgeParams } from '@/lib/utils/react-flow/floating-edge';
-import { getBezierPath, useInternalNode } from '@xyflow/react';
+import { getEdgeParams } from "@/lib/utils/react-flow/floating-edge";
+import { getBezierPath, getSmoothStepPath, useInternalNode } from "@xyflow/react";
 
 interface FloatingEdgeProps {
-  id: string;
-  source: string;
-  target: string;
-  style?: React.CSSProperties;
-};
+    id: string;
+    source: string;
+    target: string;
+    style?: React.CSSProperties;
+    data?: { edgeType?: "bezier" | "smoothstep" | "step" };
+}
 
-export default function FloatingEdge({ id, source, target, style }: FloatingEdgeProps) {
-  const sourceNode = useInternalNode(source);
-  const targetNode = useInternalNode(target);
+export default function FloatingEdge({ id, source, target, style, data = { edgeType: "bezier" } }: FloatingEdgeProps) {
+    const sourceNode = useInternalNode(source);
+    const targetNode = useInternalNode(target);
 
-  if (!sourceNode || !targetNode) return null;
+    if (!sourceNode || !targetNode) return null;
 
-  const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, targetNode);
+    const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, targetNode);
 
-  const [edgePath] = getBezierPath({
-    sourceX: sx,
-    sourceY: sy,
-    sourcePosition: sourcePos,
-    targetX: tx,
-    targetY: ty,
-    targetPosition: targetPos,
-  });
+    let edgePath: string;
 
-  return <path id={id} className="react-flow__edge-path" d={edgePath} style={style} />;
+    const edgeConfig = {
+        sourceX: sx,
+        sourceY: sy,
+        sourcePosition: sourcePos,
+        targetX: tx,
+        targetY: ty,
+        targetPosition: targetPos,
+    };
+
+    switch (data.edgeType) {
+        case "smoothstep":
+            [edgePath] = getSmoothStepPath({
+                ...edgeConfig,
+            });
+            break;
+        // case "step":
+        //     [edgePath] = getStepPath({
+        //         ...edgeConfig,
+        //     });
+        //     break;
+        case "bezier":
+        default:
+            [edgePath] = getBezierPath({
+                ...edgeConfig,
+            });
+            break;
+    }
+
+    return <path id={id} className="react-flow__edge-path" d={edgePath} style={style} />;
 }

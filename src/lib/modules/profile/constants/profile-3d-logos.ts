@@ -1,4 +1,4 @@
-import type { Profile3DLogo } from "../../../shared/types/profile-3d-logo";
+import type { Profile3DLogo } from "../types/profile-3d-logo";
 
 const profile3DLogos: Profile3DLogo[] = [
     {

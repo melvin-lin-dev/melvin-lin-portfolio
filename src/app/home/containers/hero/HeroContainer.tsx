@@ -73,7 +73,7 @@ export default function HeroContainer(): ReactElement {
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 flex items-center justify-center">
+                <div className="flex-1 hidden md:flex flex items-center justify-center">
                     <Contact3DContainer />
                 </div>
             </div>

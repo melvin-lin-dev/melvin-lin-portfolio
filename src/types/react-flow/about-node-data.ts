@@ -4,6 +4,6 @@ export type AboutNodeData = {
     icon: string;
     label: string;
     description: string;
-    mainEffectRef?: RefObject<HTMLDivElement | null>;
-    parentRef?: RefObject<HTMLDivElement | null>;
+    mainEffectRef: RefObject<HTMLDivElement | null>;
+    parentRef: RefObject<HTMLDivElement | null>;
 };

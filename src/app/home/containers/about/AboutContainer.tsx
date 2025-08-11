@@ -1,41 +1,88 @@
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
 import AboutNode from "@/components/react-flow/nodes/AboutNode";
+import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
+import type { ScreenType } from "@/lib/shared/types/screen-type";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
-import { ReactFlow, type Edge, type Node } from "@xyflow/react";
-import { useRef, type ReactElement } from "react";
+import { ReactFlow, ReactFlowProvider, useReactFlow, type Edge, type Node, type XYPosition } from "@xyflow/react";
+import { useEffect, useRef, useState, type ReactElement } from "react";
 
-const edges: Edge[] = [
-    { id: "e_about_background", source: "about", target: "background", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_about_work_status", source: "about", target: "work_status", style: { strokeWidth: 5 }, animated: true },
+const nodeHeight = 220;
 
-    { id: "e_background_skills", source: "background", target: "skills", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_background_traits", source: "background", target: "traits", style: { strokeWidth: 5 }, animated: true },
+const nodePositions: Record<ScreenType, Record<string, XYPosition>> = {
+    desktop: {
+        about: { x: 0, y: 0 },
 
-    { id: "e_work_status_recent_work", source: "work_status", target: "recent_work", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_work_status_working_on", source: "work_status", target: "working_on", style: { strokeWidth: 5 }, animated: true },
+        background: { x: -460, y: nodeHeight },
+        traits: { x: 0, y: nodeHeight },
+        skills: { x: 460, y: nodeHeight },
 
-    { id: "e_skills_learning", source: "skills", target: "learning", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_traits_learning", source: "traits", target: "learning", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_recent_work_learning", source: "recent_work", target: "learning", style: { strokeWidth: 5 }, animated: true },
-    { id: "e_working_on_learning", source: "working_on", target: "learning", style: { strokeWidth: 5 }, animated: true },
+        work_status: { x: -460, y: nodeHeight * 2 },
+        recent_work: { x: 0, y: nodeHeight * 2 },
+        working_on: { x: 460, y: nodeHeight * 2 },
 
-    { id: "e_learning_goal", source: "learning", target: "goal", style: { strokeWidth: 5 }, animated: true },
-];
+        learning: { x: 0, y: nodeHeight * 3 },
 
-const edgeTypes = {
-    floating: FloatingEdge,
+        goal: { x: 0, y: nodeHeight * 4 },
+    },
+
+    tablet: {
+        about: { x: 0, y: 0 },
+
+        background: { x: 0, y: nodeHeight },
+
+        traits: { x: -230, y: nodeHeight * 2 },
+        skills: { x: 230, y: nodeHeight * 2 },
+
+        work_status: { x: 0, y: nodeHeight * 3 },
+
+        recent_work: { x: -230, y: nodeHeight * 4 },
+        working_on: { x: 230, y: nodeHeight * 4 },
+
+        learning: { x: 0, y: nodeHeight * 5 },
+
+        goal: { x: 0, y: nodeHeight * 6 },
+    },
+
+    phone: {
+        about: { x: 0, y: 0 },
+        background: { x: 0, y: nodeHeight },
+        traits: { x: 0, y: nodeHeight * 2 },
+        skills: { x: 0, y: nodeHeight * 3 },
+        work_status: { x: 0, y: nodeHeight * 4 },
+        recent_work: { x: 0, y: nodeHeight * 5 },
+        working_on: { x: 0, y: nodeHeight * 6 },
+        learning: { x: 0, y: nodeHeight * 7 },
+        goal: { x: 0, y: nodeHeight * 8 },
+    },
+};
+
+const edgeConfigs: Partial<Record<ScreenType, Record<string, Partial<Edge>>>> = {
+    desktop: {
+        e_skills_work_status: {
+            type: "smoothstep",
+        },
+    },
 };
 
 export default function AboutContainer(): ReactElement {
+    return (
+        <ReactFlowProvider>
+            <AboutFlow />
+        </ReactFlowProvider>
+    );
+}
+
+function AboutFlow(): ReactElement {
+    const { fitView } = useReactFlow();
+
     const parentRef = useRef<HTMLDivElement>(null);
     const effectRef = useRef<HTMLDivElement>(null);
 
-    const nodes: Node<AboutNodeData>[] = [
-        // Row 1
+    const [nodes, setNodes] = useState<Node<AboutNodeData>[]>([
         {
             id: "about",
             type: "about",
-            position: { x: 700, y: 0 },
+            position: nodePositions.desktop.about,
             data: {
                 icon: "user",
                 label: "About Me",
@@ -44,12 +91,10 @@ export default function AboutContainer(): ReactElement {
                 parentRef,
             },
         },
-
-        // Row 2
         {
             id: "background",
             type: "about",
-            position: { x: 300, y: 190 },
+            position: nodePositions.desktop.background,
             data: {
                 icon: "school",
                 label: "Journey",
@@ -61,7 +106,7 @@ export default function AboutContainer(): ReactElement {
         {
             id: "work_status",
             type: "about",
-            position: { x: 1100, y: 190 },
+            position: nodePositions.desktop.work_status,
             data: {
                 icon: "briefcase",
                 label: "Current Status",
@@ -71,11 +116,10 @@ export default function AboutContainer(): ReactElement {
             },
         },
 
-        // Row 3
         {
             id: "skills",
             type: "about",
-            position: { x: 100, y: 420 },
+            position: nodePositions.desktop.skills,
             data: {
                 icon: "wrench",
                 label: "Core Strengths",
@@ -87,7 +131,7 @@ export default function AboutContainer(): ReactElement {
         {
             id: "traits",
             type: "about",
-            position: { x: 500, y: 380 },
+            position: nodePositions.desktop.traits,
             data: {
                 icon: "puzzle",
                 label: "Values & Traits",
@@ -99,7 +143,7 @@ export default function AboutContainer(): ReactElement {
         {
             id: "recent_work",
             type: "about",
-            position: { x: 900, y: 380 },
+            position: nodePositions.desktop.recent_work,
             data: {
                 icon: "folder",
                 label: "Recent Work",
@@ -111,7 +155,7 @@ export default function AboutContainer(): ReactElement {
         {
             id: "working_on",
             type: "about",
-            position: { x: 1300, y: 420 },
+            position: nodePositions.desktop.working_on,
             data: {
                 icon: "code",
                 label: "Current Projects",
@@ -120,12 +164,10 @@ export default function AboutContainer(): ReactElement {
                 parentRef,
             },
         },
-
-        // Row 4
         {
             id: "learning",
             type: "about",
-            position: { x: 700, y: 570 },
+            position: nodePositions.desktop.learning,
             data: {
                 icon: "book",
                 label: "Daily Learning",
@@ -134,12 +176,10 @@ export default function AboutContainer(): ReactElement {
                 parentRef,
             },
         },
-
-        // Row 5
         {
             id: "goal",
             type: "about",
-            position: { x: 700, y: 790 },
+            position: nodePositions.desktop.goal,
             data: {
                 icon: "target",
                 label: "Goals",
@@ -148,18 +188,66 @@ export default function AboutContainer(): ReactElement {
                 parentRef,
             },
         },
-    ];
+    ]);
+
+    const [edges, setEdges] = useState<Edge[]>([
+        { id: "e_about_background", source: "about", target: "background", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_background_traits", source: "background", target: "traits", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_traits_skills", source: "traits", target: "skills", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_skills_work_status", source: "skills", target: "work_status", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_work_status_recent_work", source: "work_status", target: "recent_work", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_recent_work_working_on", source: "recent_work", target: "working_on", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_working_on_learning", source: "working_on", target: "learning", style: { strokeWidth: 5 }, animated: true },
+        { id: "e_learning_goal", source: "learning", target: "goal", style: { strokeWidth: 5 }, animated: true },
+    ]);
+
+    const [effectPadding, setEffectPadding] = useState<string>("0");
+
+    useEffect(() => {
+        const handleResize = () => {
+            window.requestAnimationFrame(() => fitView());
+            let screenType: ScreenType = "desktop";
+
+            if (window.innerWidth < BREAKPOINTS.md) screenType = "tablet";
+            if (window.innerWidth < BREAKPOINTS.sm) screenType = "phone";
+
+            setNodes((prevNodes) =>
+                prevNodes.map((node) => ({
+                    ...node,
+                    position: nodePositions[screenType][node.id],
+                }))
+            );
+
+            setEdges((prevEdges) =>
+                prevEdges.map((edge) => ({
+                    ...edge,
+                    ...(edgeConfigs[screenType]?.[edge.id] || { type: "floating" }),
+                }))
+            );
+
+            let padding = "130%";
+            if (window.innerWidth < BREAKPOINTS.md) padding = "145%";
+            if (window.innerWidth < BREAKPOINTS.sm) padding = "380%";
+            if (window.innerWidth < BREAKPOINTS.xs) padding = "570%";
+
+            setEffectPadding(padding);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, [fitView]);
 
     return (
         <section>
-            <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1200px] pointer-events-none overflow-hidden">
-                <div ref={effectRef} className="absolute bg-emerald-500 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[7s]" style={{ padding: "110%" }}></div>
+            <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1200px] sm:h-[800px] lg:h-[1000px] xl:h-[1200px] pointer-events-none overflow-hidden">
+                <div ref={effectRef} className="absolute bg-emerald-500 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[7s]" style={{ padding: effectPadding }}></div>
                 <ReactFlow
                     fitView
                     nodes={nodes}
                     edges={edges}
                     nodeTypes={{ about: AboutNode }}
-                    edgeTypes={edgeTypes}
+                    edgeTypes={{ floating: FloatingEdge }}
                     defaultEdgeOptions={{
                         type: "floating",
                     }}

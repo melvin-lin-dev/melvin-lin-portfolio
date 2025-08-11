@@ -178,10 +178,7 @@
 @theme {
     --default-transition-duration: 0.25s;
 
-    --breakpoint-*: initial;
-    --breakpoint-sm: 480px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 976px;
+    --container-padding-default: 20px;
 
     /* Base Colors */
     --color-base-100: oklch(98% 0.01 230); /* very light background */
@@ -226,6 +223,11 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+.container {
+    padding-left: var(--container-padding-default);
+    padding-right: var(--container-padding-default);
 }
 
 .floating-edges .react-flow__handle {

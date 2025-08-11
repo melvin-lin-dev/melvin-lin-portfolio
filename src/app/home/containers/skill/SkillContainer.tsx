@@ -8,21 +8,27 @@ export default function SkillContainer(): ReactElement {
 
     return (
         <div className="mt-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-6">
                 <div>
-                    <h3 className="mb-5 text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>
-                    <SkillWindRoseChartContainer skillProficiencies={skill.languages} />
+                    <h3 className="mb-5 md:text-xl lg:text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>
+                    <div className="text-center">
+                        <SkillWindRoseChartContainer skillProficiencies={skill.languages} />
+                    </div>
                 </div>
                 <div>
-                    <h3 className="mb-5 text-2xl font-semibold text-center text-gray-700">Frameworks</h3>
-                    <SkillWindRoseChartContainer skillProficiencies={skill.frameworks} />
+                    <h3 className="mb-5 md:text-xl lg:text-2xl font-semibold text-center text-gray-700">Frameworks</h3>
+                    <div className="text-center">
+                        <SkillWindRoseChartContainer skillProficiencies={skill.frameworks} />
+                    </div>
                 </div>
             </div>
             <div className="mt-6">
-                <h3 className="text-2xl font-semibold text-center text-gray-700">Dev Tools</h3>
-                <div className="mt-5 flex space-x-4">
+                <h3 className="md:text-xl lg:text-2xl font-semibold text-center text-gray-700">Dev Tools</h3>
+                <div className="mt-1 flex flex-wrap justify-center -ml-4">
                     {skill.tools.map((skillTool) => (
-                        <SkillToolItem key={skillTool.name} skillTool={skillTool} />
+                        <div key={skillTool.name} className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 pl-4 pt-4">
+                            <SkillToolItem skillTool={skillTool} />
+                        </div>
                     ))}
                 </div>
             </div>
