@@ -25,7 +25,7 @@ export default function WorkExperienceTimelineItem({ workExperience, isActive }:
 
     return (
         <>
-            <h3 className="sm:text-lg lg:text-xl font-semibold">{workExperience.company}</h3>
+            <h3 className="sm:text-lg md:text-xl font-semibold">{workExperience.company}</h3>
             <p className={`!mt-0 italic !font-normal ${style.content.position}`}>{workExperience.position}</p>
             <p className={`!mt-1 ${style.content.location}`}>{workExperience.location}</p>
             <div className="mt-3">

@@ -20,32 +20,32 @@ export default function HomePage(): ReactElement {
             <AboutContainer />
             <section>
                 <div className="container py-12 md:py-16 lg:py-20">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">Tech Stack</h2>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">Tech Stack</h2>
                     <SkillLegendContainer />
                     <SkillContainer />
                 </div>
             </section>
             <section className="py-12 md:py-16 lg:py-20">
                 <div className="container">
-                    <h2 className="mb-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-600 uppercase tracking-wider">Project Highlights</h2>
+                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 uppercase tracking-wider">Project Highlights</h2>
                     <ProjectCarouselContainer></ProjectCarouselContainer>
                 </div>
             </section>
             <section className="pt-12 md:pt-16 lg:pt-20 bg-slate-100">
                 <div className="container">
-                    <h2 className="mb-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wider">Work Experience</h2>
+                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider">Work Experience</h2>
                     <WorkExperienceTimelineContainer></WorkExperienceTimelineContainer>
                 </div>
             </section>
             <section className="pt-28 md:pt-32 lg:pt-40 bg-linear-to-b from-slate-100 to-transparent">
                 <div className="container">
-                    <h2 className="mb-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wider">Education</h2>
+                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider">Education</h2>
                     <EducationTimelineContainer></EducationTimelineContainer>
                 </div>
             </section>
             <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-28 relative bg-[radial-gradient(closest-corner_at_50%_60%,_#CFFBE4,_white)]">
                 <div className="container">
-                    <h2 className="mb-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
+                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
                     <ExternalProfileContainer />
                 </div>
             </section>
