@@ -1,16 +1,31 @@
-.cube3d {
-    $cube-size: 120px;
+@import "../../../../variables.scss";
+
+.cube3D {
+    --cube-size: 120px;
 
     transform-style: preserve-3d;
-    height: $cube-size;
-    width: $cube-size;
+    width: var(--cube-size);
+    height: var(--cube-size);
+
+    @media screen and (max-width: ($breakpoint-lg - 1)) {
+        --cube-size: 150px;
+    }
+
+    @media screen and (max-width: ($breakpoint-md - 1)) {
+        --cube-size: 130px;
+    }
+
+    @media screen and (max-width: ($breakpoint-sm - 1)) {
+        --cube-size: 100px;
+    }
 
     &.rotateY {
         transform: translate(-50%, -50%) rotateX(-25deg) rotateY(-45deg);
         margin-left: 50px;
+        margin-top: var(--cube-size);
 
         .cube {
-            transform-origin: ($cube-size / 2) ($cube-size / 2) (-$cube-size / 2);
+            transform-origin: calc(var(--cube-size) / 2) calc(var(--cube-size) / 2) calc(var(--cube-size) / -2);
             animation: 4s rotateYAnimation infinite;
 
             @keyframes rotateYAnimation {
@@ -37,8 +52,8 @@
         transform-style: preserve-3d;
 
         > div {
-            height: $cube-size;
-            width: $cube-size;
+            height: var(--cube-size);
+            width: var(--cube-size);
             transform-style: preserve-3d;
             position: absolute;
             display: flex;
@@ -57,7 +72,7 @@
         }
 
         .back {
-            transform: translateZ(-$cube-size);
+            transform: translateZ(calc(var(--cube-size) * -1));
             background-color: #505073;
         }
 

@@ -1,3 +1,5 @@
+"use client";
+
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
 import AboutNode from "@/components/react-flow/nodes/AboutNode";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";

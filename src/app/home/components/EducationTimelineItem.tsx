@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import type { Education } from "@/lib/modules/education/models/education.model";
 import type { ReactElement } from "react";
@@ -24,7 +24,9 @@ export default function EducationTimelineItem({ education, isActive }: Education
     return (
         <>
             <h3 className="sm:text-lg lg:text-xl font-semibold">{education.name}</h3>
-            <p className={`!mt-0 italic !font-normal ${style.content.position}`}>{education.degree}, {education.major}</p>
+            <p className={`!mt-0 italic !font-normal ${style.content.position}`}>
+                {education.degree}, {education.major}
+            </p>
         </>
     );
 }

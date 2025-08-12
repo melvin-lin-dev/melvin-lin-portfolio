@@ -1,3 +1,5 @@
+"use client";
+
 import Timeline from "@/components/react-vertical-timeline/Timeline";
 import { getEducations } from "@/lib/modules/education/services/education.service";
 import type { ReactElement } from "react";

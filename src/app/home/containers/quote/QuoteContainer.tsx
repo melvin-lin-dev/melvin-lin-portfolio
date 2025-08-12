@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
-import styles from "./quote-container.module.scss";
+"use client";
+
 import quotes from "@/lib/modules/quote/constants/quotes";
+import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 import QuoteItem from "../../components/QuoteItem";
+import styles from "./quote-container.module.scss";
 
 export default function QuoteContainer(): ReactElement {
     const [rotateDegree, setRotateDegree] = useState(0);
@@ -41,7 +43,7 @@ export default function QuoteContainer(): ReactElement {
     }, [startTimer]);
 
     return (
-        <section id="quote-section" className={`${styles.quoteSection} py-28`}>
+        <section id="quote-section" className={`${styles.quoteSection} py-16 md:py-20 lg:py-28`}>
             <div className="container relative">
                 <div style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }} className={styles.box3d}>
                     {quotes.map((quote) => (

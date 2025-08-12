@@ -5,7 +5,7 @@ import styles from "./cube-3d-container.module.scss";
 
 export default function Cube3DContainer(): ReactElement {
     return (
-        <div className={`${styles.cube3d} ${styles.rotateY}`}>
+        <div className={`${styles.cube3D} ${styles.rotateY}`}>
             <div className={`${styles.cube}`}>
                 {profile3DLogos.map((logo) => (
                     <div key={logo.name} className={`${styles[logo.side]}`}>

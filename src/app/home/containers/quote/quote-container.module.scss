@@ -1,8 +1,14 @@
+@import "../../../variables.scss";
+
 .quoteSection {
     > div {
-        $box-height: 400px;
+        --box-height: 400px;
 
-        height: $box-height;
+        height: var(--box-height);
+
+        @media screen and (max-width: ($breakpoint-md - 1)) {
+            --box-height: 300px;
+        }
 
         .box3d {
             width: 100%;
@@ -23,22 +29,22 @@
 
                 &:nth-child(1) {
                     transform-origin: top;
-                    transform: translateZ($box-height / 2);
+                    transform: translateZ(calc(var(--box-height) / 2));
                 }
 
                 &:nth-child(2) {
                     transform-origin: top;
-                    transform: translateZ($box-height / 2) translateY(100%) rotateX(-90deg);
+                    transform: translateZ(calc(var(--box-height) / 2)) translateY(100%) rotateX(-90deg);
                 }
 
                 &:nth-child(3) {
                     transform-origin: bottom;
-                    transform: translateZ(-$box-height / 2) translateY(-100%) rotateX(-180deg);
+                    transform: translateZ(calc(var(--box-height) / -2)) translateY(-100%) rotateX(-180deg);
                 }
 
                 &:nth-child(4) {
                     transform-origin: bottom;
-                    transform: translateZ($box-height / 2) translateY(-100%) rotateX(90deg);
+                    transform: translateZ(calc(var(--box-height) / 2)) translateY(-100%) rotateX(90deg);
                 }
             }
         }

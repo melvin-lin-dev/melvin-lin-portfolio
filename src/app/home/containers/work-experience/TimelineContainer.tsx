@@ -1,3 +1,5 @@
+"use client";
+
 import Timeline from "@/components/react-vertical-timeline/Timeline";
 import { getWorkExperiences } from "@/lib/modules/work-experience/services/work-experience.service";
 import type { ReactElement } from "react";

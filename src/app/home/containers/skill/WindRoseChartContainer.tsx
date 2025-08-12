@@ -1,3 +1,5 @@
+"use client";
+
 import WindRoseChartClient from "@/components/react-plotly/WindRoseChartClient";
 import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
 import skillLevels from "@/lib/modules/skill/constants/skill-levels";

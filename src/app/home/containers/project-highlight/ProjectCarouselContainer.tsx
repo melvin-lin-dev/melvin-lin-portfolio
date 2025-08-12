@@ -1,11 +1,13 @@
+"use client";
+
 import { getProjects } from "@/lib/modules/project/services/project.service";
 import type { ReactElement } from "react";
 import { Carousel } from "react-responsive-3d-carousel";
 import ProjectCarouselItem from "../../components/ProjectCarouselItem";
 
-export default function ProjectCarouselContainer(): ReactElement {
-    const projects = getProjects();
+const projects = getProjects();
 
+export default function ProjectCarouselContainer(): ReactElement {
     return (
         <Carousel
             items={projects.map((project) => (
