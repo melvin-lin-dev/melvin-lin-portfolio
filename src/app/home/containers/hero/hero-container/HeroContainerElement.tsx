@@ -54,7 +54,7 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
         <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-center" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className="py-20 md:py-28 lg:py-40 xl:py-52 2xl:py-68 container min-[1700px]:max-w-[1600px] mx-auto h-full flex items-center">
                 <div className="w-full relative">
-                    <div className="relative z-20">
+                    <div className="relative z-[1]">
                         <Cube3DContainer />
                         <div className="md:mt-8 lg:mt-0">
                             <div className="space-y-6">
