@@ -13,6 +13,7 @@ export default function ProjectCarouselContainer(): ReactElement {
             items={projects.map((project) => (
                 <ProjectCarouselItem key={project.id} project={project} />
             ))}
+            width={0.5}
             height="350px"
             startIndex={0}
             autoPlay={false}
