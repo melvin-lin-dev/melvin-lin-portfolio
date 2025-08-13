@@ -11,6 +11,7 @@ import ProjectCarouselContainer from "./containers/project-highlight/ProjectCaro
 import QuoteContainer from "./containers/quote/QuoteContainer";
 import SkillContainer from "./containers/skill/SkillContainer";
 import WorkExperienceTimelineContainer from "./containers/work-experience/TimelineContainer";
+import EmailFormContainer from "./containers/external-profile/EmailFormContainer";
 
 export default function HomePage(): ReactElement {
     return (
@@ -47,6 +48,9 @@ export default function HomePage(): ReactElement {
                 <div className="container">
                     <h2 className="mb-10 md:mb-12 lg:mb-16 text-2xl sm:text-3xl md:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
                     <ExternalProfileContainer />
+                    <div className="mt-8 lg:mt-10 xl:mt-12 px-0 lg:px-12 xl:px-32 2xl:px-60">
+                        <EmailFormContainer />
+                    </div>
                 </div>
             </section>
         </>

@@ -4,7 +4,7 @@ import type { WorkExperience } from "@/lib/modules/work-experience/models/work-e
 import STACK_COLORS from "@/lib/shared/constants/stack-colors";
 import type { Stack } from "@/lib/shared/types/stack";
 import { ChevronDown } from "lucide-react";
-import type { ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 
 interface WorkExperienceTimelineItemProps {
     workExperience: WorkExperience;
@@ -48,9 +48,9 @@ export default function WorkExperienceTimelineItem({ workExperience, isActive }:
                     </>
                 )}
                 <ul
-                    className={`pl-5 list-disc space-y-0.5 max-h-[130px] overflow-hidden transition-all after:transition-all after:absolute after:bottom-0 after:left-0 after:w-full after:${
-                        showDetail ? "h-28" : "h-0"
-                    } after:bg-gradient-to-t after:from-${isActive ? "[#06b6d4]" : "white"} after:to-transparent`}
+                    className={`pl-5 list-disc space-y-0.5 max-h-[130px] overflow-hidden transition-all after:transition-all after:absolute after:bottom-0 after:left-0 after:w-full ${
+                        showDetail ? "after:h-28" : "after:h-0"
+                    } after:bg-gradient-to-t ${isActive ? "after:from-[#06b6d4]" : "after:from-white"} after:to-transparent`}
                 >
                     {workExperience.descriptions.map((description) => (
                         <li key={description} className="text-sm md:text-base">
