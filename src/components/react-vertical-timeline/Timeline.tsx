@@ -20,7 +20,7 @@ export default function Timeline<T extends Timeline>({ data, layout, style = {},
         <VerticalTimeline lineColor="#06b6d4" layout={layout}>
             {data.map((timeline, i) => {
                 const defaultStyle: Pick<ComponentProps<typeof VerticalTimelineElement>, 'dateClassName' | 'iconStyle' | 'contentStyle' | 'contentArrowStyle'> = {
-                    dateClassName: ['!pb-0', '!float-right'],
+                    dateClassName: ['!pb-0', '!float-right', 'xl:text-gray-700'],
                     iconStyle: timeline.style?.icon || {},
                     contentStyle: { ...style.contentStyle },
                     contentArrowStyle: { ...style.contentArrowStyle },

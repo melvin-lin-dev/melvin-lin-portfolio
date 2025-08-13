@@ -19,7 +19,7 @@ export default function HomePage(): ReactElement {
             <QuoteContainer />
             <AboutContainer />
             <section>
-                <div className="container py-12 md:py-16 lg:py-20">
+                <div className="container max-w-5xl 2xl:max-w-7xl py-12 md:py-16 lg:py-20">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">Tech Stack</h2>
                     <SkillLegendContainer />
                     <SkillContainer />
@@ -31,9 +31,9 @@ export default function HomePage(): ReactElement {
                     <ProjectCarouselContainer></ProjectCarouselContainer>
                 </div>
             </section>
-            <section className="pt-12 md:pt-16 lg:pt-20 bg-slate-100">
+            <section className="pt-12 md:pt-16 lg:pt-32 bg-slate-100">
                 <div className="container">
-                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider">Work Experience</h2>
+                    <h2 className="mb-8 md:mb-12 lg:mb-20 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-center">Work Experience</h2>
                     <WorkExperienceTimelineContainer></WorkExperienceTimelineContainer>
                 </div>
             </section>
@@ -43,9 +43,9 @@ export default function HomePage(): ReactElement {
                     <EducationTimelineContainer></EducationTimelineContainer>
                 </div>
             </section>
-            <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-28 relative bg-[radial-gradient(closest-corner_at_50%_60%,_#CFFBE4,_white)]">
+            <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-28 relative bg-[radial-gradient(closest-corner_at_65%_40%,_#CFFAFE,_transparent_50%),radial-gradient(closest-corner_at_35%_65%,_#CFFBE4,_transparent_85%)]">
                 <div className="container">
-                    <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
+                    <h2 className="mb-10 md:mb-12 lg:mb-16 text-2xl sm:text-3xl md:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
                     <ExternalProfileContainer />
                 </div>
             </section>

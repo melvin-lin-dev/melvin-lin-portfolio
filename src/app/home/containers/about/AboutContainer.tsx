@@ -3,14 +3,14 @@
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
 import AboutNode from "@/components/react-flow/nodes/AboutNode";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
-import type { ScreenType } from "@/lib/shared/types/screen-type";
+import type { Screen } from "@/lib/shared/types/screen";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { ReactFlow, ReactFlowProvider, useReactFlow, type Edge, type Node, type XYPosition } from "@xyflow/react";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 
 const nodeHeight = 220;
 
-const nodePositions: Record<ScreenType, Record<string, XYPosition>> = {
+const nodePositions: Record<Screen, Record<string, XYPosition>> = {
     desktop: {
         about: { x: 0, y: 0 },
 
@@ -58,7 +58,7 @@ const nodePositions: Record<ScreenType, Record<string, XYPosition>> = {
     },
 };
 
-const edgeConfigs: Partial<Record<ScreenType, Record<string, Partial<Edge>>>> = {
+const edgeConfigs: Partial<Record<Screen, Record<string, Partial<Edge>>>> = {
     desktop: {
         e_skills_work_status: {
             type: "smoothstep",
@@ -208,7 +208,7 @@ function AboutFlow(): ReactElement {
     useEffect(() => {
         const handleResize = () => {
             window.requestAnimationFrame(() => fitView());
-            let screenType: ScreenType = "desktop";
+            let screenType: Screen = "desktop";
 
             if (window.innerWidth < BREAKPOINTS.md) screenType = "tablet";
             if (window.innerWidth < BREAKPOINTS.sm) screenType = "phone";

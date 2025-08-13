@@ -260,7 +260,11 @@ svg {
     overflow: visible;
 }
 
-
 .react-flow {
-  --xy-edge-stroke-default: white !important;
+    --xy-edge-stroke-default: white !important;
+}
+
+.vertical-timeline--two-columns {
+    width: 95% !important;
+    max-width: none !important;
 }

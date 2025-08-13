@@ -1,4 +1,5 @@
 import type { Timeline } from "@/lib/shared/models/timeline.model";
+import type { Stack } from "@/lib/shared/types/stack";
 
 export interface WorkExperience extends Timeline {
     image: string;
@@ -11,4 +12,5 @@ export interface WorkExperience extends Timeline {
     leftReason: string;
     note: string;
     descriptions: string[];
+    stacks: Partial<Record<Stack, string[]>>;
 }

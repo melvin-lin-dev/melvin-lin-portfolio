@@ -33,7 +33,7 @@ export function TerminalCodeContainer({ terminalFiles }: TerminalCodeContainerPr
     }, [index, codeIndex, terminalFiles]);
 
     return (
-        <div className="hidden md:block absolute -top-4 lg:top-8 xl:top-28 2xl:top-44 -right-12 lg:right-4 xl:right-40 2xl:right-60 min-[1700px]:right-80 scale-[0.8] lg:scale-[1]">
+        <div className="hidden md:block absolute -top-4 lg:top-8 xl:top-28 2xl:top-40 -right-12 lg:right-4 xl:right-40 2xl:right-60 min-[1700px]:right-80 scale-[0.8] lg:scale-[1]">
             <div className="absolute top-1/2 left-1/2 opacity-20 transform -translate-1/2 w-250 h-250 2xl:w-300 2xl:h-300 pointer-events-none select-none">
                 <Code className="w-full h-full" />
             </div>
