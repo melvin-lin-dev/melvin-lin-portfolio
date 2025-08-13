@@ -42,8 +42,8 @@ export default function WorkExperienceTimelineItem({ workExperience, isActive }:
                             htmlFor={collapsableId}
                             className={`absolute bottom-0 right-0 z-10 flex items-end space-x-1 cursor-pointer transition-all ${isActive ? "hover:text-white/60" : "text-cyan-500 hover:text-cyan-700"}`}
                         >
-                            <span>Show more</span>
-                            <ChevronDown className="icon w-5 h-5" />
+                            <span className="text-sm sm:text-base">Show More</span>
+                            <ChevronDown className="icon w-4 h-4 sm:w-5 sm:h-5" />
                         </label>
                     </>
                 )}
