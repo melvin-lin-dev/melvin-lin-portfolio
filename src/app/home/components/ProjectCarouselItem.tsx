@@ -1,10 +1,8 @@
+import StackBadges from "@/common/components/StackBadges";
 import type { Project } from "@/lib/modules/project/models/project.model";
-import STACK_COLORS from "@/lib/shared/constants/stack-colors";
-import type { Stack } from "@/lib/shared/types/stack";
 import Image from "next/image";
 import type { ReactElement } from "react";
 import ProjectCodeModal from "./ProjectCodeModal";
-import StackBadges from "@/common/components/StackBadges";
 
 type ProjectCarouselItemProps = {
     project: Project;

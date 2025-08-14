@@ -2,10 +2,8 @@
 
 import StackBadges from "@/common/components/StackBadges";
 import type { WorkExperience } from "@/lib/modules/work-experience/models/work-experience.model";
-import STACK_COLORS from "@/lib/shared/constants/stack-colors";
-import type { Stack } from "@/lib/shared/types/stack";
 import { ChevronDown } from "lucide-react";
-import { useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
 
 interface WorkExperienceTimelineItemProps {
     workExperience: WorkExperience;
