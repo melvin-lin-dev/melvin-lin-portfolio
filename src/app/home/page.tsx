@@ -1,23 +1,39 @@
 import "@xyflow/react/dist/style.css";
 import { type ReactElement } from "react";
 
+import { MousePointerClick, SquareMousePointer } from "lucide-react";
 import "react-responsive-3d-carousel/dist/styles.css";
 import SkillLegendContainer from "../../common/containers/SkillLegendContainer";
 import AboutContainer from "./containers/about/AboutContainer";
 import EducationTimelineContainer from "./containers/education/TimelineContainer";
+import EmailFormContainer from "./containers/external-profile/EmailFormContainer";
 import ExternalProfileContainer from "./containers/external-profile/ExternalProfileContainer";
 import HeroContainer from "./containers/hero/hero-container/HeroContainer";
 import ProjectCarouselContainer from "./containers/project-highlight/ProjectCarouselContainer";
 import QuoteContainer from "./containers/quote/QuoteContainer";
 import SkillContainer from "./containers/skill/SkillContainer";
 import WorkExperienceTimelineContainer from "./containers/work-experience/TimelineContainer";
-import EmailFormContainer from "./containers/external-profile/EmailFormContainer";
 
 export default function HomePage(): ReactElement {
     return (
         <>
             <HeroContainer />
-            <QuoteContainer />
+            <section id="quote-section" className="py-16 md:py-20 lg:py-28">
+                <div className="px-5 mb-8 flex items-center space-x-3 justify-center">
+                    <div className="py-1.5 px-4 bg-slate-100 text-gray-500 border border-gray-300 rounded-full flex items-center space-x-2 text-sm">
+                        <SquareMousePointer className="w-5 h-5" />
+                        <span>
+                            <b>Hover</b> to pause
+                        </span>
+                        <span>•</span>
+                        <MousePointerClick className="w-5 h-5" />
+                        <span>
+                            <b>Click</b> to next quote
+                        </span>
+                    </div>
+                </div>
+                <QuoteContainer />
+            </section>
             <AboutContainer />
             <section>
                 <div className="container max-w-5xl 2xl:max-w-7xl py-12 md:py-16 lg:py-20">
