@@ -4,6 +4,11 @@
         "thumbnail": "star-battle.jpg",
         "title": "Star Battle",
         "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
         "repositoryLink": "",
         "codeSnippets": [
             {
@@ -28,6 +33,11 @@
         "thumbnail": "star-battle.jpg",
         "title": "Star Battle",
         "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
         "repositoryLink": "",
         "codeSnippets": [
             {
@@ -52,6 +62,11 @@
         "thumbnail": "star-battle.jpg",
         "title": "Star Battle",
         "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
         "repositoryLink": "",
         "codeSnippets": [
             {
