@@ -1,5 +1,5 @@
 const portfolio = {
-    name: "Luckeh",
+    name: "Melvin",
     role: "Full Stack Developer",
     skills: ["Vue", "Angular", "Laravel"],
 };

@@ -52,7 +52,7 @@ export default function EmailFormContainer(): ReactElement {
                             <Boxes className="w-5 h-5" />
                         </span>
                         <Select name="subject" defaultValue="General">
-                            <SelectTrigger className="w-full py-3 pl-9 text-sm text-gray-900 text-center bg-transparent rounded-none border-0 border-b-2 border-gray-300">
+                            <SelectTrigger className="w-full py-3 pl-9 text-sm text-gray-900 text-center bg-transparent rounded-none border-0 border-b-2 border-gray-300 shadow-none focus-visible:ring-0">
                                 <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
