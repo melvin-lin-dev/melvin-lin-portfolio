@@ -1,5 +1,6 @@
 "use client";
 
+import StackBadges from "@/common/components/StackBadges";
 import type { WorkExperience } from "@/lib/modules/work-experience/models/work-experience.model";
 import STACK_COLORS from "@/lib/shared/constants/stack-colors";
 import type { Stack } from "@/lib/shared/types/stack";
@@ -60,25 +61,7 @@ export default function WorkExperienceTimelineItem({ workExperience, isActive }:
                 </ul>
             </div>
             <div className="mt-3">
-                <ul className="-ml-2 -mt-2 flex flex-wrap items-center">
-                    {Object.entries(workExperience.stacks).map(([stack, values]) => (
-                        <>
-                            {values.map((value) => (
-                                <li key={value} className="pl-2 pt-2">
-                                    <span
-                                        className={`py-0.5 px-2 text-xs font-medium rounded-full`}
-                                        style={{
-                                            color: isActive ? STACK_COLORS[stack as Stack] : "white",
-                                            backgroundColor: isActive ? "white" : STACK_COLORS[stack as Stack],
-                                        }}
-                                    >
-                                        {value}
-                                    </span>
-                                </li>
-                            ))}
-                        </>
-                    ))}
-                </ul>
+                <StackBadges stacks={workExperience.stacks} isColorInverted={isActive} />
             </div>
         </>
     );

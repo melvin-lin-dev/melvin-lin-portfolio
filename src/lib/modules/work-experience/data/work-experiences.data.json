@@ -25,8 +25,8 @@
             "Configured, deployed, & maintained web servers using Nginx"
         ],
         "stacks": {
+            "programmingLanguages": ["PHP", "Python"],
             "frameworks": ["Vue", "Laravel", "Flutter"],
-            "languages": ["PHP", "Python"],
             "databases": ["MySQL"],
             "tools": ["Figma", "Nginx"]
         }
@@ -57,8 +57,8 @@
             "Configured, deployed, & maintained web servers using Nginx"
         ],
         "stacks": {
+            "programmingLanguages": ["PHP", "Python"],
             "frameworks": ["Vue", "Laravel", "Flutter"],
-            "languages": ["PHP", "Python"],
             "databases": ["MySQL"],
             "tools": ["Figma", "Nginx"]
         }
@@ -85,8 +85,8 @@
         ],
         "stacks": {
             "frameworks": ["Angular"],
-            "cssFrameworks": ["Tailwind CSS"],
-            "preprocessors": ["Sass"]
+            "preprocessors": ["Sass"],
+            "cssFrameworks": ["Tailwind CSS"]
         }
     },
     {
@@ -113,8 +113,8 @@
             "Developed using React, TypeScript, PostgreSQL, Java, Python, and CodeIgniter"
         ],
         "stacks": {
+            "programmingLanguages": ["TypeScript", "Java", "Python"],
             "frameworks": ["React", "CodeIgniter"],
-            "languages": ["TypeScript", "Java", "Python"],
             "databases": ["PostgreSQL"]
         }
     },
@@ -140,8 +140,8 @@
         ],
         "stacks": {
             "frameworks": ["Angular"],
-            "cssFrameworks": ["Tailwind CSS"],
-            "preprocessors": ["Sass"]
+            "preprocessors": ["Sass"],
+            "cssFrameworks": ["Tailwind CSS"]
         }
     },
     {

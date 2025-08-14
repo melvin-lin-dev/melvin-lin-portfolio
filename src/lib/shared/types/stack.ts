@@ -1,1 +1,1 @@
-export type Stack = "frameworks" | "languages" | "cssFrameworks" | "preprocessors" | "databases" | "tools";
+export type Stack = "programmingLanguages" | "markupLanguages" | "styleLanguages" | "frameworks" | "preprocessors" | "cssFrameworks" | "databases" | "tools";
