@@ -37,7 +37,7 @@ export default function AchievementContainer(): ReactElement {
         if (detail) {
             contentRef.current!.style.opacity = "0";
             await delay(contentDuration);
-            
+
             effect.style.padding = "0";
             await delay(effectDuration);
         }
@@ -99,7 +99,7 @@ export default function AchievementContainer(): ReactElement {
                                 className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border"
                                 style={{
                                     backgroundColor: achievement.organizationStyle.backgroundColor,
-                                    borderColor: !detail || detail.id == achievement.id ? "transparent" : achievement.organizationStyle.color,
+                                    borderColor: !detail || detail?.id == achievement.id ? "transparent" : detail.organizationStyle.color,
                                     cursor: detail?.id == achievement.id ? "default" : "pointer",
                                 }}
                                 onClick={(e) => handleClick(e, achievement)}
