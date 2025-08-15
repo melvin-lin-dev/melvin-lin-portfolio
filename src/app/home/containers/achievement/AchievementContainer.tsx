@@ -26,7 +26,7 @@ export default function AchievementContainer(): ReactElement {
     };
 
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>, achievement: Achievement) => {
-        if (isAnimatingRef.current || detail?.id === achievement.id) return;
+        if (isAnimatingRef.current) return;
         isAnimatingRef.current = true;
 
         const el = e.currentTarget;
@@ -40,6 +40,12 @@ export default function AchievementContainer(): ReactElement {
 
             effect.style.padding = "0";
             await delay(effectDuration);
+
+            if (detail.id === achievement.id) {
+                setDetail(null);
+                isAnimatingRef.current = false;
+                return;
+            }
         }
 
         startEffectAnimation(el, achievement);
@@ -96,13 +102,12 @@ export default function AchievementContainer(): ReactElement {
                         {achievements.map((achievement) => (
                             <button
                                 key={achievement.id}
-                                className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border"
+                                className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border transition-transform hover:scale-[1.2]"
                                 style={{
                                     backgroundColor: achievement.organizationStyle.backgroundColor,
                                     borderColor: !detail || detail?.id == achievement.id ? "transparent" : detail.organizationStyle.color,
-                                    cursor: detail?.id == achievement.id ? "default" : "pointer",
                                 }}
-                                onClick={(e) => handleClick(e, achievement)}
+                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleClick(e, achievement)}
                             >
                                 <Image src={`/images/organizations/${achievement.organizationImage}`} alt={`${achievement.organizationImage} Logo`} className="object-contain -rotate-45" width={32} height={32} />
                             </button>
