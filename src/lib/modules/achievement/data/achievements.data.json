@@ -4,31 +4,39 @@
         "name": "5th Place - Web Technologies - Second Virtual Skills Competition",
         "image": "5th Place - Web Technologies - Second Virtual Skills Competition.jpg",
         "organization": "WorldSkills India",
-        "organizationImage": "world-skills-india.jpg",
-        "date": "May 2020"
+        "organizationImage": "world-skills.webp",
+        "organizationStyle": {"color": "white", "backgroundColor": "#4A0D66"},
+        "date": "May 2020",
+        "descriptions": ["Placed 5th internationally", "Developed frontend business app (Angular)"]
     },
     {
         "id": "hago",
         "name": "Best Student Award - Jawara Game Indonesia",
         "image": "Best Student Award - Jawara Game Indonesia.jpg",
         "organization": "Hago Indonesia",
-        "organizationImage": "hago.jpg",
-        "date": "Dec 2019"
+        "organizationImage": "hago.png",
+        "organizationStyle": {"color": "#364153", "backgroundColor": "#FEE706"},
+        "date": "Dec 2019",
+        "descriptions": ["Developed a medium scale 2D game development project (JavaScript), playable on mobile"]
     },
     {
         "id": "asc-selection",
         "name": "2nd Place - Web Technologies - National Selection for The 13th ASEAN Skills Competition",
         "image": "2nd Place - Web Technologies - National Selection for The 13th ASEAN Skills Competition.jpeg",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
-        "organizationImage": "kemnaker.jpg",
-        "date": "Aug 2019"
+        "organizationImage": "kemnaker.webp",
+        "organizationStyle": {"color": "white", "backgroundColor": "#14406A"},
+        "date": "Aug 2019",
+        "descriptions": ["Placed 2nd nationally among participants from 30+ provinces in Indonesia", "Developed CMS app (WordPress), full stack business app (Angular & Laravel), and 2D game dev (JavaScript)"]
     },
     {
         "id": "lks",
         "name": "2nd Place - Web Design & Development - National Competition",
         "image": "2nd Place - Web Design & Development - National Competition.jpeg",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
-        "organizationImage": "kemnaker.jpg",
-        "date": "May 2018"
+        "organizationImage": "kemnaker.webp",
+        "organizationStyle": {"color": "white", "backgroundColor": "#14406A"},
+        "date": "May 2018",
+        "descriptions": ["Placed 2nd nationally among participants from 30+ provinces in Indonesia", "Developed CMS app (WordPress), full stack business app (Angular & Laravel), and 2D game dev (JavaScript)"]
     }
 ]

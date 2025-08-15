@@ -5,6 +5,7 @@ import { MousePointerClick, SquareMousePointer } from "lucide-react";
 import "react-responsive-3d-carousel/dist/styles.css";
 import SkillLegendContainer from "../../common/containers/SkillLegendContainer";
 import AboutContainer from "./containers/about/AboutContainer";
+import AchievementContainer from "./containers/achievement/AchievementContainer";
 import EducationTimelineContainer from "./containers/education/TimelineContainer";
 import EmailFormContainer from "./containers/external-profile/EmailFormContainer";
 import ExternalProfileContainer from "./containers/external-profile/ExternalProfileContainer";
@@ -45,22 +46,23 @@ export default function HomePage(): ReactElement {
             <section className="py-12 md:py-16 lg:py-20">
                 <div className="container">
                     <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 uppercase tracking-wider">Project Highlights</h2>
-                    <ProjectCarouselContainer></ProjectCarouselContainer>
+                    <ProjectCarouselContainer />
                 </div>
             </section>
             <section className="pt-12 md:pt-16 lg:pt-32 bg-slate-100">
                 <div className="container">
                     <h2 className="mb-8 md:mb-12 lg:mb-20 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-center">Work Experience</h2>
-                    <WorkExperienceTimelineContainer></WorkExperienceTimelineContainer>
+                    <WorkExperienceTimelineContainer />
                 </div>
             </section>
-            <section className="pt-28 md:pt-32 lg:pt-40 bg-linear-to-b from-slate-100 to-transparent">
+            <section className="pb-12 md:pb-16 lg:pb-20 pt-28 md:pt-32 lg:pt-40 bg-linear-to-b from-slate-100 to-transparent">
                 <div className="container">
                     <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider">Education</h2>
-                    <EducationTimelineContainer></EducationTimelineContainer>
+                    <EducationTimelineContainer />
                 </div>
             </section>
-            <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-28 relative bg-[radial-gradient(closest-corner_at_65%_40%,_#CFFAFE,_transparent_50%),radial-gradient(closest-corner_at_35%_65%,_#CFFBE4,_transparent_85%)]">
+            <AchievementContainer />
+            <section className="py-16 md:py-20 lg:py-28 relative bg-[radial-gradient(closest-corner_at_65%_40%,_#CFFAFE,_transparent_50%),radial-gradient(closest-corner_at_35%_65%,_#CFFBE4,_transparent_85%)]">
                 <div className="container">
                     <h2 className="mb-10 md:mb-12 lg:mb-16 text-2xl sm:text-3xl md:text-4xl font-bold text-center uppercase tracking-wider">Let&apos;s Connect</h2>
                     <ExternalProfileContainer />
