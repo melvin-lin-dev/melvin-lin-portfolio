@@ -3,6 +3,7 @@
 import type { Achievement } from "@/lib/modules/achievement/models/achievement.model";
 import { getAchievements } from "@/lib/modules/achievement/services/achievement.service";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
+import { delay } from "@/lib/shared/utils/time";
 import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactElement } from "react";
@@ -24,59 +25,45 @@ export default function AchievementContainer(): ReactElement {
         return padding;
     };
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>, achievement: Achievement) => {
-        if (isAnimatingRef.current || detail?.id == achievement.id) return;
+    const handleClick = async (e: React.MouseEvent<HTMLButtonElement>, achievement: Achievement) => {
+        if (isAnimatingRef.current || detail?.id === achievement.id) return;
         isAnimatingRef.current = true;
 
         const el = e.currentTarget;
         const effect = effectRef.current!;
-
         const effectDuration = 250;
         const contentDuration = 250;
 
         if (detail) {
             contentRef.current!.style.opacity = "0";
-
-            setTimeout(() => {
-                effect.style.padding = "0";
-
-                setTimeout(() => {
-                    startAnimation();
-                }, effectDuration);
-            }, contentDuration);
-        } else {
-            startAnimation();
+            await delay(contentDuration);
+            
+            effect.style.padding = "0";
+            await delay(effectDuration);
         }
 
-        function startAnimation() {
-            setDetail(achievement);
-            startEffectAnimation();
+        startEffectAnimation(el, achievement);
+        setDetail(achievement);
 
-            setTimeout(() => {
-                startContentAnimation();
+        await delay(effectDuration);
+        contentRef.current!.style.opacity = "1";
 
-                setTimeout(() => {
-                    isAnimatingRef.current = false;
-                }, contentDuration);
-            }, effectDuration);
-        }
-
-        function startEffectAnimation() {
-            const rect = el.getBoundingClientRect();
-            const parentRect = sectionRef.current!.getBoundingClientRect();
-            const x = ((rect.left + rect.width / 2 - parentRect.left) / parentRect.width) * 100;
-            const y = ((rect.top + rect.height / 2 - parentRect.top) / parentRect.height) * 100;
-
-            effect.style.left = `${x}%`;
-            effect.style.top = `${y}%`;
-            effect.style.backgroundColor = achievement.organizationStyle.backgroundColor;
-            effect.style.padding = getPadding();
-        }
-
-        function startContentAnimation() {
-            contentRef.current!.style.opacity = "1";
-        }
+        await delay(contentDuration);
+        isAnimatingRef.current = false;
     };
+
+    function startEffectAnimation(el: HTMLButtonElement, achievement: Achievement) {
+        const rect = el.getBoundingClientRect();
+        const parentRect = sectionRef.current!.getBoundingClientRect();
+        const x = ((rect.left + rect.width / 2 - parentRect.left) / parentRect.width) * 100;
+        const y = ((rect.top + rect.height / 2 - parentRect.top) / parentRect.height) * 100;
+
+        const effect = effectRef.current!;
+        effect.style.left = `${x}%`;
+        effect.style.top = `${y}%`;
+        effect.style.backgroundColor = achievement.organizationStyle.backgroundColor;
+        effect.style.padding = getPadding();
+    }
 
     useEffect(() => {
         const handleResize = () => {
