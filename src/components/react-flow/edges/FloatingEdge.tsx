@@ -1,7 +1,10 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
+import { shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
 import { getEdgeParams } from "@/lib/utils/react-flow/floating-edge";
 import { getBezierPath, getSmoothStepPath, useInternalNode } from "@xyflow/react";
+import { motion } from "framer-motion";
 
 interface FloatingEdgeProps {
     id: string;
@@ -36,11 +39,6 @@ export default function FloatingEdge({ id, source, target, style, data = { edgeT
                 ...edgeConfig,
             });
             break;
-        // case "step":
-        //     [edgePath] = getStepPath({
-        //         ...edgeConfig,
-        //     });
-        //     break;
         case "bezier":
         default:
             [edgePath] = getBezierPath({
@@ -49,5 +47,5 @@ export default function FloatingEdge({ id, source, target, style, data = { edgeT
             break;
     }
 
-    return <path id={id} className="react-flow__edge-path" d={edgePath} style={style} />;
+    return <Animate tag="path" variants={shrinkFadeIn} id={id} className="react-flow__edge-path" d={edgePath} style={style} />;
 }

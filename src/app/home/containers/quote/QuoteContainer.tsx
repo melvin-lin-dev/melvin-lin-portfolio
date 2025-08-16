@@ -1,6 +1,8 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
 import quotes from "@/lib/modules/quote/constants/quotes";
+import { popIn } from "@/lib/utils/framer-motion/motions";
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 import QuoteItem from "../../components/QuoteItem";
 import styles from "./quote-container.module.scss";
@@ -56,7 +58,7 @@ export default function QuoteContainer(): ReactElement {
     }, [startTimer]);
 
     return (
-        <div className={styles.quoteSection}>
+        <Animate variants={popIn} className={styles.quoteSection}>
             <div className="container relative">
                 <div
                     style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }}
@@ -70,6 +72,6 @@ export default function QuoteContainer(): ReactElement {
                     ))}
                 </div>
             </div>
-        </div>
+        </Animate>
     );
 }

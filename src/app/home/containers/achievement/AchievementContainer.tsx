@@ -1,9 +1,12 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
+import AnimateChild from "@/components/framer-motion/AnimateChild";
 import type { Achievement } from "@/lib/modules/achievement/models/achievement.model";
 import { getAchievements } from "@/lib/modules/achievement/services/achievement.service";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import { delay } from "@/lib/shared/utils/time";
+import { fadeIn } from "@/lib/utils/framer-motion/motions";
 import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactElement } from "react";
@@ -98,21 +101,22 @@ export default function AchievementContainer(): ReactElement {
                     }}
                 />
                 <div className="relative flex justify-center transition-all" style={{ top: detail ? "0" : "-32px" }}>
-                    <div className="grid grid-cols-2 gap-2 rotate-45">
-                        {achievements.map((achievement) => (
-                            <button
-                                key={achievement.id}
-                                className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border transition-transform hover:scale-[1.2]"
-                                style={{
-                                    backgroundColor: achievement.organizationStyle.backgroundColor,
-                                    borderColor: !detail || detail?.id == achievement.id ? "transparent" : detail.organizationStyle.color,
-                                }}
-                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleClick(e, achievement)}
-                            >
-                                <Image src={`/images/organizations/${achievement.organizationImage}`} alt={`${achievement.organizationImage} Logo`} className="object-contain -rotate-45" width={32} height={32} />
-                            </button>
+                    <Animate staggerChildren={.25} className="grid grid-cols-2 gap-2 rotate-45">
+                        {achievements.map((achievement, i) => (
+                            <AnimateChild key={achievement.id} variants={fadeIn(i)} className={i === 0 ? "order-1" : i === 1 ? "order-2" : i === 2 ? "order-4" : "order-3"}>
+                                <button
+                                    className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border transition-transform hover:scale-[1.2]"
+                                    style={{
+                                        backgroundColor: achievement.organizationStyle.backgroundColor,
+                                        borderColor: !detail || detail?.id == achievement.id ? "transparent" : detail.organizationStyle.color,
+                                    }}
+                                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleClick(e, achievement)}
+                                >
+                                    <Image src={`/images/organizations/${achievement.organizationImage}`} alt={`${achievement.organizationImage} Logo`} className="object-contain -rotate-45" width={32} height={32} />
+                                </button>
+                            </AnimateChild>
                         ))}
-                    </div>
+                    </Animate>
                 </div>
                 {detail && (
                     <div ref={contentRef} className="container relative mt-12 text-center transition-opacity" style={{ opacity: "0", color: detail.organizationStyle.color }}>

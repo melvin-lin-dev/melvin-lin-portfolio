@@ -1,6 +1,7 @@
 "use client";
 
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
+import SmoothStepEdge from "@/components/react-flow/edges/SmoothStepEdge";
 import AboutNode from "@/components/react-flow/nodes/AboutNode";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import type { Screen } from "@/lib/shared/types/screen";
@@ -249,7 +250,7 @@ function AboutFlow(): ReactElement {
                     nodes={nodes}
                     edges={edges}
                     nodeTypes={{ about: AboutNode }}
-                    edgeTypes={{ floating: FloatingEdge }}
+                    edgeTypes={{ smoothstep: SmoothStepEdge, floating: FloatingEdge }}
                     defaultEdgeOptions={{
                         type: "floating",
                     }}

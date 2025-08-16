@@ -1,6 +1,8 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
 import { profileRoleColors, profileTitles } from "@/lib/modules/profile/constants/profile-titles";
+import { horizontalGrow } from "@/lib/utils/framer-motion/motions";
 import { Download, MapPin } from "lucide-react";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import { TypeAnimation } from "react-type-animation";
@@ -51,27 +53,27 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
     const sequence = profileTitles.flatMap((item) => ["", () => setTextColor(profileRoleColors[item.category]), item.text, 1500]);
 
     return (
-        <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-center" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-center bg-red-500" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className="py-20 md:py-28 lg:py-40 xl:py-52 2xl:py-68 container min-[1700px]:max-w-[1600px] mx-auto h-full flex items-center">
                 <div className="w-full relative">
                     <div className="relative z-[1]">
                         <Cube3DContainer />
                         <div className="md:mt-8 lg:mt-0">
                             <div className="space-y-6">
-                                <h1 className="text-6xl sm:text-7xl font-bold tracking-wider">Melvin Lin</h1>
-                                <div className={`py-1 px-2 sm:py-1.5 sm:px-3 inline-block bg-white/70 rounded-lg text-2xl sm:text-3xl ${textColor}`}>
+                                <Animate tag="h1" variants={horizontalGrow()} className="text-6xl sm:text-7xl font-bold tracking-wider">Melvin Lin</Animate>
+                                <Animate variants={horizontalGrow()} delay={.25} className={`py-1 px-2 sm:py-1.5 sm:px-3 inline-block bg-white/70 rounded-lg text-2xl sm:text-3xl ${textColor}`}>
                                     <TypeAnimation sequence={sequence} wrapper="span" speed={50} repeat={Infinity} />
-                                </div>
+                                </Animate>
                             </div>
                             <div className="mt-8 md:mb-12 space-y-4 text-[22px]">
-                                <div className="flex items-center space-x-3 text-sm sm:text-base">
+                                <Animate variants={horizontalGrow()} delay={.25} className="flex items-center space-x-3 text-sm sm:text-base">
                                     <MapPin className="w-6 h-6" />
                                     <p>Indonesia (Willing to Relocate Overseas)</p>
-                                </div>
-                                <div className="flex items-center space-x-3 text-sm sm:text-base">
+                                </Animate>
+                                <Animate variants={horizontalGrow()} delay={.5} className="flex items-center space-x-3 text-sm sm:text-base">
                                     <span className="ml-0.5 w-5 h-5 bg-green-400 rounded-full border-2 border-white" aria-label="Available"></span>
                                     <p>Available Immediately</p>
-                                </div>
+                                </Animate>
                             </div>
                             <div className="my-8 md:my-0 block md:hidden">
                                 <SimpleContact3DContainer />
