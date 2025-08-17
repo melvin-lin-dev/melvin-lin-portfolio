@@ -4,7 +4,6 @@ import Animate from "@/components/framer-motion/Animate";
 import { shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
 import { getEdgeParams } from "@/lib/utils/react-flow/floating-edge";
 import { getBezierPath, getSmoothStepPath, useInternalNode } from "@xyflow/react";
-import { motion } from "framer-motion";
 
 interface FloatingEdgeProps {
     id: string;

@@ -4,7 +4,7 @@ import { getSkill } from "@/lib/modules/skill/services/skill.service";
 import { fadeUpScale, popIn } from "@/lib/utils/framer-motion/motions";
 import type { ReactElement } from "react";
 import SkillToolItem from "../../components/SkillToolItem";
-import SkillWindRoseChartContainer from "./WindRoseChartContainer";
+import WindRoseChartContainer from "./WindRoseChartContainer";
 
 export default function SkillContainer(): ReactElement {
     const skill = getSkill();
@@ -15,13 +15,13 @@ export default function SkillContainer(): ReactElement {
                 <div>
                     <h3 className="mb-5 text-lg sm:text-xl md:text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>
                     <Animate variants={popIn} className="text-center">
-                        <SkillWindRoseChartContainer skillProficiencies={skill.languages} />
+                        <WindRoseChartContainer skillProficiencies={skill.languages} />
                     </Animate>
                 </div>
                 <div>
                     <h3 className="mb-5 text-lg sm:text-xl md:text-2xl font-semibold text-center text-gray-700">Frameworks</h3>
                     <Animate variants={popIn} delay={.25} className="text-center">
-                        <SkillWindRoseChartContainer skillProficiencies={skill.frameworks} />
+                        <WindRoseChartContainer skillProficiencies={skill.frameworks} />
                     </Animate>
                 </div>
             </div>

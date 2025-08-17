@@ -7,6 +7,7 @@ import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import type { Screen } from "@/lib/shared/types/screen";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { ReactFlow, ReactFlowProvider, useReactFlow, type Edge, type Node, type XYPosition } from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 
 const nodeHeight = 220;

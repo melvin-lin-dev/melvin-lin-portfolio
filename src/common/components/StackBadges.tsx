@@ -1,4 +1,3 @@
-import STACK_COLORS from "@/lib/shared/constants/stack-colors";
 import type { Stack } from "@/lib/shared/types/stack";
 import type { ReactElement } from "react";
 import StackBadge from "./StackBadge";

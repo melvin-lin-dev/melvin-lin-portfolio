@@ -1,10 +1,8 @@
-import "@xyflow/react/dist/style.css";
 import { type ReactElement } from "react";
 
 import Animate from "@/components/framer-motion/Animate";
 import { fadeUp, popIn } from "@/lib/utils/framer-motion/motions";
 import { MousePointerClick, SquareMousePointer } from "lucide-react";
-import "react-responsive-3d-carousel/dist/styles.css";
 import SkillLegendContainer from "../../common/containers/SkillLegendContainer";
 import AboutContainer from "./containers/about/AboutContainer";
 import AchievementContainer from "./containers/achievement/AchievementContainer";

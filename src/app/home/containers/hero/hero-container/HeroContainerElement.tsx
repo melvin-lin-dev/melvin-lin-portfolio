@@ -53,7 +53,7 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
     const sequence = profileTitles.flatMap((item) => ["", () => setTextColor(profileRoleColors[item.category]), item.text, 1500]);
 
     return (
-        <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-center bg-red-500" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-red-500" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className="py-20 md:py-28 lg:py-40 xl:py-52 2xl:py-68 container min-[1700px]:max-w-[1600px] mx-auto h-full flex items-center">
                 <div className="w-full relative">
                     <div className="relative z-[1]">

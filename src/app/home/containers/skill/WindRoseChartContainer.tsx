@@ -16,7 +16,7 @@ type SkillWindRoseChartProps = {
     skillProficiencies: SkillProficiency[];
 };
 
-export default function SkillWindRoseChartContainer({ skillProficiencies }: SkillWindRoseChartProps): ReactElement {
+export default function WindRoseChartContainer({ skillProficiencies }: SkillWindRoseChartProps): ReactElement {
     const skillFrameworks = useMemo(() => buildSkillLevelLayers(skillLevels, skillProficiencies), [skillProficiencies]);
 
     const [size, setSize] = useState<Size>({ width: 0, height: 0 });
@@ -47,33 +47,35 @@ export default function SkillWindRoseChartContainer({ skillProficiencies }: Skil
     }, []);
 
     return (
-        <WindRoseChartClient
-            data={skillFrameworks}
-            layout={{
-                dragmode: false,
-                margin: { t: 0, b: 0 },
-                width: size.width,
-                height: size.height,
-                polar: {
-                    radialaxis: {
-                        visible: true,
-                        fixedrange: true,
-                        range: [0, 10],
-                        tickfont: { size: 12, color: "#666" },
+        <div style={{ height: size.height + "px" }}>
+            <WindRoseChartClient
+                data={skillFrameworks}
+                layout={{
+                    dragmode: false,
+                    margin: { t: 0, b: 0 },
+                    width: size.width,
+                    height: size.height,
+                    polar: {
+                        radialaxis: {
+                            visible: true,
+                            fixedrange: true,
+                            range: [0, 10],
+                            tickfont: { size: 12, color: "#666" },
+                        },
+                        angularaxis: { fixedrange: true, tickfont: { size: 12 } },
                     },
-                    angularaxis: { fixedrange: true, tickfont: { size: 12 } },
-                },
-                showlegend: false,
-                hoverlabel: {
-                    bgcolor: "rgba(50,50,50,0.9)",
-                    bordercolor: "#888",
-                    font: { color: "#eee" },
-                },
-            }}
-            config={{
-                displayModeBar: false,
-                scrollZoom: false,
-            }}
-        />
+                    showlegend: false,
+                    hoverlabel: {
+                        bgcolor: "rgba(50,50,50,0.9)",
+                        bordercolor: "#888",
+                        font: { color: "#eee" },
+                    },
+                }}
+                config={{
+                    displayModeBar: false,
+                    scrollZoom: false,
+                }}
+            />
+        </div>
     );
 }
