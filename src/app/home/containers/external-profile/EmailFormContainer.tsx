@@ -1,6 +1,7 @@
 "use client";
 
 import Alert, { type AlertType } from "@/common/components/Alert";
+import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 import FloatingField from "@/common/components/FloatingLabel";
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
@@ -82,7 +83,7 @@ export default function EmailFormContainer(): ReactElement {
                         </AnimateChild>
                     </Animate>
 
-                    <input type="submit" value="Send" className="btn btn-secondary w-full" />
+                    <ElevatedButton className="w-full py-3 rounded-lg">Send Message</ElevatedButton>
                 </form>
             </div>
         </Animate>

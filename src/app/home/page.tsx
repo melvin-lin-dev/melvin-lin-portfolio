@@ -19,7 +19,7 @@ export default function HomePage(): ReactElement {
     return (
         <>
             <HeroContainer />
-            <section id="quote-section" className="py-16 md:py-20 lg:py-28">
+            <section className="py-16 md:py-20 lg:py-28">
                 <div className="px-5 mb-8 flex items-center space-x-3 justify-center">
                     <Animate variants={popIn} className="py-1.5 px-4 bg-slate-100 text-gray-500 border border-gray-300 rounded-full flex items-center space-x-2 text-sm">
                         <SquareMousePointer className="w-5 h-5" />

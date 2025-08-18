@@ -1,9 +1,9 @@
-import type { ReactElement, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
-import styles from "./three-dimension-button.module.scss";
 import clsx from "clsx";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
+import styles from "./three-dimension-button.module.scss";
 
 type ThreeDimensionButtonProps = {
-    children: React.ReactNode;
+    children: ReactNode;
     tag?: "button" | "a";
     color?: "emerald" | "teal" | "cyan" | "white" | "amber" | "gray";
     paddingClassName?: string;

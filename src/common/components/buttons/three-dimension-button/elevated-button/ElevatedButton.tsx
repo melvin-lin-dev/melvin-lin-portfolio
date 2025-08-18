@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactElement } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
 import styles from "./elevated-button.module.scss";
 
 type ElevatedButtonProps = {
-    children: React.ReactNode;
+    children: ReactNode;
     tag?: "button" | "a";
     color?: "emerald" | "teal" | "cyan" | "white" | "amber" | "gray";
 } & ButtonHTMLAttributes<HTMLButtonElement> &
