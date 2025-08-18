@@ -10,7 +10,12 @@ export default function Cube3DContainer(): ReactElement {
                 {profile3DLogos.map((logo) => (
                     <div key={logo.name} className={`${styles[logo.side]}`}>
                         <div>
-                            <Image src={`/images/${logo.image}`} alt={`${logo.name} Logo`} className="object-contain" fill />
+                            <Image
+                                src={`/images/${logo.image}`}
+                                alt={`${logo.name} Logo`}
+                                className="object-contain"
+                                fill
+                            />
                         </div>
                     </div>
                 ))}

@@ -1,0 +1,75 @@
+@use "sass:color";
+
+.elevated {
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, color 0.18s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.disabled,
+    &[aria-disabled="true"] {
+        opacity: 0.6;
+        box-shadow: none;
+        transform: none;
+        cursor: not-allowed;
+    }
+
+    @mixin elevated-theme($base, $hover: null, $active: null, $text: #fff) {
+        $hover: if($hover == null, color.scale($base, $lightness: 8%), $hover);
+        $active: if($active == null, color.scale($base, $lightness: -12%), $active);
+
+        background: $base;
+        color: $text;
+
+        &:hover {
+            background: $hover;
+        }
+        &:active {
+            background: $active;
+        }
+        &:focus-visible {
+            outline-color: $hover;
+        }
+    }
+
+    /* Variants */
+    @include elevated-theme(#10b981, #34d399, #047857);
+
+    &.emerald {
+        @include elevated-theme(#10b981, #34d399, #047857);
+    }
+    &.teal {
+        @include elevated-theme(#14b8a6, #2dd4bf, #0f766e);
+    }
+    &.cyan {
+        @include elevated-theme(#06b6d4, #22d3ee, #0e7490);
+    }
+    &.white {
+        @include elevated-theme(#e5e7eb, #ffffff, #9ca3af, #111827);
+    }
+    &.amber {
+        @include elevated-theme(#d97706, #f59e0b, #b45309);
+    }
+    &.gray {
+        @include elevated-theme(#d1d5db, #e5e7eb, #9ca3af, #111827);
+    }
+}

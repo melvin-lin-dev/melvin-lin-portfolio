@@ -3,6 +3,7 @@ import type { Project } from "@/lib/modules/project/models/project.model";
 import Image from "next/image";
 import type { ReactElement } from "react";
 import ProjectCodeModal from "./ProjectCodeModal";
+import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 
 type ProjectCarouselItemProps = {
     project: Project;
@@ -29,10 +30,10 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 opacity-100 transition-all delay-[.6s] group-hover:delay-0 group-hover:opacity-0"
                         />
                     </div>
-                    <div className="relative top-[200px] ml-auto space-x-2 transition-all group-hover:delay-[.6s] group-hover:top-0">
-                        <a href="" className="btn btn-secondary px-2">
+                    <div className="relative top-[200px] ml-auto flex items-center space-x-2 transition-all group-hover:delay-[.6s] group-hover:top-0">
+                        <ElevatedButton tag="a" href="" color="gray" className="py-2.5 px-4 rounded">
                             Repository
-                        </a>
+                        </ElevatedButton>
                         <ProjectCodeModal project={project}></ProjectCodeModal>
                     </div>
                 </div>
