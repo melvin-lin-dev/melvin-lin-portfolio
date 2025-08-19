@@ -1,6 +1,6 @@
 [
     {
-        "name": "1st Place - Web Design & Development - Province Competition (LKS)",
+        "title": "1st Place - Web Design & Development - Province Competition (LKS)",
         "image": "",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
         "organizationImage": "kemnaker.webp",
@@ -11,7 +11,7 @@
         "descriptions": ["Placed 1st provincially among 13 participants", "Integrated an existing e-commerce template, binding data with PHP and enhancing tables using jQuery DataTable"]
     },
     {
-        "name": "2nd Place - Web Design & Development - National Competition (LKS)",
+        "title": "2nd Place - Web Design & Development - National Competition (LKS)",
         "image": "2nd Place - Web Design & Development - National Competition.jpeg",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
         "organizationImage": "kemnaker.webp",
@@ -22,7 +22,7 @@
         "descriptions": ["Placed 2nd nationally among entrants from 30+ provinces", "Developed CMS app (WordPress), full-stack business app (Angular & Laravel), and a 2D JavaScript game"]
     },
     {
-        "name": "1st Place - Web Technologies - Province Selection for the 13th ASEAN Skills Competition",
+        "title": "1st Place - Web Technologies - Province Selection for the 13th ASEAN Skills Competition",
         "image": "",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
         "organizationImage": "kemnaker.webp",
@@ -33,7 +33,7 @@
         "descriptions": ["Placed 1st provincially among 10+ participants", "Developed CMS app (WordPress), business app (Laravel), and a 2D JavaScript game"]
     },
     {
-        "name": "2nd Place - Web Technologies - National Selection for the 13th ASEAN Skills Competition",
+        "title": "2nd Place - Web Technologies - National Selection for the 13th ASEAN Skills Competition",
         "image": "2nd Place - Web Technologies - National Selection for The 13th ASEAN Skills Competition.jpeg",
         "organization": "Kementerian Ketenagakerjaan Republik Indonesia",
         "organizationImage": "kemnaker.webp",
@@ -44,7 +44,7 @@
         "descriptions": ["Placed 2nd nationally among participants from 30+ provinces", "Developed CMS app (WordPress), full-stack business app (Angular & Laravel), and a 2D JavaScript game"]
     },
     {
-        "name": "Best Student Award - Jawara Game Indonesia",
+        "title": "Best Student Award - Jawara Game Indonesia",
         "image": "Best Student Award - Jawara Game Indonesia.jpg",
         "organization": "Hago Indonesia",
         "organizationImage": "hago.png",
@@ -55,7 +55,7 @@
         "descriptions": ["Developed a medium-scale 2D mobile game using JavaScript"]
     },
     {
-        "name": "5th Place - Web Technologies - Second Virtual Skills Competition",
+        "title": "5th Place - Web Technologies - Second Virtual Skills Competition",
         "image": "5th Place - Web Technologies - Second Virtual Skills Competition.jpg",
         "organization": "WorldSkills India",
         "organizationImage": "world-skills.webp",
@@ -66,7 +66,7 @@
         "descriptions": ["Placed 5th internationally", "Developed frontend business app using Angular"]
     },
     {
-        "name": "Participant of Hackathon X 1000 startup",
+        "title": "Participant of Hackathon X 1000 startup",
         "image": "",
         "organization": "",
         "organizationImage": "",

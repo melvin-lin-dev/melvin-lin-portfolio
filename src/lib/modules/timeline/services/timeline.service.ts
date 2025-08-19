@@ -1,4 +1,4 @@
-import type { Timeline } from "@/lib/shared/models/timeline.model";
+import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { getWorkExperiences } from "./work-experience.service";
 import { getEducations } from "./education.service";
 import { getCareerBreaks } from "./career-break.service";

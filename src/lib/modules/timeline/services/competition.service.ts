@@ -1,11 +1,11 @@
 import type { Competition } from "../models/competition.model";
 import competitions from "../data/competitions.data.json";
+import { TimelineCategory } from "../enums/timeline-category.enum";
 
 export function getCompetitions(): Competition[] {
     return competitions.map((competition, i) => ({
         ...competition,
-        id: i + 1,
-        icon: "trophy",
-        style: { icon: { background: "#14b8a6", color: "#fff" } },
+        id: `${TimelineCategory.Competition}-${i + 1}`,
+        category: TimelineCategory.Competition,
     }));
 }

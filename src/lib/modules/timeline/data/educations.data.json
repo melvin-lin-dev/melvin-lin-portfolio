@@ -2,7 +2,7 @@
     {
         "icon": "school",
         "image": "binus.png",
-        "name": "BINUS University",
+        "title": "BINUS University",
         "degree": "Bachelor's degree",
         "major": "Computer Science",
         "startDate": "August 2019",
@@ -12,7 +12,7 @@
     {
         "icon": "school",
         "image": "immanuel.png",
-        "name": "Immanuel Christian Vocational High School",
+        "title": "Immanuel Christian Vocational High School",
         "degree": "Graduate",
         "major": "Network Information Engineering",
         "startDate": "July 2016",

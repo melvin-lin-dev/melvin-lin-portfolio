@@ -1,37 +1,40 @@
 "use client";
 
-import type { Timeline } from "@/lib/shared/models/timeline.model";
+import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { StarIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { IconWrapper } from "../icon/lucide/IconWrapper";
+import { TimelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 
 type TimelineProps<T extends Timeline> = {
     data: T[];
     layout?: string;
-    style?: Partial<Pick<ComponentProps<typeof VerticalTimelineElement>, 'contentStyle' | 'contentArrowStyle'>>;
+    style?: Partial<Pick<ComponentProps<typeof VerticalTimelineElement>, "contentStyle" | "contentArrowStyle">>;
 
     children: (item: T, isActive: boolean) => React.ReactNode;
-}
+};
 
 export default function Timeline<T extends Timeline>({ data, layout, style = {}, children }: TimelineProps<T>) {
     return (
         <VerticalTimeline lineColor="#06b6d4" layout={layout}>
-            {data.map((timeline, i) => {
-                const defaultStyle: Pick<ComponentProps<typeof VerticalTimelineElement>, 'dateClassName' | 'iconStyle' | 'contentStyle' | 'contentArrowStyle'> = {
-                    dateClassName: ['!pb-0', '!float-right', 'xl:text-gray-700'],
-                    iconStyle: timeline.style?.icon || {},
+            {data.map((entry, i) => {
+                const entryMeta = TimelineMeta[entry.category];
+                
+                const defaultStyle: Pick<ComponentProps<typeof VerticalTimelineElement>, "dateClassName" | "iconStyle" | "contentStyle" | "contentArrowStyle"> = {
+                    dateClassName: ["!pb-0", "!float-right", "xl:text-gray-700"],
+                    iconStyle: entryMeta.style?.icon || {},
                     contentStyle: { ...style.contentStyle },
                     contentArrowStyle: { ...style.contentArrowStyle },
                 };
 
-                const isActive = timeline.endDate == "Today";
+                const isActive = entry.endDate == "Today";
 
                 if (isActive) {
                     const activeBackgroundColor = "#06b6d4";
 
-                    defaultStyle.dateClassName.push('!opacity-100');
+                    defaultStyle.dateClassName.push("!opacity-100");
 
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
@@ -46,21 +49,21 @@ export default function Timeline<T extends Timeline>({ data, layout, style = {},
 
                     defaultStyle.contentArrowStyle = {
                         ...defaultStyle.contentArrowStyle,
-                        borderRight: "7px solid "+ activeBackgroundColor,
+                        borderRight: "7px solid " + activeBackgroundColor,
                     };
                 }
 
                 return (
                     <VerticalTimelineElement
                         key={i}
-                        date={`${timeline.startDate} - ${timeline.endDate}`}
-                        dateClassName={defaultStyle.dateClassName.join(' ')}
-                        icon={<IconWrapper name={timeline.icon} />}
+                        date={`${entry.startDate} - ${entry.endDate}`}
+                        dateClassName={defaultStyle.dateClassName.join(" ")}
+                        icon={<IconWrapper name={entryMeta.icon} />}
                         iconStyle={defaultStyle.iconStyle}
                         contentStyle={defaultStyle.contentStyle}
                         contentArrowStyle={defaultStyle.contentArrowStyle}
                     >
-                        {children(timeline, isActive)}
+                        {children(entry, isActive)}
                     </VerticalTimelineElement>
                 );
             })}

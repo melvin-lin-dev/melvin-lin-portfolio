@@ -1,6 +1,6 @@
 [
   {
-    "name": "Training for Province Competition (LKS)",
+    "title": "Training for Province Competition (LKS)",
     "startDate": "2018-03",
     "endDate": "2018-04",
     "location": "(Pontianak, West Kalimantan) & Jakarta, Indonesia",
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "name": "Training for National Competition (LKS)",
+    "title": "Training for National Competition (LKS)",
     "startDate": "2018-04",
     "endDate": "2018-05",
     "location": "Pontianak, West Kalimantan, Indonesia",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "name": "Training for Province Selection - 13th ASEAN Skills Competition",
+    "title": "Training for Province Selection - 13th ASEAN Skills Competition",
     "startDate": "2019-07",
     "endDate": "2019-07",
     "location": "Pontianak, West Kalimantan, Indonesia",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "name": "Training for National Selection - 13th ASEAN Skills Competition",
+    "title": "Training for National Selection - 13th ASEAN Skills Competition",
     "startDate": "2019-07",
     "endDate": "2019-08",
     "location": "Pontianak, West Kalimantan, Indonesia",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "name": "Training Center Selection - 13th ASEAN Skills Competition (Cancelled due to COVID)",
+    "title": "Training Center Selection - 13th ASEAN Skills Competition (Cancelled due to COVID)",
     "startDate": "2018-08",
     "endDate": "2019-07",
     "location": "Jakarta, Indonesia",

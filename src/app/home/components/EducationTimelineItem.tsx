@@ -23,7 +23,7 @@ export default function EducationTimelineItem({ education, isActive }: Education
 
     return (
         <>
-            <h3 className="sm:text-lg md:text-xl font-semibold">{education.name}</h3>
+            <h3 className="sm:text-lg md:text-xl font-semibold">{education.title}</h3>
             <p className={`!mt-0 italic !font-normal ${style.content.position}`}>
                 {education.degree}, {education.major}
             </p>

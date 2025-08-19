@@ -1,6 +1,5 @@
-import type { Timeline } from "@/lib/shared/models/timeline.model";
+import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 
 export interface Training extends Timeline {
-    name: string;
     descriptions: string[]
 }

@@ -1,9 +1,8 @@
 [
     {
-        "id": 6,
         "image": "e-shia.png",
+        "title": "E-Shia Digital Solution",
         "position": "Software Engineer",
-        "company": "E-Shia Digital Solution",
         "workType": "On-site",
         "about": "Inventory, Accounting, POS, & Custom Applications",
         "employmentType": "Full-time",
@@ -32,10 +31,9 @@
         }
     },
     {
-        "id": 5,
         "image": "e-shia.png",
+        "title": "E-Shia Digital Solution",
         "position": "Software Engineer",
-        "company": "E-Shia Digital Solution",
         "workType": "On-site",
         "about": "Inventory, Accounting, POS, & Custom Applications",
         "employmentType": "Full-time",
@@ -64,10 +62,9 @@
         }
     },
     {
-        "id": 4,
         "image": "kemnaker.png",
+        "title": "PT. Pandawa Teknologi Nusantara",
         "position": "Frontend Web Developer",
-        "company": "PT. Pandawa Teknologi Nusantara",
         "workType": "Flexible (Remote or On-site)",
         "about": "Government Ministry Application",
         "employmentType": "Full-time",
@@ -90,10 +87,9 @@
         }
     },
     {
-        "id": 3,
         "image": "samsung.png",
+        "title": "Samsung R&D Institute Indonesia",
         "position": "Software Engineer",
-        "company": "Samsung R&D Institute Indonesia",
         "workType": "Remote (Occasional On-site Requirements)",
         "about": "Data Analysis Application",
         "employmentType": "Internship",
@@ -119,10 +115,9 @@
         }
     },
     {
-        "id": 2,
         "image": "kemnaker.png",
+        "title": "PT. Ammana Fintek Syariah",
         "position": "Frontend Web Developer",
-        "company": "PT. Ammana Fintek Syariah",
         "workType": "Remote (Occasional On-site Requirements)",
         "about": "Government Ministry Application",
         "employmentType": "Freelance",
@@ -145,10 +140,9 @@
         }
     },
     {
-        "id": 1,
         "image": "satumarket.png",
+        "title": "PT. Satu Aplikasi Untuk Semua",
         "position": "Full Stack Developer",
-        "company": "PT. Satu Aplikasi Untuk Semua",
         "workType": "On-site",
         "about": "Ecommerce Web Application",
         "employmentType": "Freelance",

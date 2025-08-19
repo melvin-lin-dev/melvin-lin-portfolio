@@ -1,7 +1,6 @@
-import type { Timeline } from "@/lib/shared/models/timeline.model";
+import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 
 export interface Competition extends Timeline {
-    name: string;
     image: string;
     organization: string;
     organizationImage: string;
