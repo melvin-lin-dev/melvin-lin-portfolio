@@ -1,4 +1,4 @@
 [
     { "platform": "LeetCode", "url": "https://leetcode.com/u/melvin-lin-dev", "icon": "leetcode", "description": "225+ problems solved (primarily Python)" },
-    { "platform": "Codewars", "url": "https://www.codewars.com/users/melvin-lin", "icon": "codewars", "description": "4 kyu rank, 850+ kata solved (initially JavaScript, now primarily Python)" }
+    { "platform": "Codewars", "url": "https://www.codewars.com/users/melvin-lin", "icon": "codewars", "description": "4 kyu rank, 125+ kata solved (initially JavaScript, now primarily Python)" }
 ]

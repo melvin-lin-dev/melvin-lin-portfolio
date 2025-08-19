@@ -1,7 +1,7 @@
 "use client";
 
 import Timeline from "@/components/react-vertical-timeline/Timeline";
-import { getWorkExperiences } from "@/lib/modules/work-experience/services/work-experience.service";
+import { getWorkExperiences } from "@/lib/modules/timeline/services/work-experience.service";
 import { useEffect, useState, type ReactElement } from "react";
 import WorkExperienceTimelineItem from "../../components/WorkExperienceTimelineItem";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";

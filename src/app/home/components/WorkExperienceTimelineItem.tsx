@@ -1,7 +1,7 @@
 "use client";
 
 import StackBadges from "@/common/components/StackBadges";
-import type { WorkExperience } from "@/lib/modules/work-experience/models/work-experience.model";
+import type { WorkExperience } from "@/lib/modules/timeline/models/work-experience.model";
 import { ChevronDown } from "lucide-react";
 import { type ReactElement } from "react";
 

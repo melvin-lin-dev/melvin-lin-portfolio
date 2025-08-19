@@ -1,6 +1,6 @@
 "use client";
 
-import type { Education } from "@/lib/modules/education/models/education.model";
+import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { ReactElement } from "react";
 
 interface EducationTimelineItemProps {
