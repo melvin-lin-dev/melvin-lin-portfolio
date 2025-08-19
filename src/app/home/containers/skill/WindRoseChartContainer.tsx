@@ -1,11 +1,11 @@
 "use client";
 
-import WindRoseChartClient from "@/components/react-plotly/WindRoseChartClient";
 import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
 import skillLevels from "@/lib/modules/skill/constants/skill-levels";
 import { buildSkillLevelLayers } from "@/lib/utils/react-plotly/wind-rose";
 import { useEffect, useMemo, useState, type ReactElement } from "react";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
+import Plot from "@/components/react-plotly/Plot";
 
 type Size = {
     width: number;
@@ -48,7 +48,7 @@ export default function WindRoseChartContainer({ skillProficiencies }: SkillWind
 
     return (
         <div style={{ height: size.height + "px" }}>
-            <WindRoseChartClient
+            <Plot
                 data={skillFrameworks}
                 layout={{
                     dragmode: false,
