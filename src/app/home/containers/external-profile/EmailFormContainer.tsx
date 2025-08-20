@@ -83,7 +83,7 @@ export default function EmailFormContainer(): ReactElement {
                         </AnimateChild>
                     </Animate>
 
-                    <ElevatedButton className="w-full py-3 rounded-lg">Send Message</ElevatedButton>
+                    <ElevatedButton className="w-full py-3 rounded-lg text-sm sm:text-base">Send Message</ElevatedButton>
                 </form>
             </div>
         </Animate>

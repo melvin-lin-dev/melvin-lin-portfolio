@@ -17,7 +17,7 @@ export default function ProjectCodeModal({ project }: ProjectCodeModal): ReactEl
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <ElevatedButton color="teal" className="py-2.5 px-4 rounded">
+                <ElevatedButton color="teal" className="text-sm sm:text-base py-2.5 px-4 rounded">
                     Code
                 </ElevatedButton>
             </DialogTrigger>

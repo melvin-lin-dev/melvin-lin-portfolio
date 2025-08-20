@@ -17,7 +17,7 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
                 <div className="relative h-full flex flex-col justify-between">
                     <div>
                         <h3 className="mb-3 text-lg sm:text-xl md:text-2xl font-semibold invisible">{project.title}</h3>
-                        <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full font-semibold text-5xl sm:group-text-6xl md:group-text-7xl tracking-wider whitespace-nowrap transition-all delay-[.3s] group-hover:delay-0 group-hover:top-0 group-hover:left-0 group-hover:translate-0 group-hover:text-lg sm:group-hover:text-xl md:group-hover:text-2xl group-hover:tracking-normal">
+                        <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full font-semibold text-3xl sm:text-4xl md:text-5xl tracking-wider whitespace-nowrap transition-all delay-[.3s] group-hover:delay-0 group-hover:top-0 group-hover:left-0 group-hover:translate-0 group-hover:text-lg sm:group-hover:text-xl md:group-hover:text-2xl group-hover:tracking-normal">
                             {project.title}
                         </h3>
                         <p className="relative top-[350px] sm:text-lg transition-[top] delay-[.2s] group-hover:delay-[.1s] group-hover:top-0">{project.description}</p>
@@ -27,12 +27,12 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
                         <StackBadges
                             stacks={project.stacks}
                             isColorInverted={false}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 opacity-100 transition-[opacity] delay-[.3s] group-hover:delay-0 group-hover:opacity-0"
+                            className="justify-center absolute top-1/2 left-1/2 -translate-x-1/2 opacity-100 transition-[opacity] delay-[.3s] group-hover:delay-0 group-hover:opacity-0"
                         />
                     </div>
                     <div className="ml-auto flex items-center space-x-2">
                         <div className="scale-0 transition-transform delay-[.1s] group-hover:delay-[.2s] group-hover:scale-100">
-                            <ElevatedButton tag="a" href="" color="gray" className="py-2.5 px-4 rounded">
+                            <ElevatedButton tag="a" href="" color="gray" className="py-2.5 px-4 rounded text-sm sm:text-base">
                                 Repository
                             </ElevatedButton>
                         </div>

@@ -1,8 +1,10 @@
 import { type ReactElement } from "react";
 
+import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 import Animate from "@/components/framer-motion/Animate";
 import { fadeUp, popIn } from "@/lib/utils/framer-motion/motions";
 import { MousePointerClick, SquareMousePointer } from "lucide-react";
+import Link from "next/link";
 import SkillLegendContainer from "../../common/containers/SkillLegendContainer";
 import AboutContainer from "./containers/about/AboutContainer";
 import AchievementContainer from "./containers/achievement/AchievementContainer";
@@ -51,10 +53,12 @@ export default function HomePage(): ReactElement {
                 </div>
             </section>
             <section className="py-12 md:py-16 lg:py-20">
-                <div className="container">
-                    <Animate tag="h2" variants={fadeUp} className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 uppercase tracking-wider">
+                <div className="container mb-8">
+                    <Animate tag="h2" variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">
                         Project Highlights
                     </Animate>
+                </div>
+                <div className="container min-[1700px]:max-w-[1600px] !px-1">
                     <ProjectCarouselContainer />
                 </div>
             </section>
@@ -73,6 +77,13 @@ export default function HomePage(): ReactElement {
                     </Animate>
                     <EducationTimelineContainer sectionId={sectionIds.education} />
                 </div>
+            </section>
+            <section className="pb-12 md:pb-16 lg:pb-20 text-center">
+                <ElevatedButton asChild>
+                    <Link href="/timeline" className="block py-4 px-7 text-sm sm:text-base md:text-lg font-semibold rounded-full">
+                        View Complete Timeline
+                    </Link>
+                </ElevatedButton>
             </section>
             <AchievementContainer />
             <section className="py-16 md:py-20 lg:py-28 relative bg-[radial-gradient(closest-corner_at_65%_40%,_#CFFAFE,_transparent_50%),radial-gradient(closest-corner_at_35%_65%,_#CFFBE4,_transparent_85%)]">

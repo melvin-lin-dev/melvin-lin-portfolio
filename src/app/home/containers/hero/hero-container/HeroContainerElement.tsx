@@ -55,7 +55,7 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
 
     return (
         <section ref={sectionRef} className="overflow-hidden relative text-white transition-all duration-[.4s] bg-center bg-red-500" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            <div className="py-20 md:py-28 lg:py-40 xl:py-52 2xl:py-68 container min-[1700px]:max-w-[1600px] mx-auto h-full flex items-center">
+            <div className="pt-28 md:pt-38 lg:pt-48 xl:pt-52 2xl:pt-68 pb-20 md:pb-28 lg:pb-40 xl:pb-52 2xl:pb-68 container min-[1700px]:max-w-[1600px] mx-auto h-full flex items-center">
                 <div className="w-full relative">
                     <div className="relative z-[1]">
                         <Cube3DContainer />
@@ -68,7 +68,7 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
                                     <TypeAnimation sequence={sequence} wrapper="span" speed={50} repeat={Infinity} />
                                 </Animate>
                             </div>
-                            <div className="mt-8 md:mb-12 space-y-4 text-[22px]">
+                            <div className="mt-8 md:mb-12 space-y-4 text-lg sm:text-[22px]">
                                 <Animate variants={horizontalGrow()} delay={0.25} className="flex items-center space-x-3 sm:text-lg">
                                     <MapPin className="w-6.5 h-6.5" />
                                     <p>Indonesia (Willing to Relocate Overseas)</p>
@@ -82,11 +82,11 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
                                 <SimpleContact3DContainer />
                             </div>
                             <div className="flex items-end space-x-4">
-                                <ThreeDimensionButton tag="a" color="amber" href="#about-section" role="button" className="text-xl rounded-xl font-semibold" paddingClassName="py-3 px-10">
+                                <ThreeDimensionButton tag="a" color="amber" href="#about-section" role="button" className="text-lg sm:text-xl rounded-xl font-semibold" paddingClassName="py-3 px-10">
                                     Uncover My Journey
                                 </ThreeDimensionButton>
                                 <ThreeDimensionButton tag="a" color="gray" href="" download title="Resume" className="rounded-xl" paddingClassName="py-3 px-4">
-                                    <Download className=""/>
+                                    <Download className="w-6 h-6"/>
                                 </ThreeDimensionButton>
                             </div>
                         </div>

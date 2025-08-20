@@ -12,8 +12,8 @@ export default function SimpleContact3DContainer(): ReactElement {
         <ul className="flex space-x-3">
             {externalProfiles.map((externalProfile) => (
                 <li key={externalProfile.platform}>
-                    <ElevatedButton href={externalProfile.url} {...getExternalProfileProps(externalProfile.platform)} className="relative w-12 h-12 btn btn-white rounded-full">
-                        <IconWrapper name={externalProfile.icon} className="absolute top-1/2 left-1/2 -translate-1/2 w-6 h-6" />
+                    <ElevatedButton href={externalProfile.url} color="white" className="relative w-12 h-12 rounded-full" {...getExternalProfileProps(externalProfile.platform)} >
+                        <IconWrapper name={externalProfile.icon} className="absolute top-1/2 left-1/2 -translate-1/2 w-5.5 h-5.5 sm:w-6 sm:h-6" />
                     </ElevatedButton>
                 </li>
             ))}
