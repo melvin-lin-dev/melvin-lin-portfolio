@@ -6,7 +6,7 @@ import EducationTimelineItem from "@/app/home/components/timelines/EducationTime
 import TrainingTimelineItem from "@/app/home/components/timelines/TrainingTimelineItem";
 import WorkExperienceDetailTimelineItem from "@/app/home/components/timelines/WorkExperienceDetailTimelineItem";
 import Animate from "@/components/framer-motion/Animate";
-import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import { TimelineCategory, timelineColorMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { CareerBreak } from "@/lib/modules/timeline/models/career-break.model";
 import type { Competition } from "@/lib/modules/timeline/models/competition.model";
