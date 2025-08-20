@@ -29,7 +29,7 @@ export default function RootLayout({
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <Header />
                 <main>{children}</main>
-                <footer className="py-4 text-center text-white bg-teal-700 text-white">&copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.</footer>
+                <footer className="py-4 text-center text-white bg-teal-700 text-white mb-15 md:mb-0">&copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.</footer>
             </body>
         </html>
     );
