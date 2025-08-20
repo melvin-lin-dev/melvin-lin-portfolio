@@ -15,6 +15,11 @@ import QuoteContainer from "./containers/quote/QuoteContainer";
 import SkillContainer from "./containers/skill/SkillContainer";
 import WorkExperienceTimelineContainer from "./containers/work-experience/TimelineContainer";
 
+const sectionIds = {
+    workExperience: "work-experience-section",
+    education: "education-section",
+};
+
 export default function HomePage(): ReactElement {
     return (
         <>
@@ -53,20 +58,20 @@ export default function HomePage(): ReactElement {
                     <ProjectCarouselContainer />
                 </div>
             </section>
-            <section className="pt-12 md:pt-16 lg:pt-32 bg-slate-100">
+            <section id={sectionIds.workExperience} className="pt-12 md:pt-16 lg:pt-32 bg-slate-100">
                 <div className="container">
                     <Animate tag="h2" variants={fadeUp} className="mb-8 md:mb-12 lg:mb-20 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider text-center">
                         Work Experience
                     </Animate>
-                    <WorkExperienceTimelineContainer />
+                    <WorkExperienceTimelineContainer sectionId={sectionIds.workExperience} />
                 </div>
             </section>
-            <section className="pb-12 md:pb-16 lg:pb-20 pt-28 md:pt-32 lg:pt-40 bg-linear-to-b from-slate-100 to-transparent">
+            <section id={sectionIds.education} className="pb-12 md:pb-16 lg:pb-20 pt-28 md:pt-32 lg:pt-40 bg-linear-to-b from-slate-100 to-transparent">
                 <div className="container">
                     <Animate tag="h2" variants={fadeUp} className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wider">
                         Education
                     </Animate>
-                    <EducationTimelineContainer />
+                    <EducationTimelineContainer sectionId={sectionIds.education} />
                 </div>
             </section>
             <AchievementContainer />

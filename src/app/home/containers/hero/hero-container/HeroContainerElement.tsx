@@ -82,8 +82,8 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
                                 <SimpleContact3DContainer />
                             </div>
                             <div className="flex items-end space-x-4">
-                                <ThreeDimensionButton tag="a" color="amber" href="#about-section" role="button" className="text-xl rounded-xl" paddingClassName="py-3 px-10">
-                                    Discover More
+                                <ThreeDimensionButton tag="a" color="amber" href="#about-section" role="button" className="text-xl rounded-xl font-semibold" paddingClassName="py-3 px-10">
+                                    Uncover My Journey
                                 </ThreeDimensionButton>
                                 <ThreeDimensionButton tag="a" color="gray" href="" download title="Resume" className="rounded-xl" paddingClassName="py-3 px-4">
                                     <Download className=""/>

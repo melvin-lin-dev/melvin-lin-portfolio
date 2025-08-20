@@ -3,12 +3,16 @@
 import Timeline from "@/components/react-vertical-timeline/Timeline";
 import { getWorkExperiences } from "@/lib/modules/timeline/services/work-experience.service";
 import { useEffect, useState, type ReactElement } from "react";
-import WorkExperienceTimelineItem from "../../components/WorkExperienceTimelineItem";
+import WorkExperienceTimelineItem from "../../components/timelines/WorkExperienceTimelineItem";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 
 const workExperiences = getWorkExperiences();
 
-export default function TimelineContainer(): ReactElement {
+type TimelineContainerProps = {
+    sectionId?: string;
+};
+
+export default function TimelineContainer({ sectionId }: TimelineContainerProps): ReactElement {
     const [layout, setLayout] = useState("2-column");
 
     useEffect(() => {
@@ -26,7 +30,7 @@ export default function TimelineContainer(): ReactElement {
     }, []);
 
     return (
-        <Timeline data={workExperiences} style={{ contentStyle: { borderRadius: "8px" } }} layout={layout}>
+        <Timeline data={workExperiences} layout={layout} scrollToId={sectionId} style={{ contentStyle: { borderRadius: "8px" } }}>
             {(item, isActive) => <WorkExperienceTimelineItem workExperience={item} isActive={isActive} />}
         </Timeline>
     );

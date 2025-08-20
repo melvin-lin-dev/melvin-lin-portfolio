@@ -4,8 +4,9 @@ import { ExternalProfileType } from "../enums/external-profile-type.enum";
 import type { ExternalProfile } from "../models/external-profile.model";
 
 export function getContactLinks(): ExternalProfile[] {
-    return contactLinks.map((externalProfile) => ({ ...externalProfile, type: ExternalProfileType.Contact }));
+    return contactLinks.map((externalProfile) => ({ ...externalProfile, type: ExternalProfileType.CONTACT }));
 }
+
 export function getCodingProfiles(): ExternalProfile[] {
-    return codingProfiles.map((externalProfile) => ({ ...externalProfile, type: ExternalProfileType.Coding }));
+    return codingProfiles.map((externalProfile) => ({ ...externalProfile, type: ExternalProfileType.CODING }));
 }

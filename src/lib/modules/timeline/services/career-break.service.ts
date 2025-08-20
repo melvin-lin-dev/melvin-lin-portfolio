@@ -5,7 +5,7 @@ import type { CareerBreak } from "../models/career-break.model";
 export function getCareerBreaks(): CareerBreak[] {
     return careerBreaks.map((careerBreak, i) => ({
         ...careerBreak,
-        id: `${TimelineCategory.CareerBreak}-${i + 1}`,
-        category: TimelineCategory.CareerBreak,
+        id: `${TimelineCategory.CAREER_BREAK}-${i + 1}`,
+        category: TimelineCategory.CAREER_BREAK,
     }));
 }

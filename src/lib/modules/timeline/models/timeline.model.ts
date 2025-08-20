@@ -7,4 +7,5 @@ export interface Timeline {
     startDate: string;
     endDate: string;
     location: string;
+    note?: string;
 }

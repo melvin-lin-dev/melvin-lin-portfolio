@@ -1,55 +1,46 @@
 [
-  {
-    "title": "Training for Province Competition (LKS)",
-    "startDate": "2018-03",
-    "endDate": "2018-04",
-    "location": "(Pontianak, West Kalimantan) & Jakarta, Indonesia",
-    "descriptions": [
-    "Initial 1-2 weeks preparation in Pontianak",
-    "Intensive 1-month training under senior mentors in Jakarta covering JavaScript frameworks, Laravel, WordPress, vanilla JS games, UI/UX design, and Photoshop",
-    "Final 1-week preparation before provincial competition",
-    "Prepared to compete in LKS Province Competition"
-    ]
-  },
-  {
-    "title": "Training for National Competition (LKS)",
-    "startDate": "2018-04",
-    "endDate": "2018-05",
-    "location": "Pontianak, West Kalimantan, Indonesia",
-    "descriptions": [
-      "1-month intensive training using previous competition modules and exploring new techniques",
-      "Focused on improving coding, UI/UX, and project execution for national level"
-    ]
-  },
-  {
-    "title": "Training for Province Selection - 13th ASEAN Skills Competition",
-    "startDate": "2019-07",
-    "endDate": "2019-07",
-    "location": "Pontianak, West Kalimantan, Indonesia",
-    "descriptions": [
-      "Several weeks of preparation focusing on full-stack development and project readiness",
-      "Placed 1st provincially to advance to national selection"
-    ]
-  },
-  {
-    "title": "Training for National Selection - 13th ASEAN Skills Competition",
-    "startDate": "2019-07",
-    "endDate": "2019-08",
-    "location": "Pontianak, West Kalimantan, Indonesia",
-    "descriptions": [
-      "1-month intensive preparation before national selection using previous modules and new challenges",
-      "Top 3 qualified to continue to ASC competition"
-    ]
-  },
-  {
-    "title": "Training Center Selection - 13th ASEAN Skills Competition (Cancelled due to COVID)",
-    "startDate": "2018-08",
-    "endDate": "2019-07",
-    "location": "Jakarta, Indonesia",
-    "descriptions": [
-      "Almost a year of training at BINUS College",
-      "Focused on full-stack development, CMS, games, and UI/UX design",
-      "Competition cancelled due to COVID; requirement was to be in top 2 out of 3 participants"
-    ]
-  }
+    {
+        "title": "Training for Province Competition (LKS)",
+        "startDate": "2018-03",
+        "endDate": "2018-04",
+        "location": "(Pontianak, West Kalimantan) & Jakarta, Indonesia",
+        "descriptions": [
+            "Initial 1-2 weeks preparation in Pontianak",
+            "Intensive 1-month training under senior mentors in Jakarta covering JavaScript frameworks, Laravel, WordPress, vanilla JS games, UI/UX design, and Photoshop",
+            "Final 1-week preparation before provincial competition",
+            "Prepared to compete in LKS Province Competition"
+        ]
+    },
+    {
+        "title": "Training for National Competition (LKS)",
+        "startDate": "2018-04",
+        "endDate": "2018-05",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "descriptions": ["1-month intensive training using previous competition modules and exploring new techniques", "Focused on improving coding, UI/UX, and project execution for national level"]
+    },
+    {
+        "title": "Training for Province Selection - 13th ASEAN Skills Competition",
+        "startDate": "2019-07",
+        "endDate": "2019-07",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "descriptions": ["Several weeks of preparation focusing on full-stack development and project readiness", "Placed 1st provincially to advance to national selection"]
+    },
+    {
+        "title": "Training for National Selection - 13th ASEAN Skills Competition",
+        "startDate": "2019-07",
+        "endDate": "2019-08",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "descriptions": ["1-month intensive preparation before national selection using previous modules and new challenges", "Top 3 qualified to continue to ASC competition"]
+    },
+    {
+        "title": "Training Center Selection - 13th ASEAN Skills Competition (Cancelled due to COVID)",
+        "startDate": "2018-08",
+        "endDate": "2019-07",
+        "location": "Jakarta, Indonesia",
+        "descriptions": [
+            "Almost a year of training at BINUS College",
+            "Focused on full-stack development, CMS, games, and UI/UX design",
+            "Competition cancelled due to COVID; requirement was to be in top 2 out of 3 participants"
+        ]
+    }
 ]

@@ -8,41 +8,8 @@
         "employmentType": "Full-time",
         "url": "",
         "startDate": "February 2024",
-        "endDate": "Today",
-        "location": "Pontianak, West Kalimantan, Indonesia",
-        "leftReason": "Pursuing better long-term growth and alignment with technical and cultural goals.",
-        "note": "",
-        "descriptions": [
-            "Developed multiple Inventory & Accounting web applications using PHP, MySQL",
-            "Contributed to the development of POS web application using PHP, MySQL, Vue & Laravel",
-            "Developed Inventory mobile application using Flutter",
-            "Developed Absence mobile application with fingerprint authentication using Flutter",
-            "Implemented AI Face Recognition in Absence mobile application using Python",
-            "Created designs for Pharmacy Business using Figma",
-            "Refactored code to improve performance and maintainability across projects",
-            "Refined app architecture by structuring services, components, and data handling",
-            "Configured, deployed, & maintained web servers using Nginx"
-        ],
-        "stacks": {
-            "programmingLanguages": ["PHP", "Python"],
-            "frameworks": ["Vue", "Laravel", "Flutter"],
-            "databases": ["MySQL"],
-            "tools": ["Figma", "Nginx"]
-        }
-    },
-    {
-        "image": "e-shia.png",
-        "title": "E-Shia Digital Solution",
-        "position": "Software Engineer",
-        "workType": "On-site",
-        "about": "Inventory, Accounting, POS, & Custom Applications",
-        "employmentType": "Full-time",
-        "url": "",
-        "startDate": "February 2024",
         "endDate": "March 2025",
         "location": "Pontianak, West Kalimantan, Indonesia",
-        "leftReason": "Pursuing better long-term growth and alignment with technical and cultural goals.",
-        "note": "",
         "descriptions": [
             "Developed multiple Inventory & Accounting web applications using PHP, MySQL",
             "Contributed to the development of POS web application using PHP, MySQL, Vue & Laravel",
@@ -59,7 +26,8 @@
             "frameworks": ["Vue", "Laravel", "Flutter"],
             "databases": ["MySQL"],
             "tools": ["Figma", "Nginx"]
-        }
+        },
+        "leftReason": "Pursuing better long-term growth and alignment with technical and cultural goals."
     },
     {
         "image": "kemnaker.png",
@@ -72,8 +40,6 @@
         "startDate": "April 2023",
         "endDate": "October 2023",
         "location": "Central Jakarta, Indonesia",
-        "leftReason": "Laid off due to project closure and client shift in priorities.",
-        "note": "",
         "descriptions": [
             "Developed a government ministry web application with modern responsive design and user experience",
             "Developed using code pattern for consistency and flexibility in development",
@@ -84,7 +50,8 @@
             "frameworks": ["Angular"],
             "preprocessors": ["Sass"],
             "cssFrameworks": ["Tailwind CSS"]
-        }
+        },
+        "leftReason": "Laid off due to project closure and client shift in priorities."
     },
     {
         "image": "samsung.png",
@@ -97,7 +64,6 @@
         "startDate": "March 2022",
         "endDate": "February 2023",
         "location": "Central Jakarta, Indonesia",
-        "leftReason": "Internship contract ended",
         "note": "College internship",
         "descriptions": [
             "Developed an analysis web application",
@@ -112,7 +78,8 @@
             "programmingLanguages": ["TypeScript", "Java", "Python"],
             "frameworks": ["React", "CodeIgniter"],
             "databases": ["PostgreSQL"]
-        }
+        },
+        "leftReason": "Internship contract ended"
     },
     {
         "image": "kemnaker.png",
@@ -125,7 +92,6 @@
         "startDate": "July 2021",
         "endDate": "October 2022",
         "location": "South Jakarta, Indonesia",
-        "leftReason": "Decided to focus on college education and training for ASC competition",
         "note": "Worked during college",
         "descriptions": [
             "Developed an analysis web application",
@@ -137,7 +103,8 @@
             "frameworks": ["Angular"],
             "preprocessors": ["Sass"],
             "cssFrameworks": ["Tailwind CSS"]
-        }
+        },
+        "leftReason": "Decided to focus on college education and training for ASC competition"
     },
     {
         "image": "satumarket.png",
@@ -150,7 +117,6 @@
         "startDate": "July 2018",
         "endDate": "May 2019",
         "location": "Pontianak, West Kalimantan, Indonesia",
-        "leftReason": "Preparing to leave for college (BINUS) in Jakarta and training for ASC competition",
         "note": "Worked during 12th grade of vocational high school",
         "descriptions": [
             "Developed an ecommerce web application with a modern, responsive user interface, and database structure",
@@ -161,6 +127,7 @@
         "stacks": {
             "frameworks": ["Vue", "Laravel"],
             "databases": ["MySQL"]
-        }
+        },
+        "leftReason": "Preparing to leave for college (BINUS) in Jakarta and training for ASC competition"
     }
 ]

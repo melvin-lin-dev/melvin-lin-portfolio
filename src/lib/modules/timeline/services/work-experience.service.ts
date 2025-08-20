@@ -5,7 +5,7 @@ import { TimelineCategory } from "../enums/timeline-category.enum";
 export function getWorkExperiences(): WorkExperience[] {
     return workExperiences.map((workExperience, i) => ({
         ...workExperience,
-        id: `${TimelineCategory.WorkExperience}-${i + 1}`,
-        category: TimelineCategory.WorkExperience
+        id: `${TimelineCategory.WORK_EXPERIENCE}-${i + 1}`,
+        category: TimelineCategory.WORK_EXPERIENCE
     }));
 }

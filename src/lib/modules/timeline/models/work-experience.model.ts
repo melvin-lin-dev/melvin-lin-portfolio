@@ -8,8 +8,7 @@ export interface WorkExperience extends Timeline {
     about: string;
     employmentType: string;
     url: string;
-    leftReason: string;
-    note: string;
+    leftReason?: string;
     descriptions: string[];
     stacks: Partial<Record<Stack, string[]>>;
 }

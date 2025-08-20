@@ -1,5 +1,3 @@
-"use client";
-
 import RadioSignalLoader from "@/common/components/loaders/radio-signal-loader/RadioSignalLoader";
 import type { PlotProps } from "@/types/react-plotly/plot-props";
 import dynamic from "next/dynamic";

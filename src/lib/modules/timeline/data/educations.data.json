@@ -1,6 +1,5 @@
 [
     {
-        "icon": "school",
         "image": "binus.png",
         "title": "BINUS University",
         "degree": "Bachelor's degree",
@@ -10,7 +9,6 @@
         "location": "West Jakarta, Indonesia"
     },
     {
-        "icon": "school",
         "image": "immanuel.png",
         "title": "Immanuel Christian Vocational High School",
         "degree": "Graduate",

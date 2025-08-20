@@ -1,75 +1,88 @@
+"use client";
+
 import TimelineCategoryLegendContainer from "@/common/containers/TimelineCategoryLegendContainer";
 import Animate from "@/components/framer-motion/Animate";
-import Plot from "@/components/react-plotly/Plot";
-import { TimelineCategory } from "@/lib/modules/timeline/enums/timeline-category.enum";
+import AnimateChild from "@/components/framer-motion/AnimateChild";
+import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import { getTimeline } from "@/lib/modules/timeline/services/timeline.service";
 import { fadeUp } from "@/lib/utils/framer-motion/motions";
-import type { ReactElement } from "react";
+import clsx from "clsx";
+import { Fragment, useState, type ReactElement } from "react";
+import GanttChartContainer from "./containers/GanttChartContainer";
+import VerticalTimelineContainer from "./containers/VerticalTimelineContainer";
 
-const timelineData = getTimeline();
+const timeline = getTimeline();
 
-const rowMap: Record<TimelineCategory, string> = {
-    [TimelineCategory.WorkExperience]: "Work",
-    [TimelineCategory.Education]: "Education",
-    [TimelineCategory.CareerBreak]: "Career Break",
-    [TimelineCategory.Competition]: "Competition",
-    [TimelineCategory.Training]: "Training",
+enum TimelineMode {
+    GANTT_CHART = "gantt-chart",
+    VERTICAL_TIMELINE = "vertical-timeline",
+}
+
+type TimelineModeMeta = {
+    text: string;
+    icon: string;
+    component: typeof GanttChartContainer | typeof VerticalTimelineContainer;
 };
 
-const colorMap: Record<TimelineCategory, string> = {
-    [TimelineCategory.WorkExperience]: "#0ea5e9",
-    [TimelineCategory.Education]: "#10b981",
-    [TimelineCategory.CareerBreak]: "#f59e0b",
-    [TimelineCategory.Competition]: "#f43f5e",
-    [TimelineCategory.Training]: "#8b5cf6",
+const timelineModeMeta: Record<TimelineMode, TimelineModeMeta> = {
+    [TimelineMode.GANTT_CHART]: {
+        text: "Gantt Chart",
+        icon: "ganttchart",
+        component: GanttChartContainer,
+    },
+    [TimelineMode.VERTICAL_TIMELINE]: {
+        text: "Vertical Timeline",
+        icon: "history",
+        component: VerticalTimelineContainer,
+    },
 };
 
-const data = timelineData.map((entry) => ({
-    id: entry.id,
-    x: [new Date(entry.endDate).getTime() - new Date(entry.startDate).getTime()],
-    y: [rowMap[entry.category]],
-    base: new Date(entry.startDate),
-    type: "bar",
-    orientation: "h",
-    name: entry.title,
-    hovertemplate: `${entry.title}<br>%{base|%b %Y} - %{x}`,
-    marker: { color: colorMap[entry.category] },
-}));
+const timelineModeMetaEntries = Object.entries(timelineModeMeta);
+
+const sectionIds = {
+    timeline: 'timeline-section'
+}
 
 export default function TimelinePage(): ReactElement {
+    const [timelineMode, setTimelineMode] = useState<TimelineMode>(TimelineMode.GANTT_CHART);
+
+    const TimelineComponent = timelineModeMeta[timelineMode].component;
+
     return (
         <>
-            <section className="py-16 md:py-20 lg:py-28 bg-white">
+            <section id={sectionIds.timeline} className="py-16 md:py-20 lg:py-28 bg-white">
                 <div className="container">
                     <Animate tag="h2" variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-emerald-600 uppercase tracking-wider">
                         Complete Timeline
                     </Animate>
 
-                    <TimelineCategoryLegendContainer />
+                    <div className="mt-8 flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-4 md:space-y-0">
+                        <TimelineCategoryLegendContainer />
+                        <Animate staggerChildren={0.25} className="p-1 flex items-center rounded-lg bg-slate-100 overflow-hidden space-x-1">
+                            {timelineModeMetaEntries.map(([mode, data], i) => (
+                                <Fragment key={mode}>
+                                    <AnimateChild
+                                        tag="button"
+                                        variants={fadeUp}
+                                        className={clsx("py-2 px-2 rounded-md group", mode == timelineMode ? "bg-emerald-500 text-white" : "cursor-pointer transition hover:text-emerald-600")}
+                                        aria-label={data.text}
+                                        onClick={() => setTimelineMode(mode as TimelineMode)}
+                                    >
+                                        <IconWrapper name={data.icon} className="w-5 h-5" />
+                                    </AnimateChild>
+                                    {i < timelineModeMetaEntries.length - 1 && <div className="w-px h-[60%] bg-gray-300"></div>}
+                                </Fragment>
+                            ))}
+                        </Animate>
+                    </div>
                 </div>
 
+                <Animate key={timelineMode} tag="h3" variants={fadeUp} className="mt-6 text-lg sm:text-xl md:text-2xl font-semibold text-center tracking-wide">
+                    {timelineModeMeta[timelineMode].text}
+                </Animate>
+
                 <div className="mt-6 px-5 sm:px-10">
-                    <div className="overflow-x-auto min-w-[1200px]">
-                        <Plot
-                            data={data}
-                            layout={{
-                                barmode: "stack",
-                                xaxis: {
-                                    type: "date",
-                                    rangeslider: { visible: true },
-                                    automargin: true,
-                                },
-                                yaxis: {
-                                    automargin: true,
-                                },
-                                height: 400,
-                                margin: { l: 25, r: 25, t: 25, b: 25 },
-                                showlegend: false,
-                            }}
-                            config={{ responsive: true }}
-                            style={{ width: "100%", height: "100%" }}
-                        />
-                    </div>
+                    <TimelineComponent timeline={timeline} sectionId={sectionIds.timeline} />
                 </div>
             </section>
         </>

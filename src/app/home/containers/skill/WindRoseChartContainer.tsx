@@ -12,11 +12,11 @@ type Size = {
     height: number;
 };
 
-type SkillWindRoseChartProps = {
+type WindRoseChartContainerProps = {
     skillProficiencies: SkillProficiency[];
 };
 
-export default function WindRoseChartContainer({ skillProficiencies }: SkillWindRoseChartProps): ReactElement {
+export default function WindRoseChartContainer({ skillProficiencies }: WindRoseChartContainerProps): ReactElement {
     const skillFrameworks = useMemo(() => buildSkillLevelLayers(skillLevels, skillProficiencies), [skillProficiencies]);
 
     const [size, setSize] = useState<Size>({ width: 0, height: 0 });

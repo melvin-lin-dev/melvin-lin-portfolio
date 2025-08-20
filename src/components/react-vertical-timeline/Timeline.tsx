@@ -1,50 +1,64 @@
 "use client";
 
+import { timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
-import { StarIcon } from "lucide-react";
+import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
+import { ChevronUp, StarIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { IconWrapper } from "../icon/lucide/IconWrapper";
-import { TimelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 
 type TimelineProps<T extends Timeline> = {
     data: T[];
     layout?: string;
+    scrollToId?: string;
     style?: Partial<Pick<ComponentProps<typeof VerticalTimelineElement>, "contentStyle" | "contentArrowStyle">>;
 
     children: (item: T, isActive: boolean) => React.ReactNode;
 };
 
-export default function Timeline<T extends Timeline>({ data, layout, style = {}, children }: TimelineProps<T>) {
+export default function Timeline<T extends Timeline>({ data, layout, scrollToId, style = {}, children }: TimelineProps<T>) {
+    const handleScrollToId = () => {
+        const element = document.getElementById(scrollToId!);
+        console.log("debug", element, scrollToId);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: "smooth",
+            });
+        }
+    };
+
     return (
         <VerticalTimeline lineColor="#06b6d4" layout={layout}>
             {data.map((entry, i) => {
-                const entryMeta = TimelineMeta[entry.category];
-                
+                const entryMeta = timelineMeta[entry.category];
+                const entryColorMeta = timelineColorMeta[entry.category];
+
                 const defaultStyle: Pick<ComponentProps<typeof VerticalTimelineElement>, "dateClassName" | "iconStyle" | "contentStyle" | "contentArrowStyle"> = {
                     dateClassName: ["!pb-0", "!float-right", "xl:text-gray-700"],
-                    iconStyle: entryMeta.style?.icon || {},
-                    contentStyle: { ...style.contentStyle },
+                    iconStyle: { backgroundColor: entryColorMeta.primary, color: entryColorMeta.secondary },
+                    contentStyle: { ...style.contentStyle, borderTop: "4px solid " + entryColorMeta.primary },
                     contentArrowStyle: { ...style.contentArrowStyle },
                 };
 
-                const isActive = entry.endDate == "Today";
+                const isActive = entry.endDate == "Present";
 
                 if (isActive) {
-                    const activeBackgroundColor = "#06b6d4";
+                    const activeBackgroundColor = entryColorMeta.primary;
 
                     defaultStyle.dateClassName.push("!opacity-100");
 
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
-                        boxShadow: "0 0 0 4px #d1d5db,inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)",
                     };
 
                     defaultStyle.contentStyle = {
                         ...defaultStyle.contentStyle,
-                        background: activeBackgroundColor,
+                        backgroundColor: activeBackgroundColor,
                         color: "#fff",
+                        borderTop: "none",
                     };
 
                     defaultStyle.contentArrowStyle = {
@@ -53,10 +67,13 @@ export default function Timeline<T extends Timeline>({ data, layout, style = {},
                     };
                 }
 
+                const startDate = isDateStringComplete(entry.startDate) ? formatDate(entry.startDate) : formatMonthYear(entry.startDate);
+                const endDate = isDateStringComplete(entry.endDate) ? formatDate(entry.endDate) : formatMonthYear(entry.endDate);
+
                 return (
                     <VerticalTimelineElement
                         key={i}
-                        date={`${entry.startDate} - ${entry.endDate}`}
+                        date={`${startDate} - ${endDate}`}
                         dateClassName={defaultStyle.dateClassName.join(" ")}
                         icon={<IconWrapper name={entryMeta.icon} />}
                         iconStyle={defaultStyle.iconStyle}
@@ -67,7 +84,13 @@ export default function Timeline<T extends Timeline>({ data, layout, style = {},
                     </VerticalTimelineElement>
                 );
             })}
-            <VerticalTimelineElement iconStyle={{ background: "#00BC7D", color: "#fff" }} icon={<StarIcon />} />
+            {scrollToId && (
+                <VerticalTimelineElement
+                    iconClassName="bg-teal-500 text-white scale-100 cursor-pointer transition-[background-color,scale] hover:bg-teal-400 hover:scale-[1.15]"
+                    icon={<ChevronUp />}
+                    iconOnClick={handleScrollToId}
+                />
+            )}
         </VerticalTimeline>
     );
 }

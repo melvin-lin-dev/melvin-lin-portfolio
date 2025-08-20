@@ -1,43 +1,43 @@
-import type { CSSProperties } from "react";
-
 export enum TimelineCategory {
-    WorkExperience = "work-experience",
-    Education = "education",
-    CareerBreak = "career-break",
-    Competition = "competition",
-    Training = "training",
+    WORK_EXPERIENCE = "work-experience",
+    EDUCATION = "education",
+    CAREER_BREAK = "career-break",
+    COMPETITION = "competition",
+    TRAINING = "training",
 }
 
-export type TimelineMetaItem = {
-    icon: string;
-    component: string;
-    style: Record<"icon", CSSProperties>;
+export const timelineColorMeta: Record<TimelineCategory, Record<"primary" | "secondary", string>> = {
+    [TimelineCategory.WORK_EXPERIENCE]: { primary: "#0ea5e9", secondary: "#FFF" },
+    [TimelineCategory.EDUCATION]: { primary: "#10b981", secondary: "#FFF" },
+    [TimelineCategory.CAREER_BREAK]: { primary: "#f59e0b", secondary: "#FFF" },
+    [TimelineCategory.COMPETITION]: { primary: "#f43f5e", secondary: "#FFF" },
+    [TimelineCategory.TRAINING]: { primary: "#8b5cf6", secondary: "#FFF" },
 };
 
-export const TimelineMeta: Record<TimelineCategory, TimelineMetaItem> = {
-    [TimelineCategory.WorkExperience]: {
+type timelineMeta = {
+    text: string;
+    icon: string;
+};
+
+export const timelineMeta: Record<TimelineCategory, timelineMeta> = {
+    [TimelineCategory.WORK_EXPERIENCE]: {
+        text: "Work Experience",
         icon: "briefcasebusiness",
-        component: "WorkExperienceTimelineItem",
-        style: { icon: { backgroundColor: "#0ea5e9", color: "#fff" } },
     },
-    [TimelineCategory.Education]: {
+    [TimelineCategory.EDUCATION]: {
+        text: "Education",
         icon: "graduationcap",
-        component: "EducationTimelineItem",
-        style: { icon: { backgroundColor: "#14b8a6", color: "#fff" } },
     },
-    [TimelineCategory.CareerBreak]: {
+    [TimelineCategory.CAREER_BREAK]: {
+        text: "Career Break",
         icon: "monitorpause",
-        component: "CareerBreakTimelineItem",
-        style: { icon: { backgroundColor: "#14b8a6", color: "#fff" } },
     },
-    [TimelineCategory.Competition]: {
+    [TimelineCategory.COMPETITION]: {
+        text: "Competition",
         icon: "trophy",
-        component: "CompetitionTimelineItem",
-        style: { icon: { backgroundColor: "#14b8a6", color: "#fff" } },
     },
-    [TimelineCategory.Training]: {
+    [TimelineCategory.TRAINING]: {
+        text: "Training",
         icon: "laptopminimal",
-        component: "TrainingTimelineItem",
-        style: { icon: { backgroundColor: "#14b8a6", color: "#fff" } },
     },
 };

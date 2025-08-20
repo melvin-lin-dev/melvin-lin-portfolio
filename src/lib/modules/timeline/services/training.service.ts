@@ -5,7 +5,7 @@ import { TimelineCategory } from "../enums/timeline-category.enum";
 export function getTrainings(): Training[] {
     return trainings.map((training, i) => ({
         ...training,
-        id: `${TimelineCategory.Training}-${i + 1}`,
-        category: TimelineCategory.Training,
+        id: `${TimelineCategory.TRAINING}-${i + 1}`,
+        category: TimelineCategory.TRAINING,
     }));
 }
