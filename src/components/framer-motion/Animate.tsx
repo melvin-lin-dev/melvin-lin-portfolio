@@ -5,8 +5,8 @@ import { motion, type Variants } from "framer-motion";
 import type { ElementType, ReactNode } from "react";
 
 type AnimateProps<T extends keyof typeof motion> = {
-    children?: ReactNode;
     tag?: T;
+    children?: ReactNode;
     variants?: Variants;
     delay?: number;
     once?: boolean;

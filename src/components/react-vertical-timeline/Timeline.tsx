@@ -3,8 +3,8 @@
 import { timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
-import { ChevronUp, StarIcon } from "lucide-react";
-import type { ComponentProps } from "react";
+import { ChevronUp } from "lucide-react";
+import type { ComponentProps, ReactNode } from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { IconWrapper } from "../icon/lucide/IconWrapper";
@@ -15,7 +15,7 @@ type TimelineProps<T extends Timeline> = {
     scrollToId?: string;
     style?: Partial<Pick<ComponentProps<typeof VerticalTimelineElement>, "contentStyle" | "contentArrowStyle">>;
 
-    children: (item: T, isActive: boolean) => React.ReactNode;
+    children: (item: T, isActive: boolean) => ReactNode;
 };
 
 export default function Timeline<T extends Timeline>({ data, layout, scrollToId, style = {}, children }: TimelineProps<T>) {

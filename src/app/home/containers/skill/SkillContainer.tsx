@@ -10,7 +10,7 @@ export default function SkillContainer(): ReactElement {
     const skill = getSkill();
 
     return (
-        <div className="mt-6">
+        <div className="mt-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-6">
                 <div>
                     <h3 className="mb-5 text-lg sm:text-xl md:text-2xl font-semibold text-center text-gray-700">Core Technologies</h3>

@@ -8,7 +8,7 @@ import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/
 import { fadeUp } from "@/lib/utils/framer-motion/motions";
 import type { Data, PlotlyHTMLElement, PlotMouseEvent } from "plotly.js";
 import { useMemo, useState, type ReactElement } from "react";
-import GanttChartDetailModal from "../components/GanttChartDetailModal";
+import GanttChartDetailModal from "../../components/GanttChartDetailModal";
 import type { Figure } from "react-plotly.js";
 
 const rowMap: Record<TimelineCategory, string> = {
@@ -62,7 +62,7 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
 
     return (
         <div>
-            <Animate variants={fadeUp} className="overflow-x-auto overflow-y-hidden" style={{ height: 500 }}>
+            <Animate variants={fadeUp} className="relative overflow-x-auto overflow-y-hidden" style={{ height: 500 }}>
                 <Plot
                     data={data}
                     layout={{

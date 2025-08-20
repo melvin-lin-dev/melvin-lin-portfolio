@@ -35,7 +35,7 @@ export default function GanttChartDetailModal({ timeline, closeTimelineDetail }:
         >
             {timeline && (
                 <Animate variants={fadeUp}>
-                    <DialogContent showCloseButton={false} className="p-3 gap-3 rounded-lg" style={{ borderTop: `4px solid ${timelineColorMeta[timeline.category].primary}` }}>
+                    <DialogContent showCloseButton={false} className="gap-3 rounded-lg" style={{ borderTop: `4px solid ${timelineColorMeta[timeline.category].primary}` }}>
                         <DialogClose asChild>
                             <button className="absolute top-0 right-0 mt-4 mr-3 p-0.5 rounded bg-emerald-500/15 text-emerald-500 cursor-pointer transition hover:bg-emerald-500/25" onClick={closeTimelineDetail}>
                                 <X className="w-4 h-4" />
