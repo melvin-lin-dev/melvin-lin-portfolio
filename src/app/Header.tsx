@@ -54,7 +54,7 @@ export default function Header(): ReactElement {
                         <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
                     </Link>
                     <nav>
-                        <ul className="flex items-center space-x-7 font-semibold sm:text-lg tracking-wider">
+                        <ul className="flex items-center space-x-7 font-semibold xl:text-lg tracking-wider">
                             {menus.map((menu) => (
                                 <li key={menu.href} className={clsx("transition-[scale]", activeMenu(menu.href).li)}>
                                     <Link href={menu.href} className={clsx("py-1.5 px-3 rounded transition-[border-color]", activeMenu(menu.href).link)}>

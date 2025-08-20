@@ -2,64 +2,6 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@plugin "daisyui";
-@plugin "daisyui/theme" {
-    name: "teal-blue";
-    default: true;
-    prefersdark: false;
-    color-scheme: light;
-
-    /* Base Colors */
-    --color-base-100: oklch(98% 0.01 230); /* very light background */
-    --color-base-200: oklch(95% 0.02 230);
-    --color-base-300: oklch(92% 0.03 230);
-    --color-base-content: oklch(20% 0.04 230); /* dark text */
-
-    /* Primary (Teal 600) */
-    --color-primary: oklch(55% 0.23 190); /* strong teal */
-    --color-primary-content: oklch(98% 0.01 190); /* white text */
-
-    /* Secondary (Blue 600) */
-    --color-secondary: oklch(60% 0.21 250); /* vibrant blue */
-    --color-secondary-content: oklch(98% 0.01 250);
-
-    /* Accent (Cyan) */
-    --color-accent: oklch(65% 0.2 180);
-    --color-accent-content: oklch(10% 0.02 180);
-
-    /* Neutral (Dark Gray/Blue Gray) */
-    --color-neutral: oklch(45% 0.04 240);
-    --color-neutral-content: oklch(98% 0.01 240);
-
-    /* Semantic Colors */
-    --color-info: oklch(65% 0.2 220);
-    --color-info-content: oklch(98% 0.01 220);
-
-    --color-success: oklch(65% 0.22 140);
-    --color-success-content: oklch(98% 0.01 140);
-
-    --color-warning: oklch(80% 0.24 85);
-    --color-warning-content: oklch(20% 0.04 85);
-
-    --color-error: oklch(65% 0.3 30);
-    --color-error-content: oklch(98% 0.01 30);
-
-    /* Border Radius */
-    --radius-selector: 1rem;
-    --radius-field: 0.25rem;
-    --radius-box: 0.5rem;
-
-    /* Spacing Sizes */
-    --size-selector: 0.25rem;
-    --size-field: 0.25rem;
-
-    /* Border */
-    --border: 1px;
-
-    /* Effects */
-    --depth: 1;
-    --noise: 0;
-}
 
 @utility container {
     padding-inline: 10px;
