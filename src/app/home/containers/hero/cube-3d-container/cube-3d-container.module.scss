@@ -65,43 +65,43 @@
                 width: 80%;
                 height: 80%;
             }
-        }
 
-        .front {
-            background-color: white;
-        }
+            &.front {
+                background-color: white;
+            }
 
-        .back {
-            transform: translateZ(calc(var(--cube-size) * -1));
-            background-color: #505073;
-        }
+            &.back {
+                transform: translateZ(calc(var(--cube-size) * -1));
+                background-color: #505073;
+            }
 
-        .right {
-            top: 0;
-            left: 0;
-            transform-origin: right;
-            transform: rotateY(-90deg);
-            background-color: #e0f7f1;
-        }
+            &.right {
+                top: 0;
+                left: 0;
+                transform-origin: right;
+                transform: rotateY(-90deg);
+                background-color: #e0f7f1;
+            }
 
-        .left {
-            top: 0;
-            left: 0;
-            transform-origin: left;
-            transform: rotateY(90deg);
-            background-color: #ffeaea;
-        }
+            &.left {
+                top: 0;
+                left: 0;
+                transform-origin: left;
+                transform: rotateY(90deg);
+                background-color: #ffeaea;
+            }
 
-        .top {
-            transform-origin: top;
-            transform: rotateX(-90deg);
-            background-color: #f3f3d9;
-        }
+            &.top {
+                transform-origin: top;
+                transform: rotateX(-90deg);
+                background-color: #f3f3d9;
+            }
 
-        .bottom {
-            transform-origin: bottom;
-            transform: rotateX(90deg);
-            background-color: #f0f8ff;
+            &.bottom {
+                transform-origin: bottom;
+                transform: rotateX(90deg);
+                background-color: #f0f8ff;
+            }
         }
     }
 }

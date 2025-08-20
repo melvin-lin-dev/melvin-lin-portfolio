@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Career Break: Job search and skill development",
+        "startDate": "November 2023",
+        "endDate": "January 2024",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "note": "Focused on transitioning from student to professional life by improving portfolio, resume, and self-development while searching for remote opportunities.",
+        "descriptions": [
+            "Built portfolio projects using React, Next.js, and TypeScript",
+            "Learned advanced CSS, Tailwind, and Framer Motion",
+            "Prepared professional resume tailored for remote opportunities",
+            "Applied to remote developer positions",
+            "Engaged in self-reflection and mindset building"
+        ]
+    },
+    {
+        "title": "Career Break: Job search, portfolio building, and personal development",
+        "startDate": "April 2024",
+        "endDate": "Present",
+        "location": "Pontianak, West Kalimantan, Indonesia",
+        "note": "Dedicated time to balancing job search with structured personal and professional development, focusing on long-term skills, consistency, and resilience.",
+        "descriptions": [
+            "Assisted former employer with bug fixing and maintenance tasks in April",
+            "Applied to remote developer positions (April - July)",
+            "Developed and refined a new portfolio, with focused work starting in August",
+            "Created and refined a new resume tailored for targeted opportunities",
+            "Explored modern React development with Next.js, experimented with UI/animation libraries, charting packages, and stayed up to date with latest best practices"
+        ]
+    }
+]

@@ -10,7 +10,7 @@ export default function SkillToolItem({ skillTool }: SkillToolItemProps): ReactE
     return (
         <div className="relative top-0 rounded-lg p-4 bg-slate-100 text-white shadow-gray-300 group transition-all hover:-top-2 hover:shadow-lg">
             <div className="relative w-10 h-10 mx-auto transition group-hover:scale-[1.2]">
-                <Image src={`/images/tools/${skillTool.image}`} alt={`${skillTool.name} Logo`} className="object-contain" fill />
+                <Image src={`/images/tools/${skillTool.image}`} alt={`${skillTool.name} Logo`} className="object-contain" fill sizes="40px" />
             </div>
             <h4 className="mt-2 sm:text-lg font-semibold text-gray-700 text-center">{skillTool.name}</h4>
         </div>

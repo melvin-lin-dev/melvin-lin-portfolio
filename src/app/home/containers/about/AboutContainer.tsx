@@ -1,11 +1,13 @@
 "use client";
 
 import FloatingEdge from "@/components/react-flow/edges/FloatingEdge";
+import SmoothStepEdge from "@/components/react-flow/edges/SmoothStepEdge";
 import AboutNode from "@/components/react-flow/nodes/AboutNode";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import type { Screen } from "@/lib/shared/types/screen";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { ReactFlow, ReactFlowProvider, useReactFlow, type Edge, type Node, type XYPosition } from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 
 const nodeHeight = 220;
@@ -241,7 +243,7 @@ function AboutFlow(): ReactElement {
     }, [fitView]);
 
     return (
-        <section>
+        <section id="about-section">
             <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1200px] sm:h-[800px] lg:h-[1000px] xl:h-[1200px] pointer-events-none overflow-hidden">
                 <div ref={effectRef} className="absolute bg-emerald-500 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[7s]" style={{ padding: effectPadding }}></div>
                 <ReactFlow
@@ -249,7 +251,7 @@ function AboutFlow(): ReactElement {
                     nodes={nodes}
                     edges={edges}
                     nodeTypes={{ about: AboutNode }}
-                    edgeTypes={{ floating: FloatingEdge }}
+                    edgeTypes={{ smoothstep: SmoothStepEdge, floating: FloatingEdge }}
                     defaultEdgeOptions={{
                         type: "floating",
                     }}

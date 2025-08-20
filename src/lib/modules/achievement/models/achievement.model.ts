@@ -4,5 +4,7 @@ export interface Achievement {
     image: string;
     organization: string;
     organizationImage: string;
+    organizationStyle: Record<"color" | "backgroundColor", string>;
     date: string;
+    descriptions: string[];
 }

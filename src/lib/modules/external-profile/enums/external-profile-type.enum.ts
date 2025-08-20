@@ -1,4 +1,4 @@
 export enum ExternalProfileType {
-  Contact = 'contact',
-  Coding = 'coding'
+  CONTACT = 'contact',
+  CODING = 'coding'
 }

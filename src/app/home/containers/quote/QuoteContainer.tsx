@@ -1,6 +1,8 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
 import quotes from "@/lib/modules/quote/constants/quotes";
+import { popIn } from "@/lib/utils/framer-motion/motions";
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 import QuoteItem from "../../components/QuoteItem";
 import styles from "./quote-container.module.scss";
@@ -9,15 +11,20 @@ export default function QuoteContainer(): ReactElement {
     const [rotateDegree, setRotateDegree] = useState(0);
     const rotateDegreeRef = useRef(0);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const rotateCube = () => {
+        setRotateDegree((prev) => {
+            const next = prev + 90;
+            rotateDegreeRef.current = next;
+            return next;
+        });
+    };
 
     const startTimer = useCallback(() => {
         clearTimer();
         timeoutRef.current = setTimeout(() => {
-            setRotateDegree((prev) => {
-                const next = prev + 90;
-                rotateDegreeRef.current = next;
-                return next;
-            });
+            rotateCube();
             startTimer();
         }, quotes[(rotateDegreeRef.current / 90) % 4].time);
     }, []);
@@ -30,10 +37,18 @@ export default function QuoteContainer(): ReactElement {
     };
 
     const handleQuoteEnter = () => {
+        setIsPaused(true);
         clearTimer();
     };
 
     const handleQuoteLeave = () => {
+        setIsPaused(false);
+        startTimer();
+    };
+
+    const handleQuoteClick = () => {
+        clearTimer();
+        rotateCube();
         startTimer();
     };
 
@@ -43,14 +58,20 @@ export default function QuoteContainer(): ReactElement {
     }, [startTimer]);
 
     return (
-        <section id="quote-section" className={`${styles.quoteSection} py-16 md:py-20 lg:py-28`}>
+        <Animate variants={popIn} className={styles.quoteSection}>
             <div className="container relative">
-                <div style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }} className={styles.box3d}>
+                <div
+                    style={{ transform: `translate(-50%, -50%) rotateX(${rotateDegree}deg)` }}
+                    className={`${styles.box3d} bg-white select-none`}
+                    onMouseEnter={handleQuoteEnter}
+                    onMouseLeave={handleQuoteLeave}
+                    onClick={handleQuoteClick}
+                >
                     {quotes.map((quote) => (
-                        <QuoteItem key={quote.text} quote={quote} handleQuoteEnter={handleQuoteEnter} handleQuoteLeave={handleQuoteLeave} />
+                        <QuoteItem key={quote.text} quote={quote} isPaused={isPaused} />
                     ))}
                 </div>
             </div>
-        </section>
+        </Animate>
     );
 }

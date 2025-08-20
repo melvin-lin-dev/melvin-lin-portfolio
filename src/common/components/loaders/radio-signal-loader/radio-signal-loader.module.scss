@@ -1,0 +1,46 @@
+$loader-colors: (#10b981, #14b8a6, #06b6d4);
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 200px;
+
+    > div {
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+        width: 100%;
+        border: 5px solid;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        animation: loader-anim 2s infinite ease-in-out;
+
+        @keyframes loader-anim {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1) rotate(180deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @for $i from 1 through length($loader-colors) {
+            &:nth-child(#{$i}) {
+                border-color: nth($loader-colors, $i);
+                animation-delay: 0.33s * ($i - 1); // staggered start
+            }
+        }
+    }
+}

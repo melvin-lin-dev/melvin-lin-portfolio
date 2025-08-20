@@ -1,0 +1,20 @@
+[
+    {
+        "image": "binus.png",
+        "title": "BINUS University",
+        "degree": "Bachelor's degree",
+        "major": "Computer Science",
+        "startDate": "August 2019",
+        "endDate": "July 2023",
+        "location": "West Jakarta, Indonesia"
+    },
+    {
+        "image": "immanuel.png",
+        "title": "Immanuel Christian Vocational High School",
+        "degree": "Graduate",
+        "major": "Network Information Engineering",
+        "startDate": "July 2016",
+        "endDate": "May 2019",
+        "location": "Pontianak, West Kalimantan, Indonesia"
+    }
+]

@@ -1,7 +1,9 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
 import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
+import { shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { Handle, Position, type Node, type NodeProps } from "@xyflow/react";
 import React, { useRef } from "react";
@@ -50,14 +52,16 @@ export default function AboutNode({ data }: NodeProps<Node<AboutNodeData>>) {
 
     return (
         <>
-            <div className="relative p-4 bg-white border rounded-lg shadow-md w-100 sm:w-80 text-center pointer-events-auto overflow-hidden group" onMouseEnter={handleHover} onMouseLeave={handleHover}>
-                <div ref={effectRef} className="absolute bg-emerald-500 rounded-full -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[.7s] group-hover:p-[110%]"></div>
-                <div className="relative">
-                    <IconWrapper name={data.icon} className="mb-3 mx-auto text-emerald-500 transition duration-[.4s] group-hover:text-white w-8 h-8" />
-                    <h3 className="sm:text-lg font-bold text-gray-700 transition duration-[.4s] group-hover:text-white tracking-wider">{data.label.toUpperCase()}</h3>
-                    <p className="mt-1.5 text-gray-700 transition duration-[.4s] group-hover:text-white">{data.description}</p>
+            <Animate variants={shrinkFadeIn}>
+                <div className="relative p-4 bg-white border rounded-lg shadow-md w-100 sm:w-80 text-center pointer-events-auto overflow-hidden group" onMouseEnter={handleHover} onMouseLeave={handleHover}>
+                    <div ref={effectRef} className="absolute bg-emerald-500 rounded-full -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[.7s] group-hover:p-[110%]"></div>
+                    <div className="relative">
+                        <IconWrapper name={data.icon} className="mb-3 mx-auto text-emerald-500 transition duration-[.4s] group-hover:text-white w-8 h-8" />
+                        <h3 className="sm:text-lg font-bold text-gray-700 transition duration-[.4s] group-hover:text-white tracking-wider">{data.label.toUpperCase()}</h3>
+                        <p className="mt-1.5 text-gray-700 transition duration-[.4s] group-hover:text-white">{data.description}</p>
+                    </div>
                 </div>
-            </div>
+            </Animate>
             <Handle type="source" position={Position.Right} />
             <Handle type="target" position={Position.Left} />
         </>

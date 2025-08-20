@@ -1,22 +1,22 @@
 "use client";
 
-import WindRoseChartClient from "@/components/react-plotly/WindRoseChartClient";
 import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
 import skillLevels from "@/lib/modules/skill/constants/skill-levels";
-import { buildSkillLevelLayers } from "@/lib/utils/react-plotly/wind-rose.utils";
+import { buildSkillLevelLayers } from "@/lib/utils/react-plotly/wind-rose";
 import { useEffect, useMemo, useState, type ReactElement } from "react";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
+import Plot from "@/components/react-plotly/Plot";
 
 type Size = {
     width: number;
     height: number;
 };
 
-type SkillWindRoseChartProps = {
+type WindRoseChartContainerProps = {
     skillProficiencies: SkillProficiency[];
 };
 
-export default function SkillWindRoseChartContainer({ skillProficiencies }: SkillWindRoseChartProps): ReactElement {
+export default function WindRoseChartContainer({ skillProficiencies }: WindRoseChartContainerProps): ReactElement {
     const skillFrameworks = useMemo(() => buildSkillLevelLayers(skillLevels, skillProficiencies), [skillProficiencies]);
 
     const [size, setSize] = useState<Size>({ width: 0, height: 0 });
@@ -47,33 +47,35 @@ export default function SkillWindRoseChartContainer({ skillProficiencies }: Skil
     }, []);
 
     return (
-        <WindRoseChartClient
-            data={skillFrameworks}
-            layout={{
-                dragmode: false,
-                margin: { t: 0, b: 0 },
-                width: size.width,
-                height: size.height,
-                polar: {
-                    radialaxis: {
-                        visible: true,
-                        fixedrange: true,
-                        range: [0, 10],
-                        tickfont: { size: 12, color: "#666" },
+        <div style={{ height: size.height + "px" }}>
+            <Plot
+                data={skillFrameworks}
+                layout={{
+                    dragmode: false,
+                    margin: { t: 0, b: 0 },
+                    width: size.width,
+                    height: size.height,
+                    polar: {
+                        radialaxis: {
+                            visible: true,
+                            fixedrange: true,
+                            range: [0, 10],
+                            tickfont: { size: 12, color: "#666" },
+                        },
+                        angularaxis: { fixedrange: true, tickfont: { size: 12 } },
                     },
-                    angularaxis: { fixedrange: true, tickfont: { size: 12 } },
-                },
-                showlegend: false,
-                hoverlabel: {
-                    bgcolor: "rgba(50,50,50,0.9)",
-                    bordercolor: "#888",
-                    font: { color: "#eee" },
-                },
-            }}
-            config={{
-                displayModeBar: false,
-                scrollZoom: false,
-            }}
-        />
+                    showlegend: false,
+                    hoverlabel: {
+                        bgcolor: "rgba(50,50,50,0.9)",
+                        bordercolor: "#888",
+                        font: { color: "#eee" },
+                    },
+                }}
+                config={{
+                    displayModeBar: false,
+                    scrollZoom: false,
+                }}
+            />
+        </div>
     );
 }

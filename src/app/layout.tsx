@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./Header";
+import type { ReactNode } from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -20,12 +22,12 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <header></header>
+                <Header />
                 <main>{children}</main>
                 <footer className="py-4 text-center text-white bg-teal-700 text-white">&copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.</footer>
             </body>
