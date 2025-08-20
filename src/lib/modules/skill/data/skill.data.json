@@ -1,0 +1,40 @@
+{
+    "languages": [
+        {
+            "name": "HTML",
+            "proficiency": 8
+        },
+        { "name": "CSS<br>• LESS<br>• SASS", "proficiency": 8 },
+        { "name": "JavaScript", "proficiency": 8 },
+        { "name": "jQuery", "proficiency": 7 },
+        { "name": "TypeScript", "proficiency": 8 },
+        { "name": "PHP", "proficiency": 8 },
+        { "name": "Python", "proficiency": 5 },
+        { "name": "Flutter", "proficiency": 4 },
+        {
+            "name": "SQL<br>• MySQL<br>• PostgreSQL",
+            "proficiency": 7
+        }
+    ],
+    "frameworks": [
+        { "name": "Angular", "proficiency": 7 },
+        { "name": "Vue", "proficiency": 7 },
+        { "name": "React", "proficiency": 6 },
+        { "name": "Laravel", "proficiency": 7 },
+        { "name": "CodeIgniter", "proficiency": 4 },
+        { "name": "Bootstrap", "proficiency": 7 },
+        { "name": "Tailwind CSS", "proficiency": 8 }
+    ],
+    "tools": [
+        { "name": "VS Code", "image": "vs-code.png" },
+        { "name": "Git", "image": "git.png" },
+        { "name": "GitHub", "image": "github.png" },
+        { "name": "GitLab", "image": "gitlab.webp" },
+        { "name": "Figma", "image": "figma.png" },
+        { "name": "Photoshop", "image": "adobe-photoshop.webp" }
+    ],
+    "spokenLanguages": [
+        { "name": "Indonesian", "proficiency": "Native" },
+        { "name": "English", "proficiency": "Professional" }
+    ]
+}

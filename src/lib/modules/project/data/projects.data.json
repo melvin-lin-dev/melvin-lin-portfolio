@@ -1,0 +1,89 @@
+[
+    {
+        "id": 1,
+        "thumbnail": "star-battle.jpg",
+        "title": "Star Battle",
+        "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
+        "repositoryLink": "",
+        "codeSnippets": [
+            {
+                "language": "markup",
+                "label": "HTML",
+                "source": "<div class=\"game-container\">Star Battle</div>"
+            },
+            {
+                "language": "css",
+                "label": "CSS",
+                "source": ".game-container { font-weight: bold; }"
+            },
+            {
+                "language": "javascript",
+                "label": "JavaScript",
+                "source": "console.log('Game started!');"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "thumbnail": "star-battle.jpg",
+        "title": "Star Battle",
+        "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
+        "repositoryLink": "",
+        "codeSnippets": [
+            {
+                "language": "html",
+                "label": "HTML",
+                "source": "<div class=\"game-container\">Star Battle</div>"
+            },
+            {
+                "language": "css",
+                "label": "CSS",
+                "source": ".game-container { font-weight: bold; }"
+            },
+            {
+                "language": "javascript",
+                "label": "JavaScript",
+                "source": "console.log('Game started!');"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "thumbnail": "star-battle.jpg",
+        "title": "Star Battle",
+        "description": "Best Student Award - Jawara Game Indonesia",
+        "stacks": {
+            "programmingLanguages": ["JavaScript", "Angular"],
+            "markupLanguages": ["HTML"],
+            "styleLanguages": ["CSS"]
+        },
+        "repositoryLink": "",
+        "codeSnippets": [
+            {
+                "language": "html",
+                "label": "HTML",
+                "source": "<div class=\"game-container\">Star Battle</div>"
+            },
+            {
+                "language": "css",
+                "label": "CSS",
+                "source": ".game-container { font-weight: bold; }"
+            },
+            {
+                "language": "javascript",
+                "label": "JavaScript",
+                "source": "console.log('Game started!');"
+            }
+        ]
+    }
+]
