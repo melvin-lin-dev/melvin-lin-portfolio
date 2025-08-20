@@ -2,6 +2,7 @@
 
 import CareerBreakTimelineItem from "@/app/home/components/timelines/CareerBreakTimelineItem";
 import CompetitionTimelineItem from "@/app/home/components/timelines/CompetitionTimelineItem";
+import ContinuousLearningTimelineItem from "@/app/home/components/timelines/ContinuousLearningTimelineItem";
 import EducationTimelineItem from "@/app/home/components/timelines/EducationTimelineItem";
 import TrainingTimelineItem from "@/app/home/components/timelines/TrainingTimelineItem";
 import WorkExperienceDetailTimelineItem from "@/app/home/components/timelines/WorkExperienceDetailTimelineItem";
@@ -9,6 +10,7 @@ import Timeline from "@/components/react-vertical-timeline/Timeline";
 import { TimelineCategory } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { CareerBreak } from "@/lib/modules/timeline/models/career-break.model";
 import type { Competition } from "@/lib/modules/timeline/models/competition.model";
+import type { ContinuousLearning } from "@/lib/modules/timeline/models/continuous-learning.model";
 import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { Timeline as TimelineType } from "@/lib/modules/timeline/models/timeline.model";
 import type { Training } from "@/lib/modules/timeline/models/training.model";
@@ -52,6 +54,8 @@ export default function VerticalTimelineContainer({ timeline, sectionId }: Verti
                         return <CompetitionTimelineItem competition={item as Competition} isActive={isActive} />;
                     case TimelineCategory.TRAINING:
                         return <TrainingTimelineItem training={item as Training} isActive={isActive} />;
+                    case TimelineCategory.CONTINUOUS_LEARNING:
+                        return <ContinuousLearningTimelineItem continuousLearning={item as ContinuousLearning} isActive={isActive} />;
                     default:
                         return <>TIMELINE ITEM DOESN&apos;T EXIST</>;
                 }

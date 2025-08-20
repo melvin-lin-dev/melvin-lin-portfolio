@@ -2,6 +2,7 @@
 
 import CareerBreakTimelineItem from "@/app/home/components/timelines/CareerBreakTimelineItem";
 import CompetitionTimelineItem from "@/app/home/components/timelines/CompetitionTimelineItem";
+import ContinuousLearningTimelineItem from "@/app/home/components/timelines/ContinuousLearningTimelineItem";
 import EducationTimelineItem from "@/app/home/components/timelines/EducationTimelineItem";
 import TrainingTimelineItem from "@/app/home/components/timelines/TrainingTimelineItem";
 import WorkExperienceDetailTimelineItem from "@/app/home/components/timelines/WorkExperienceDetailTimelineItem";
@@ -10,6 +11,7 @@ import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import { TimelineCategory, timelineColorMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { CareerBreak } from "@/lib/modules/timeline/models/career-break.model";
 import type { Competition } from "@/lib/modules/timeline/models/competition.model";
+import type { ContinuousLearning } from "@/lib/modules/timeline/models/continuous-learning.model";
 import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import type { Training } from "@/lib/modules/timeline/models/training.model";
@@ -47,6 +49,7 @@ export default function GanttChartDetailModal({ timeline, closeTimelineDetail }:
                             {timeline.category == TimelineCategory.CAREER_BREAK && <CareerBreakTimelineItem careerBreak={timeline as CareerBreak} isActive={isActive} />}
                             {timeline.category == TimelineCategory.COMPETITION && <CompetitionTimelineItem competition={timeline as Competition} isActive={isActive} />}
                             {timeline.category == TimelineCategory.TRAINING && <TrainingTimelineItem training={timeline as Training} isActive={isActive} />}
+                            {timeline.category == TimelineCategory.CONTINUOUS_LEARNING && <ContinuousLearningTimelineItem continuousLearning={timeline as ContinuousLearning} isActive={isActive} />}
                         </div>
                     </DialogContent>
                 </Animate>

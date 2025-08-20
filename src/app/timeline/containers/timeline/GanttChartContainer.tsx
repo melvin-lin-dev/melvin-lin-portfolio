@@ -2,22 +2,14 @@
 
 import Animate from "@/components/framer-motion/Animate";
 import Plot from "@/components/react-plotly/Plot";
-import { TimelineCategory, timelineColorMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
+import { timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
 import { fadeUp } from "@/lib/utils/framer-motion/motions";
 import type { Data, PlotlyHTMLElement, PlotMouseEvent } from "plotly.js";
 import { useMemo, useState, type ReactElement } from "react";
-import GanttChartDetailModal from "../../components/GanttChartDetailModal";
 import type { Figure } from "react-plotly.js";
-
-const rowMap: Record<TimelineCategory, string> = {
-    [TimelineCategory.WORK_EXPERIENCE]: "Work",
-    [TimelineCategory.EDUCATION]: "Education",
-    [TimelineCategory.CAREER_BREAK]: "Career Break",
-    [TimelineCategory.COMPETITION]: "Competition",
-    [TimelineCategory.TRAINING]: "Training",
-};
+import GanttChartDetailModal from "../../components/GanttChartDetailModal";
 
 type GanttChartContainerProps = {
     timeline: Timeline[];
@@ -32,10 +24,12 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
                 const startDate = isDateStringComplete(entry.startDate) ? formatDate(entry.startDate) : formatMonthYear(entry.startDate);
                 const endDate = isDateStringComplete(entry.endDate) ? formatDate(entry.endDate) : formatMonthYear(entry.endDate);
 
+                const xEndDate = entry.endDate === "Present" ? new Date().getTime() : new Date(entry.endDate).getTime();
+
                 return {
                     id: entry.id,
-                    x: [new Date(entry.endDate).getTime() - new Date(entry.startDate).getTime()],
-                    y: [rowMap[entry.category]],
+                    x: [xEndDate - new Date(entry.startDate).getTime()],
+                    y: [timelineMeta[entry.category].text],
                     base: new Date(entry.startDate),
                     type: "bar",
                     orientation: "h",

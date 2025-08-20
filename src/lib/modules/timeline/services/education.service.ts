@@ -1,6 +1,6 @@
-import type { Education } from "../models/education.model";
 import educations from "../data/educations.data.json";
 import { TimelineCategory } from "../enums/timeline-category.enum";
+import type { Education } from "../models/education.model";
 
 export function getEducations(): Education[] {
     return educations.map((education, i) => ({

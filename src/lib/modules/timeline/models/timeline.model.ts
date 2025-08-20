@@ -6,6 +6,6 @@ export interface Timeline {
     category: TimelineCategory;
     startDate: string;
     endDate: string;
-    location: string;
+    location?: string;
     note?: string;
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { ReactElement } from "react";
 

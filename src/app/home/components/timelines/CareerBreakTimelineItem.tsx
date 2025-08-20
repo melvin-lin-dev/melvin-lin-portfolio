@@ -1,5 +1,3 @@
-"use client";
-
 import type { CareerBreak } from "@/lib/modules/timeline/models/career-break.model";
 import { ChevronDown } from "lucide-react";
 import type { ReactElement } from "react";

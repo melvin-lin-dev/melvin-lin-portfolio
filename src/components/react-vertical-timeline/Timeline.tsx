@@ -21,7 +21,6 @@ type TimelineProps<T extends Timeline> = {
 export default function Timeline<T extends Timeline>({ data, layout, scrollToId, style = {}, children }: TimelineProps<T>) {
     const handleScrollToId = () => {
         const element = document.getElementById(scrollToId!);
-        console.log("debug", element, scrollToId);
         if (element) {
             window.scrollTo({
                 top: element.offsetTop,
@@ -52,6 +51,7 @@ export default function Timeline<T extends Timeline>({ data, layout, scrollToId,
 
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
+                        boxShadow: `0 0 0 4px ${activeBackgroundColor},inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)`
                     };
 
                     defaultStyle.contentStyle = {

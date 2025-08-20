@@ -1,13 +1,13 @@
-import type { Training } from "@/lib/modules/timeline/models/training.model";
+import type { ContinuousLearning } from "@/lib/modules/timeline/models/continuous-learning.model";
 import { ChevronDown } from "lucide-react";
 import type { ReactElement } from "react";
 
-interface TrainingTimelineItemProps {
-    training: Training;
+interface ContinuousLearningTimelineItemProps {
+    continuousLearning: ContinuousLearning;
     isActive: boolean;
 }
 
-export default function TrainingTimelineItem({ training, isActive }: TrainingTimelineItemProps): ReactElement {
+export default function ContinuousLearningTimelineItem({ continuousLearning, isActive }: ContinuousLearningTimelineItemProps): ReactElement {
     const style: Record<string, Record<string, string>> = {
         content: {
             location: "text-gray-500",
@@ -20,13 +20,12 @@ export default function TrainingTimelineItem({ training, isActive }: TrainingTim
         };
     }
 
-    const collapsableId = `${training.category}-collapsible-${training.id}`;
-    const showDetail = training.descriptions.length > 4;
+    const collapsableId = `${continuousLearning.category}-collapsible-${continuousLearning.id}`;
+    const showDetail = continuousLearning.descriptions.length > 4;
 
     return (
         <>
-            <h3 className="sm:text-lg md:text-xl font-semibold">{training.title}</h3>
-            <p className={`!mt-1 text-sm sm:text-base ${style.content.location}`}>{training.location}</p>
+            <h3 className="sm:text-lg md:text-xl font-semibold">{continuousLearning.title}</h3>
             <div className={`relative mt-3 ${showDetail ? "pb-7" : ""}`}>
                 {showDetail && (
                     <>
@@ -48,9 +47,9 @@ export default function TrainingTimelineItem({ training, isActive }: TrainingTim
                 <ul
                     className={`pl-5 list-disc space-y-0.5 ${showDetail ? "max-h-[130px]" : ""} overflow-hidden transition-all after:transition-all after:absolute after:bottom-0 after:left-0 after:w-full ${
                         showDetail ? "after:h-28" : "after:h-0"
-                    } after:bg-gradient-to-t ${isActive ? "after:from-[#8b5cf6]" : "after:from-white"} after:to-transparent`}
+                    } after:bg-gradient-to-t ${isActive ? "after:from-[#10b981]" : "after:from-white"} after:to-transparent`}
                 >
-                    {training.descriptions.map((description) => (
+                    {continuousLearning.descriptions.map((description) => (
                         <li key={description} className="text-sm md:text-base">
                             {description}
                         </li>

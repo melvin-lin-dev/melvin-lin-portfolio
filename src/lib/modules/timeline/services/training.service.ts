@@ -1,6 +1,6 @@
-import type { Training } from "../models/training.model";
 import trainings from "../data/trainings.data.json";
 import { TimelineCategory } from "../enums/timeline-category.enum";
+import type { Training } from "../models/training.model";
 
 export function getTrainings(): Training[] {
     return trainings.map((training, i) => ({

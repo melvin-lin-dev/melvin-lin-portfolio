@@ -1,5 +1,3 @@
-"use client";
-
 import type { Competition } from "@/lib/modules/timeline/models/competition.model";
 import { ChevronDown } from "lucide-react";
 import type { ReactElement } from "react";
@@ -58,7 +56,7 @@ export default function CompetitionTimelineItem({ competition, isActive }: Compe
                 <ul
                     className={`pl-5 list-disc space-y-0.5 ${showDetail ? "max-h-[130px]" : ""} overflow-hidden transition-all after:transition-all after:absolute after:bottom-0 after:left-0 after:w-full ${
                         showDetail ? "after:h-28" : "after:h-0"
-                    } after:bg-gradient-to-t ${isActive ? "after:from-[#f43f5e]" : "after:from-white"} after:to-transparent`}
+                    } after:bg-gradient-to-t ${isActive ? "after:from-[#ef4444]" : "after:from-white"} after:to-transparent`}
                 >
                     {competition.descriptions.map((description) => (
                         <li key={description} className="text-sm md:text-base">
