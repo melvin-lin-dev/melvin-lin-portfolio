@@ -1,0 +1,36 @@
+.text3D {
+    animation: shadows 3s ease-in-out infinite;
+
+    @mixin generate-shadows($colors...) {
+        @keyframes shadows {
+            0% {
+                transform: translate(0, 0);
+                text-shadow: none;
+            }
+
+            @for $i from 1 through length($colors) {
+                #{20% * $i} {
+                    $shadows: ();
+                    @for $j from 1 through $i {
+                        $color: nth($colors, $j);
+                        $shadows: append($shadows, #{3px * $j} #{3px * $j} 0 $color, comma);
+                    }
+                    transform: translate(-#{3px * $i}, -#{3px * $i});
+                    text-shadow: $shadows;
+                }
+            }
+
+            100% {
+                transform: translate(0, 0);
+                text-shadow: none;
+            }
+        }
+    }
+
+    @include generate-shadows(
+        #34d399,
+        #10b981,
+        #06b6d4,
+        #22d3ee
+    );
+}
