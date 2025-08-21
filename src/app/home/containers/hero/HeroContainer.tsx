@@ -1,23 +1,18 @@
 "use client";
 
+import ThreeDimensionButton from "@/common/components/buttons/three-dimension-button/ThreeDimensionButton";
 import Animate from "@/components/framer-motion/Animate";
 import { profileRoleColors, profileTitles } from "@/lib/modules/profile/constants/profile-titles";
 import { horizontalGrow } from "@/lib/utils/framer-motion/motions";
 import { Download, MapPin } from "lucide-react";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import { TypeAnimation } from "react-type-animation";
-import Contact3DContainer from "../contact-3d-container/Contact3DContainer";
-import Cube3DContainer from "../cube-3d-container/Cube3DContainer";
-import SimpleContact3DContainer from "../simple-contact-3d-container";
-import { TerminalCodeContainer } from "../TerminalCodeContainer";
-import type { TerminalFile } from "./HeroContainer";
-import ThreeDimensionButton from "@/common/components/buttons/three-dimension-button/ThreeDimensionButton";
+import Contact3DContainer from "./contact-3d-container/Contact3DContainer";
+import Cube3DContainer from "./cube-3d-container/Cube3DContainer";
+import SimpleContact3DContainer from "./simple-contact-3d-container";
+import { TerminalCodeContainer } from "./terminal-code-container/TerminalCodeContainer";
 
-type HeroContainerElementProps = {
-    terminalFiles: TerminalFile[];
-};
-
-export function HeroContainerElement({ terminalFiles }: HeroContainerElementProps): ReactElement {
+export default function HeroContainer(): ReactElement {
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
     const applyCenterGradient = (el: HTMLDivElement) => {
@@ -82,16 +77,23 @@ export function HeroContainerElement({ terminalFiles }: HeroContainerElementProp
                                 <SimpleContact3DContainer />
                             </div>
                             <div className="flex items-end space-x-4">
-                                <ThreeDimensionButton tag="a" color="amber" href="#about-section" role="button" className="text-lg sm:text-xl rounded-lg sm:rounded-xl font-semibold" paddingClassName="py-2 sm:py-3 px-8 sm:px-10">
+                                <ThreeDimensionButton
+                                    tag="a"
+                                    color="amber"
+                                    href="#about-section"
+                                    role="button"
+                                    className="text-lg sm:text-xl rounded-lg sm:rounded-xl font-semibold"
+                                    paddingClassName="py-2 sm:py-3 px-8 sm:px-10"
+                                >
                                     Uncover My Journey
                                 </ThreeDimensionButton>
                                 <ThreeDimensionButton tag="a" color="gray" href="" download title="Resume" className="rounded-lg sm:rounded-xl" paddingClassName="py-2.5 sm:py-3 px-3.5 sm:px-4">
-                                    <Download className="w-5.5 h-5.5 sm:w-6 sm:h-6"/>
+                                    <Download className="w-5.5 h-5.5 sm:w-6 sm:h-6" />
                                 </ThreeDimensionButton>
                             </div>
                         </div>
                     </div>
-                    <TerminalCodeContainer terminalFiles={terminalFiles} />
+                    <TerminalCodeContainer />
                     <Contact3DContainer />
                 </div>
             </div>

@@ -1,18 +1,35 @@
 "use client";
 
+import Animate from "@/components/framer-motion/Animate";
+import { popIn } from "@/lib/utils/framer-motion/motions";
 import { Code } from "lucide-react";
 import { useEffect, useState, type ReactElement } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import type { TerminalFile } from "./hero-container/HeroContainer";
-import Animate from "@/components/framer-motion/Animate";
-import { popIn } from "@/lib/utils/framer-motion/motions";
 
-type TerminalCodeContainerProps = {
-    terminalFiles: TerminalFile[];
+import asyncBuildCode from "./snippets/async-build.ts?raw";
+import coffeeCode from "./snippets/coffee.ts?raw";
+import importsCode from "./snippets/imports.ts?raw";
+import logsCode from "./snippets/logs.ts?raw";
+import portfolioCode from "./snippets/portfolio.ts?raw";
+
+type TerminalFile = {
+    name: string;
+    code: string;
+    delay: number;
 };
 
-export function TerminalCodeContainer({ terminalFiles }: TerminalCodeContainerProps): ReactElement {
+const delayMs = 15;
+
+const terminalFiles: TerminalFile[] = [
+    { name: "imports.ts", code: importsCode, delay: importsCode.length * delayMs },
+    { name: "portfolio.ts", code: portfolioCode, delay: portfolioCode.length * delayMs },
+    { name: "coffee.ts", code: coffeeCode, delay: coffeeCode.length * delayMs },
+    { name: "logs.ts", code: logsCode, delay: logsCode.length * delayMs },
+    { name: "async-build.ts", code: asyncBuildCode, delay: asyncBuildCode.length * delayMs },
+];
+
+export function TerminalCodeContainer(): ReactElement {
     const [typedCode, setTypedCode] = useState("");
     const [index, setIndex] = useState(0);
     const [codeIndex, setCodeIndex] = useState(0);
@@ -32,7 +49,7 @@ export function TerminalCodeContainer({ terminalFiles }: TerminalCodeContainerPr
             }, terminalFiles[codeIndex].delay);
             return () => clearTimeout(pause);
         }
-    }, [index, codeIndex, terminalFiles]);
+    }, [index, codeIndex]);
 
     return (
         <div className="hidden md:block absolute -top-4 lg:top-8 xl:top-28 2xl:top-40 -right-12 lg:right-4 xl:right-40 2xl:right-60 min-[1700px]:right-80 scale-[0.8] lg:scale-[1]">

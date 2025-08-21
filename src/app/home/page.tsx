@@ -11,7 +11,7 @@ import AchievementContainer from "./containers/achievement/AchievementContainer"
 import EducationTimelineContainer from "./containers/education/TimelineContainer";
 import EmailFormContainer from "./containers/external-profile/EmailFormContainer";
 import ExternalProfileContainer from "./containers/external-profile/ExternalProfileContainer";
-import HeroContainer from "./containers/hero/hero-container/HeroContainer";
+import HeroContainer from "./containers/hero/HeroContainer";
 import ProjectCarouselContainer from "./containers/project-highlight/ProjectCarouselContainer";
 import QuoteContainer from "./containers/quote/QuoteContainer";
 import SkillContainer from "./containers/skill/SkillContainer";
