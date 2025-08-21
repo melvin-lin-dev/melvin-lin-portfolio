@@ -1,8 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
 
-## Getting Started
+A portfolio highlighting my experience and skills as a software engineer, with a strong foundation in frontend development and UI design. Built with **Next.js**, **React**, **Tailwind CSS**, and **TypeScript**.
 
-First, run the development server:
+## 🔹 Demo
+
+[Live Demo](https://melvin-lin-dev.github.io/)
+
+## 🛠 Tech Stack
+
+-   **Frontend:** React, Next.js, TypeScript
+-   **Styling:** Tailwind CSS
+-   **Charts & Data Visualization:** Plotly.js
+-   **Deployment:** GitHub Pages
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/melvin-lin-dev/melvin-lin-dev.github.io.git
+```
+
+### Run Locally
 
 ```bash
 npm run dev
@@ -14,23 +33,75 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Build the production version
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start the production server
+npm start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
-## Learn More
+## 💡 Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+-   Add more highlighted projects
+-   Optimize code redundancy
+-   Add dedicated page
+    -   About
+    -   Skill
+    -   Project Highlights
+    -   Collections
+    -   etc.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📫 Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GitHub: https://github.com/melvin-lin-dev
 
-## Deploy on Vercel
+LinkedIn: https://www.linkedin.com/in/melvin-lin-dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Folder Structures
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Outlines the main project folder organization for easier navigation and maintainability.
+
+```bash
+/src
+    /app
+        /<page-name>
+            /components         # Page-specific UI elements (Input, Output, etc.)
+            /containers         # Page-specific logic / state management
+            page.tsx            # Page entry point
+
+    /common
+        /components             # Shared UI components used across pages
+        /containers             # Shared containers / logic
+
+    /components                 # Third-party or external UI components
+
+    /config                     # Config files (e.g., email, API keys)
+
+    /lib
+        /modules
+            /<domain-name>
+                /data           # Domain-specific data
+                /enums          # Domain-specific enums
+                /models         # Domain-specific models
+                /services       # Domain-specific services
+        /shared                 # Shared logic across domains
+
+    /utils                      # Third-party utilities
+
+    /types                      # Third-party or global types
+```
