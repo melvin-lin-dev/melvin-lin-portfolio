@@ -4,7 +4,7 @@ A portfolio highlighting my experience and skills as a software engineer, with a
 
 ## 🔹 Demo
 
-[Live Demo](https://melvin-lin-dev.github.io/)
+[Live Demo](https://melvin-lin.vercel.app)
 
 ## 🛠 Tech Stack
 
@@ -18,7 +18,7 @@ A portfolio highlighting my experience and skills as a software engineer, with a
 ### Clone the repository
 
 ```bash
-git clone https://github.com/melvin-lin-dev/melvin-lin-dev.github.io.git
+git clone https://github.com/melvin-lin-dev/melvin-lin.git
 ```
 
 ### Run Locally
@@ -66,10 +66,10 @@ bun start
     -   Collections
     -   etc.
 
-## 📫 Contact
+## 📫 Contacts
 
+Email: melvin.lin.work@gmail.com
 GitHub: https://github.com/melvin-lin-dev
-
 LinkedIn: https://www.linkedin.com/in/melvin-lin-dev
 
 ## 📁 Folder Structures
