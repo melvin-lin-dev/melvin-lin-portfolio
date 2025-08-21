@@ -5,11 +5,12 @@ import Plot from "@/components/react-plotly/Plot";
 import { timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp, popIn } from "@/lib/utils/framer-motion/motions";
 import type { Data, PlotlyHTMLElement, PlotMouseEvent } from "plotly.js";
 import { useMemo, useState, type ReactElement } from "react";
 import type { Figure } from "react-plotly.js";
 import GanttChartDetailModal from "../../components/GanttChartDetailModal";
+import { MousePointerClick, SquareMousePointer } from "lucide-react";
 
 type GanttChartContainerProps = {
     timeline: Timeline[];
@@ -56,6 +57,20 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
 
     return (
         <div>
+            <div className="px-5 mb-8 flex items-center space-x-3 justify-center">
+                <Animate variants={popIn} className="py-1.5 px-4 bg-slate-100 text-gray-500 border border-gray-300 rounded-full flex items-center space-x-2 text-sm">
+                    <SquareMousePointer className="w-5 h-5" />
+                    <span>
+                        <b>Drag</b> to zoom chart
+                    </span>
+                    <span>•</span>
+                    <MousePointerClick className="w-5 h-5" />
+                    <span>
+                        <b>Click</b> to show timeline detail
+                    </span>
+                </Animate>
+            </div>
+
             <Animate variants={fadeUp} className="relative overflow-x-auto overflow-y-hidden" style={{ height: 500 }}>
                 <Plot
                     data={data}
