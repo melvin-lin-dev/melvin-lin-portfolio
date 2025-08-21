@@ -1,7 +1,7 @@
 "use client";
 
 import Animate from "@/components/framer-motion/Animate";
-import { shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
+import { shrinkFadeIn } from "@/utils/framer-motion/motions";
 import { getSmoothStepPath, type Edge, type GetSmoothStepPathParams } from "@xyflow/react";
 
 type AnimatedEdgeProps = Edge & GetSmoothStepPathParams;

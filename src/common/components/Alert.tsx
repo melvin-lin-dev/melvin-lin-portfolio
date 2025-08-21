@@ -1,5 +1,5 @@
 import Animate from "@/components/framer-motion/Animate";
-import { popIn } from "@/lib/utils/framer-motion/motions";
+import { popIn } from "@/utils/framer-motion/motions";
 import { CircleCheck, CircleX, X } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import type { ReactElement } from "react";

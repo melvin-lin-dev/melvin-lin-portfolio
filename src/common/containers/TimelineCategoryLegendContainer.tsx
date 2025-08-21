@@ -1,7 +1,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import { type TimelineCategory, timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import type { ReactElement } from "react";
 
 const timelineMetaEntries = Object.entries(timelineMeta);

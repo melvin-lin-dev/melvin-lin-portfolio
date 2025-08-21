@@ -5,7 +5,7 @@ import Plot from "@/components/react-plotly/Plot";
 import { timelineColorMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
-import { fadeUp, popIn } from "@/lib/utils/framer-motion/motions";
+import { fadeUp, popIn } from "@/utils/framer-motion/motions";
 import type { Data, PlotlyHTMLElement, PlotMouseEvent } from "plotly.js";
 import { useMemo, useState, type ReactElement } from "react";
 import type { Figure } from "react-plotly.js";

@@ -1,6 +1,6 @@
 import Animate from "@/components/framer-motion/Animate";
 import { getCodingProfiles, getContactLinks } from "@/lib/modules/external-profile/services/external-profile.service";
-import { fadeUp, shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
+import { fadeUp, shrinkFadeIn } from "@/utils/framer-motion/motions";
 import { useMemo, type ReactElement } from "react";
 import ContactContainer from "./ContactContainer";
 

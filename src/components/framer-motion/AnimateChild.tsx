@@ -1,6 +1,6 @@
 "use client";
 
-import { defaultStyle } from "@/lib/utils/framer-motion/transitions";
+import { defaultStyle } from "@/utils/framer-motion/transitions";
 import { motion, type Variants } from "framer-motion";
 import type { ElementType, ReactNode } from "react";
 

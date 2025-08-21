@@ -1,7 +1,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import skillLevels from "@/lib/modules/skill/constants/skill-levels";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import { HelpCircle } from "lucide-react";
 import type { ReactElement } from "react";
 

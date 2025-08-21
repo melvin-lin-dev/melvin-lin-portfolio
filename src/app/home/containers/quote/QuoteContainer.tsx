@@ -2,7 +2,7 @@
 
 import Animate from "@/components/framer-motion/Animate";
 import quotes from "@/lib/modules/quote/constants/quotes";
-import { popIn } from "@/lib/utils/framer-motion/motions";
+import { popIn } from "@/utils/framer-motion/motions";
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 import QuoteItem from "../../components/QuoteItem";
 import styles from "./quote-container.module.scss";

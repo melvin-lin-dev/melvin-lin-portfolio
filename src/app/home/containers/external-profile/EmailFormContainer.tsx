@@ -7,7 +7,7 @@ import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { EMAIL_CONFIG } from "@/config/email";
-import { fadeUp, fadeUpScale, shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
+import { fadeUp, fadeUpScale, shrinkFadeIn } from "@/utils/framer-motion/motions";
 import emailjs from "emailjs-com";
 import { Boxes } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type ReactElement } from "react";

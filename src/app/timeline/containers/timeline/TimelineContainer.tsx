@@ -3,7 +3,7 @@ import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import { getTimeline } from "@/lib/modules/timeline/services/timeline.service";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import clsx from "clsx";
 import { Fragment, useState, type ReactElement } from "react";
 import GanttChartContainer from "./GanttChartContainer";

@@ -6,7 +6,7 @@ import type { Achievement } from "@/lib/modules/achievement/models/achievement.m
 import { getAchievements } from "@/lib/modules/achievement/services/achievement.service";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import { delay } from "@/lib/shared/utils/time";
-import { fadeIn } from "@/lib/utils/framer-motion/motions";
+import { fadeIn } from "@/utils/framer-motion/motions";
 import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactElement } from "react";

@@ -1,4 +1,4 @@
-import { getLucideIcon } from "@/lib/utils/lucide-icon/lucide-icon";
+import { getLucideIcon } from "@/utils/lucide-icon/lucide-icon";
 
 type Props = {
   name: string;

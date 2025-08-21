@@ -2,7 +2,7 @@ import { type ReactElement } from "react";
 
 import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 import Animate from "@/components/framer-motion/Animate";
-import { fadeUp, popIn } from "@/lib/utils/framer-motion/motions";
+import { fadeUp, popIn } from "@/utils/framer-motion/motions";
 import { MousePointerClick, SquareMousePointer } from "lucide-react";
 import Link from "next/link";
 import SkillLegendContainer from "../../common/containers/SkillLegendContainer";

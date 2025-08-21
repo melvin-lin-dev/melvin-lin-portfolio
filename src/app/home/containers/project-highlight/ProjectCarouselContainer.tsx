@@ -2,7 +2,7 @@
 
 import Animate from "@/components/framer-motion/Animate";
 import { getProjects } from "@/lib/modules/project/services/project.service";
-import { fadeUpScale } from "@/lib/utils/framer-motion/motions";
+import { fadeUpScale } from "@/utils/framer-motion/motions";
 import { useEffect, useState, type ReactElement } from "react";
 import { Carousel } from "react-responsive-3d-carousel";
 import "react-responsive-3d-carousel/dist/styles.css";

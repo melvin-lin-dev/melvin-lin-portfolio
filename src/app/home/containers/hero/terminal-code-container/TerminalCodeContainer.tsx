@@ -1,7 +1,7 @@
 "use client";
 
 import Animate from "@/components/framer-motion/Animate";
-import { popIn } from "@/lib/utils/framer-motion/motions";
+import { popIn } from "@/utils/framer-motion/motions";
 import { Code } from "lucide-react";
 import { useEffect, useState, type ReactElement } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";

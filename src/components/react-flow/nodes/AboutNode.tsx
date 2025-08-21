@@ -3,7 +3,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
-import { shrinkFadeIn } from "@/lib/utils/framer-motion/motions";
+import { shrinkFadeIn } from "@/utils/framer-motion/motions";
 import type { AboutNodeData } from "@/types/react-flow/about-node-data";
 import { Handle, Position, type Node, type NodeProps } from "@xyflow/react";
 import React, { useRef } from "react";

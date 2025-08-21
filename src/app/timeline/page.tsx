@@ -1,7 +1,7 @@
 "use client";
 
 import Text3D from "@/common/components/text-3d/Text3D";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import type { ReactElement } from "react";
 import TimelineContainer from "./containers/timeline/TimelineContainer";
 import Animate from "@/components/framer-motion/Animate";

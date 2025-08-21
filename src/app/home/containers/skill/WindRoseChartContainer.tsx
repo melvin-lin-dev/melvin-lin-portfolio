@@ -2,7 +2,7 @@
 
 import type { SkillProficiency } from "@/lib/modules/skill/models/skill-proficiency.model";
 import skillLevels from "@/lib/modules/skill/constants/skill-levels";
-import { buildSkillLevelLayers } from "@/lib/utils/react-plotly/wind-rose";
+import { buildSkillLevelLayers } from "@/utils/react-plotly/wind-rose";
 import { useEffect, useMemo, useState, type ReactElement } from "react";
 import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import Plot from "@/components/react-plotly/Plot";

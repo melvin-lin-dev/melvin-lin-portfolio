@@ -16,7 +16,7 @@ import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import type { Training } from "@/lib/modules/timeline/models/training.model";
 import type { WorkExperience } from "@/lib/modules/timeline/models/work-experience.model";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import clsx from "clsx";
 import { X } from "lucide-react";

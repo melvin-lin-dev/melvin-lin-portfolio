@@ -1,7 +1,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import { getSkill } from "@/lib/modules/skill/services/skill.service";
-import { fadeUpScale, popIn } from "@/lib/utils/framer-motion/motions";
+import { fadeUpScale, popIn } from "@/utils/framer-motion/motions";
 import type { ReactElement } from "react";
 import SkillToolItem from "../../components/SkillToolItem";
 import WindRoseChartContainer from "./WindRoseChartContainer";

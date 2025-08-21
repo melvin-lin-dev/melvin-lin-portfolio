@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import ExternalProfileItem from "../../components/ExternalProfileItem";
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
-import { fadeUpScale } from "@/lib/utils/framer-motion/motions";
+import { fadeUpScale } from "@/utils/framer-motion/motions";
 
 type ContactContainerProps = {
     externalProfiles: ExternalProfile[];

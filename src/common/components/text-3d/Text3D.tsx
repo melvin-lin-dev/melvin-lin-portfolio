@@ -1,5 +1,5 @@
 import Animate from "@/components/framer-motion/Animate";
-import { fadeUp } from "@/lib/utils/framer-motion/motions";
+import { fadeUp } from "@/utils/framer-motion/motions";
 import { type motion, type Variants } from "framer-motion";
 import type { ReactElement, ReactNode } from "react";
 import styles from "./text-3d.module.scss";
