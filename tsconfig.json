@@ -23,6 +23,6 @@
         },
         "verbatimModuleSyntax": true
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/home/containers/hero/hero-container/snippets/async-build.tssdf"],
-    "exclude": ["node_modules"]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules", "src/app/home/containers/hero/terminal-code-container/snippets"]
 }

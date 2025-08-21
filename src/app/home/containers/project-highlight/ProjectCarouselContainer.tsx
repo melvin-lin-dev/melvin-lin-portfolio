@@ -16,8 +16,6 @@ type Size = {
     height: number;
 };
 
-const ASPECT_RATIO = 9 / 16;
-
 export default function ProjectCarouselContainer(): ReactElement {
     const [ready, setReady] = useState(false);
     const [size, setSize] = useState<Size>({ width: 0, height: 0 });

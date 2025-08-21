@@ -12,7 +12,7 @@ type ProjectCarouselItemProps = {
 export default function ProjectCarouselItem({ project }: ProjectCarouselItemProps): ReactElement {
     return (
         <div className="relative h-full group cursor-default">
-            <Image src={`/images/${project.thumbnail}`} alt={`${project.title} Thumbnail`} className="object-cover" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+            <Image src={`/images/projects/${project.thumbnail}`} alt={`${project.title} Thumbnail`} className="object-cover" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
             <div className="relative bg-teal-500/20 w-full h-full py-3 px-4 text-white transition delay-[.3s] group-hover:delay-0 group-hover:bg-teal-500/50">
                 <div className="relative h-full flex flex-col justify-between">
                     <div>
