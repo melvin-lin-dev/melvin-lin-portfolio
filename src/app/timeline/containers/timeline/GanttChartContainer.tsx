@@ -36,6 +36,12 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
                     orientation: "h",
                     name: entry.title,
                     hovertemplate: `<b>${entry.title}</b><br>${startDate} - ${endDate}<extra></extra>`,
+                    hoverlabel: {
+                        font: {
+                            color: "white",
+                            size: 14,
+                        },
+                    },
                     marker: { color: timelineColorMeta[entry.category].primary },
                 };
             }),
