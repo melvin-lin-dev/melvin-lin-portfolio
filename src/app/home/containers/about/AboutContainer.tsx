@@ -29,6 +29,22 @@ const nodePositions: Record<Screen, Record<string, XYPosition>> = {
         goal: { x: 0, y: nodeHeight * 4 },
     },
 
+    laptop: {
+        about: { x: 0, y: 0 },
+
+        background: { x: -400, y: nodeHeight },
+        traits: { x: 0, y: nodeHeight },
+        skills: { x: 400, y: nodeHeight },
+
+        work_status: { x: -400, y: nodeHeight * 2 },
+        recent_work: { x: 0, y: nodeHeight * 2 },
+        working_on: { x: 400, y: nodeHeight * 2 },
+
+        learning: { x: 0, y: nodeHeight * 3 },
+
+        goal: { x: 0, y: nodeHeight * 4 },
+    },
+
     tablet: {
         about: { x: 0, y: 0 },
 
@@ -49,19 +65,24 @@ const nodePositions: Record<Screen, Record<string, XYPosition>> = {
 
     phone: {
         about: { x: 0, y: 0 },
-        background: { x: 0, y: nodeHeight },
-        traits: { x: 0, y: nodeHeight * 2 },
-        skills: { x: 0, y: nodeHeight * 3 },
-        work_status: { x: 0, y: nodeHeight * 4 },
-        recent_work: { x: 0, y: nodeHeight * 5 },
-        working_on: { x: 0, y: nodeHeight * 6 },
-        learning: { x: 0, y: nodeHeight * 7 },
-        goal: { x: 0, y: nodeHeight * 8 },
+        background: { x: 0, y: nodeHeight / 1.075 },
+        traits: { x: 0, y: nodeHeight / 1.075 * 2 },
+        skills: { x: 0, y: nodeHeight / 1.075 * 3 },
+        work_status: { x: 0, y: nodeHeight / 1.075 * 4 },
+        recent_work: { x: 0, y: nodeHeight / 1.075 * 5 },
+        working_on: { x: 0, y: nodeHeight / 1.075 * 6 },
+        learning: { x: 0, y: nodeHeight / 1.075 * 7 },
+        goal: { x: 0, y: nodeHeight / 1.075 * 8 },
     },
 };
 
 const edgeConfigs: Partial<Record<Screen, Record<string, Partial<Edge>>>> = {
     desktop: {
+        e_skills_work_status: {
+            type: "smoothstep",
+        },
+    },
+    laptop: {
         e_skills_work_status: {
             type: "smoothstep",
         },
@@ -212,6 +233,7 @@ function AboutFlow(): ReactElement {
             window.requestAnimationFrame(() => fitView());
             let screenType: Screen = "desktop";
 
+            if (window.innerWidth < BREAKPOINTS.xl) screenType = "laptop";
             if (window.innerWidth < BREAKPOINTS.md) screenType = "tablet";
             if (window.innerWidth < BREAKPOINTS.sm) screenType = "phone";
 
@@ -230,7 +252,7 @@ function AboutFlow(): ReactElement {
             );
 
             let padding = "130%";
-            if (window.innerWidth < BREAKPOINTS.md) padding = "145%";
+            if (window.innerWidth < BREAKPOINTS.md) padding = "195%";
             if (window.innerWidth < BREAKPOINTS.sm) padding = "380%";
             if (window.innerWidth < BREAKPOINTS.xs) padding = "570%";
 
@@ -244,7 +266,7 @@ function AboutFlow(): ReactElement {
 
     return (
         <section id="about-section">
-            <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1200px] sm:h-[800px] lg:h-[1000px] xl:h-[1200px] pointer-events-none overflow-hidden">
+            <div ref={parentRef} className="relative bg-slate-50 relative floating-edges h-[1500px] sm:h-[1200px] md:h-[1000px] xl:h-[1200px] pointer-events-none overflow-hidden">
                 <div ref={effectRef} className="absolute bg-emerald-500 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-[padding] duration-[7s]" style={{ padding: effectPadding }}></div>
                 <ReactFlow
                     fitView

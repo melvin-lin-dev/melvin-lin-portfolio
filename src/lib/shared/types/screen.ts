@@ -1,1 +1,1 @@
-export type Screen = "desktop" | "tablet" | "phone";
+export type Screen = "desktop" | "laptop" | "tablet" | "phone";
