@@ -11,7 +11,7 @@ type AnimateProps<T extends keyof typeof motion> = {
     delay?: number;
     once?: boolean;
     amount?: number;
-    condition?: boolean;
+    isAnimate?: boolean;
     isWillChange?: boolean;
 
     delayChildren?: number;
@@ -27,7 +27,7 @@ export default function Animate<T extends keyof typeof motion>({
     amount = 0.3,
     delayChildren,
     staggerChildren,
-    condition,
+    isAnimate = false,
     isWillChange,
     ...otherProps
 }: AnimateProps<T>) {
@@ -48,7 +48,7 @@ export default function Animate<T extends keyof typeof motion>({
 
     const props = {
         ...otherProps,
-        ...(condition != undefined ? { animate: condition ? "visible" : "hiddenReversed", exit: "hidden" } : { whileInView: "visible" }),
+        ...(isAnimate ? { animate: "visible", exit: "hidden" } : { whileInView: "visible" }),
     };
 
     const Tag = motion[tag || "div"] as ElementType;

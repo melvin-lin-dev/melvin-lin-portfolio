@@ -1,7 +1,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import { popIn } from "@/utils/framer-motion/motions";
+import { AnimatePresence } from "framer-motion";
 import { CircleCheck, CircleX, X } from "lucide-react";
-import { AnimatePresence } from "motion/react";
 import type { ReactElement } from "react";
 
 export type AlertType = "success" | "failed";
@@ -24,7 +24,7 @@ export default function Alert({ type, message, hidden = null, onClose }: AlertPr
     return (
         <AnimatePresence>
             {type == hidden && (
-                <Animate variants={popIn} condition={true} className="flex items-center w-full p-4 -mt-2 mb-6 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800" role="alert">
+                <Animate variants={popIn} isAnimate={true} className="flex items-center w-full p-4 -mt-2 mb-6 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800" role="alert">
                     <div className={`inline-flex items-center justify-center shrink-0 w-8 h-8 ${style.color} ${style.bgColor} rounded-lg ${style.darkBgColor} ${style.darkColor}`}>
                         {type == "success" ? <CircleCheck /> : <CircleX />}
                     </div>

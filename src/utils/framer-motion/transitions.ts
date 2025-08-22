@@ -1,4 +1,4 @@
-import type { Transition } from "motion";
+import type { Transition } from "framer-motion";
 
 export const defaultTransition = (delay = 0): Transition => ({
     delay,
