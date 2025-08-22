@@ -51,7 +51,7 @@ export default function Timeline<T extends Timeline>({ data, layout, scrollToId,
 
                     defaultStyle.iconStyle = {
                         ...defaultStyle.iconStyle,
-                        boxShadow: `0 0 0 4px ${activeBackgroundColor},inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)`
+                        boxShadow: `0 0 0 4px ${activeBackgroundColor},inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05)`,
                     };
 
                     defaultStyle.contentStyle = {
@@ -73,7 +73,7 @@ export default function Timeline<T extends Timeline>({ data, layout, scrollToId,
                 return (
                     <VerticalTimelineElement
                         key={i}
-                        date={`${startDate} - ${endDate}`}
+                        date={startDate == endDate ? startDate : `${startDate} - ${endDate}`}
                         dateClassName={defaultStyle.dateClassName.join(" ")}
                         icon={<IconWrapper name={entryMeta.icon} />}
                         iconStyle={defaultStyle.iconStyle}

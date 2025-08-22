@@ -16,6 +16,7 @@ import type { Education } from "@/lib/modules/timeline/models/education.model";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import type { Training } from "@/lib/modules/timeline/models/training.model";
 import type { WorkExperience } from "@/lib/modules/timeline/models/work-experience.model";
+import { formatDate, formatMonthYear, isDateStringComplete } from "@/lib/shared/utils/date";
 import { fadeUp } from "@/utils/framer-motion/motions";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import clsx from "clsx";
@@ -31,6 +32,9 @@ export default function GanttChartDetailModal({ timeline, closeTimelineDetail }:
     const isActive = timeline?.endDate === "Present";
 
     const colorMeta = timeline ? timelineColorMeta[timeline.category] : { primary: "", secondary: "" };
+
+    const startDate = timeline ? (isDateStringComplete(timeline.startDate) ? formatDate(timeline.startDate) : formatMonthYear(timeline.startDate)) : null;
+    const endDate = timeline ? (isDateStringComplete(timeline.endDate) ? formatDate(timeline.endDate) : formatMonthYear(timeline.endDate)) : null;
 
     return (
         <Dialog
@@ -73,6 +77,7 @@ export default function GanttChartDetailModal({ timeline, closeTimelineDetail }:
                             {timeline.category == TimelineCategory.COMPETITION && <CompetitionTimelineItem competition={timeline as Competition} isActive={isActive} />}
                             {timeline.category == TimelineCategory.TRAINING && <TrainingTimelineItem training={timeline as Training} isActive={isActive} />}
                             {timeline.category == TimelineCategory.CONTINUOUS_LEARNING && <ContinuousLearningTimelineItem continuousLearning={timeline as ContinuousLearning} isActive={isActive} />}
+                            <p className="mt-1 text-gray-700 text-sm sm:text-base text-right font-semibold">{startDate == endDate ? startDate : `${startDate} - ${endDate}`}</p>
                         </div>
                     </DialogContent>
                 </Animate>

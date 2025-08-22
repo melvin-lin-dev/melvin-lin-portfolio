@@ -35,14 +35,9 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
                     type: "bar",
                     orientation: "h",
                     name: entry.title,
-                    hovertemplate: `<b>${entry.title}</b><br>${startDate} - ${endDate}<extra></extra>`,
-                    hoverlabel: {
-                        font: {
-                            color: "white",
-                            size: 14,
-                        },
-                    },
+                    hovertemplate: `<b>${entry.title}</b><br>${startDate == endDate ? startDate : `${startDate} - ${endDate}`}<extra></extra>`,
                     marker: { color: timelineColorMeta[entry.category].primary },
+                    opacity: 0.6,
                 };
             }),
         [timeline]
@@ -97,6 +92,13 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
                         height: 500,
                         margin: { l: 25, r: 25, t: 25, b: 25 },
                         showlegend: false,
+                        hoverlabel: {
+                            font: {
+                                size: 14,
+                                color: "white",
+                            },
+                            bordercolor: "white",
+                        },
                     }}
                     config={{ responsive: true }}
                     style={{ width: "100%", height: "100%" }}

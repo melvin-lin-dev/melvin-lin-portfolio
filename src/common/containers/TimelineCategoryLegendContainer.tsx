@@ -1,7 +1,7 @@
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";
 import { type TimelineCategory, timelineColorMeta, type TimelineMeta, timelineMeta } from "@/lib/modules/timeline/enums/timeline-category.enum";
-import { fadeUp } from "@/utils/framer-motion/motions";
+import { fadeUp, popIn } from "@/utils/framer-motion/motions";
 import clsx from "clsx";
 import { MousePointerClick } from "lucide-react";
 import type { ReactElement } from "react";
@@ -16,7 +16,6 @@ type TimelineCategoryLegendContainerProps = {
 export default function TimelineCategoryLegendContainer({ selectedCategories, toggleCategory }: TimelineCategoryLegendContainerProps): ReactElement {
     return (
         <div className="flex-1 lg:flex-none relative py-2 px-3 bg-slate-100 rounded-lg">
-            <MousePointerClick className="absolute bottom-0 right-0 translate-1/3 w-5 h-5 text-gray-500" />
             <Animate staggerChildren={0.15} className="flex flex-wrap items-center justify-center -ml-2 -mt-2">
                 {timelineMetaEntries.map(([category, data]) => {
                     const entryColorMeta = timelineColorMeta[category];
@@ -32,6 +31,9 @@ export default function TimelineCategoryLegendContainer({ selectedCategories, to
                         </AnimateChild>
                     );
                 })}
+            </Animate>
+            <Animate variants={popIn} delay={0.5} className="absolute bottom-0 right-0 translate-1/3">
+                <MousePointerClick className="w-5 h-5 text-gray-500" />
             </Animate>
         </div>
     );
