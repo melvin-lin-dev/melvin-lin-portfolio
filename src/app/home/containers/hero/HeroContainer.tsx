@@ -4,11 +4,12 @@ import ThreeDimensionButton from "@/common/components/buttons/three-dimension-bu
 import Animate from "@/components/framer-motion/Animate";
 import { profileRoleColors, profileTitles } from "@/lib/modules/profile/constants/profile-titles";
 import { horizontalGrow } from "@/utils/framer-motion/motions";
-import { Download, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Contact3DContainer from "./contact-3d-container/Contact3DContainer";
 import Cube3DContainer from "./cube-3d-container/Cube3DContainer";
+import ResumeDownload from "./ResumeDownload";
 import SimpleContact3DContainer from "./simple-contact-3d-container";
 import { TerminalCodeContainer } from "./terminal-code-container/TerminalCodeContainer";
 
@@ -87,9 +88,7 @@ export default function HeroContainer(): ReactElement {
                                 >
                                     Uncover My Journey
                                 </ThreeDimensionButton>
-                                <ThreeDimensionButton tag="a" color="gray" href="" download title="Resume" className="rounded-lg sm:rounded-xl" paddingClassName="py-2.5 sm:py-3 px-3.5 sm:px-4">
-                                    <Download className="w-5.5 h-5.5 sm:w-6 sm:h-6" />
-                                </ThreeDimensionButton>
+                                <ResumeDownload />
                             </div>
                         </div>
                     </div>

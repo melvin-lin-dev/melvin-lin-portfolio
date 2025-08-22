@@ -8,7 +8,7 @@ async function deployPortfolio() {
     console.log("✅ Tests passed");
 
     await deployToServer();
-    console.log("🌐 Live at https://melvin-lin-dev.github.io/");
+    console.log("🌐 Live at https://melvin-lin.vercel.app/");
 }
 
 deployPortfolio();

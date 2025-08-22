@@ -11,7 +11,7 @@ A portfolio highlighting my experience and skills as a software engineer, with a
 -   **Frontend:** React, Next.js, TypeScript
 -   **Styling:** Tailwind CSS
 -   **Charts & Data Visualization:** Plotly.js
--   **Deployment:** GitHub Pages
+-   **Deployment:** Vercel App
 
 ## 🚀 Getting Started
 

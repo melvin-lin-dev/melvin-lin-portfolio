@@ -79,8 +79,8 @@ export default function HomePage(): ReactElement {
                 </div>
             </section>
             <section className="pb-12 md:pb-16 lg:pb-20 text-center">
-                <ElevatedButton asChild>
-                    <Link href="/timeline" className="block py-4 px-7 text-sm sm:text-base md:text-lg font-semibold rounded-full">
+                <ElevatedButton asChild color="teal">
+                    <Link href="/timeline" className="block py-3 px-5 sm:py-4 sm:px-7 text-sm sm:text-base md:text-lg font-semibold rounded-md sm:rounded-lg">
                         View Complete Timeline
                     </Link>
                 </ElevatedButton>

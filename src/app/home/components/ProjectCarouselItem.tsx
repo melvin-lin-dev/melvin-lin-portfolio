@@ -32,7 +32,7 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
                     </div>
                     <div className="ml-auto flex items-center space-x-2">
                         <div className="scale-0 transition-transform delay-[.1s] group-hover:delay-[.2s] group-hover:scale-100">
-                            <ElevatedButton tag="a" href="" color="gray" className="py-2.5 px-4 rounded text-sm sm:text-base">
+                            <ElevatedButton tag="a" href="" color="gray" className="py-2 px-3.5 sm:py-2.5 sm:px-4 rounded text-sm sm:text-base">
                                 Repository
                             </ElevatedButton>
                         </div>

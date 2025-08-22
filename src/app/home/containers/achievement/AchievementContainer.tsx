@@ -8,10 +8,16 @@ import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 import { delay } from "@/lib/shared/utils/time";
 import { fadeIn } from "@/utils/framer-motion/motions";
 import { Trophy } from "lucide-react";
+import type { Lekton } from "next/font/google";
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 
 const achievements = getAchievements();
+
+type Size = {
+    width: number;
+    height: number;
+};
 
 export default function AchievementContainer(): ReactElement {
     const [detail, setDetail] = useState<Achievement | null>(null);
@@ -19,6 +25,9 @@ export default function AchievementContainer(): ReactElement {
     const effectRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const isAnimatingRef = useRef(false);
+
+    const [size, setSize] = useState<Size>({ width: 0, height: 0 });
+    const [iconTop, setIconTop] = useState(0);
 
     const getPadding = () => {
         let padding = "70%";
@@ -79,6 +88,18 @@ export default function AchievementContainer(): ReactElement {
             if (detail) {
                 effectRef.current!.style.padding = getPadding();
             }
+
+            const newSize: Size = { width: 32, height: 32 };
+            let iconTop = 220;
+
+            if (window.innerWidth < BREAKPOINTS.sm) {
+                newSize.width = 24;
+                newSize.height = 24;
+                iconTop = 170;
+            }
+
+            setSize(newSize);
+            setIconTop(iconTop);
         };
 
         window.addEventListener("resize", handleResize);
@@ -88,12 +109,12 @@ export default function AchievementContainer(): ReactElement {
 
     return (
         <>
-            <section ref={sectionRef} className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+            <section ref={sectionRef} className="relative py-14 sm:py-20 overflow-hidden">
                 <div ref={effectRef} className="absolute -translate-1/2 rounded-full transition-[padding] duration-[300ms]"></div>
                 <Trophy
-                    className="absolute left-1/2 top-48 -translate-1/2 transition-all"
+                    className="absolute left-1/2 top-48 transform -translate-1/2 transition-all"
                     style={{
-                        top: detail ? "192px" : "220px",
+                        top: detail ? "192px" : iconTop + "px",
                         width: detail ? "360px" : "64px",
                         height: detail ? "360px" : "64px",
                         color: detail ? detail.organizationStyle.color : "#E6E7EB",
@@ -101,18 +122,24 @@ export default function AchievementContainer(): ReactElement {
                     }}
                 />
                 <div className="relative flex justify-center transition-all" style={{ top: detail ? "0" : "-32px" }}>
-                    <Animate staggerChildren={.25} className="grid grid-cols-2 gap-2 rotate-45">
+                    <Animate staggerChildren={0.25} className="grid grid-cols-2 gap-2 rotate-45">
                         {achievements.map((achievement, i) => (
                             <AnimateChild key={achievement.id} variants={fadeIn(i)} className={i === 0 ? "order-1" : i === 1 ? "order-2" : i === 2 ? "order-4" : "order-3"}>
                                 <button
-                                    className="relative w-12 h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border transition-transform hover:scale-[1.2]"
+                                    className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg overflow-hidden cursor-pointer border transition-transform hover:scale-[1.2]"
                                     style={{
                                         backgroundColor: achievement.organizationStyle.backgroundColor,
                                         borderColor: !detail || detail?.id == achievement.id ? "transparent" : detail.organizationStyle.color,
                                     }}
                                     onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleClick(e, achievement)}
                                 >
-                                    <Image src={`/images/organizations/${achievement.organizationImage}`} alt={`${achievement.organizationImage} Logo`} className="object-contain -rotate-45" width={32} height={32} />
+                                    <Image
+                                        src={`/images/organizations/${achievement.organizationImage}`}
+                                        alt={`${achievement.organizationImage} Logo`}
+                                        className="object-contain -rotate-45"
+                                        width={size.width}
+                                        height={size.height}
+                                    />
                                 </button>
                             </AnimateChild>
                         ))}
