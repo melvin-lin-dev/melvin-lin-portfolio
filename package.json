@@ -1,5 +1,5 @@
 {
-  "name": "melvin-lin-dev.github.io",
+  "name": "melvin-lin-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-visually-hidden": "^1.2.3",
     "@xyflow/react": "^12.8.2",
     "clsx": "^2.1.1",
-    "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.535.0",
-    "motion": "^12.23.12",
-    "next": "15.4.5",
+    "next": "^15.5.0",
     "plotly.js": "^3.0.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
