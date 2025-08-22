@@ -5,9 +5,11 @@ import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import { getTimeline } from "@/lib/modules/timeline/services/timeline.service";
 import { fadeUp } from "@/utils/framer-motion/motions";
 import clsx from "clsx";
-import { Fragment, useState, type ReactElement } from "react";
+import { Fragment, useEffect, useState, type ReactElement } from "react";
 import GanttChartContainer from "./GanttChartContainer";
 import VerticalTimelineContainer from "./VerticalTimelineContainer";
+import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
+import { TimelineCategory } from "@/lib/modules/timeline/enums/timeline-category.enum";
 
 const timeline = getTimeline();
 
@@ -43,6 +45,27 @@ const sectionIds = {
 
 export default function TimelineContainer(): ReactElement {
     const [timelineMode, setTimelineMode] = useState<TimelineMode>(TimelineMode.GANTT_CHART);
+    const [selectedCategories, setSelectedCategories] = useState<Set<TimelineCategory>>(new Set(Object.values(TimelineCategory)));
+    const [filteredTimeline, setFilteredTimeline] = useState<Timeline[]>([]);
+
+    const toggleCategory = (category: TimelineCategory) => {
+        setSelectedCategories((prev) => {
+            const next = new Set(prev);
+
+            if (next.has(category)) next.delete(category);
+            else next.add(category);
+
+            return next;
+        });
+    };
+
+    useEffect(() => {
+        if (selectedCategories.size === 0) {
+            setFilteredTimeline(timeline);
+        } else {
+            setFilteredTimeline(timeline.filter((entry) => selectedCategories.has(entry.category)));
+        }
+    }, [selectedCategories]);
 
     const TimelineComponent = timelineModeMeta[timelineMode].component;
 
@@ -54,7 +77,7 @@ export default function TimelineContainer(): ReactElement {
                 </Animate>
 
                 <div className="mt-8 flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-4 md:space-y-0">
-                    <TimelineCategoryLegendContainer />
+                    <TimelineCategoryLegendContainer selectedCategories={selectedCategories} toggleCategory={toggleCategory} />
                     <Animate staggerChildren={0.25} className="p-1 flex items-center rounded-lg bg-slate-100 overflow-hidden space-x-1">
                         {timelineModeMetaEntries.map(([mode, data], i) => (
                             <Fragment key={mode}>
@@ -79,7 +102,7 @@ export default function TimelineContainer(): ReactElement {
             </Animate>
 
             <div className="mt-6 px-5 sm:px-10">
-                <TimelineComponent timeline={timeline} sectionId={sectionIds.timeline} />
+                <TimelineComponent timeline={filteredTimeline} sectionId={sectionIds.timeline} />
             </div>
         </section>
     );

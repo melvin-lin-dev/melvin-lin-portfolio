@@ -16,12 +16,12 @@ export const timelineColorMeta: Record<TimelineCategory, Record<"primary" | "sec
     [TimelineCategory.CONTINUOUS_LEARNING]: { primary: "#10b981", secondary: "#FFF" },
 };
 
-type timelineMeta = {
+export type TimelineMeta = {
     text: string;
     icon: string;
 };
 
-export const timelineMeta: Record<TimelineCategory, timelineMeta> = {
+export const timelineMeta: Record<TimelineCategory, TimelineMeta> = {
     [TimelineCategory.WORK_EXPERIENCE]: {
         text: "Work Experience",
         icon: "briefcasebusiness",
