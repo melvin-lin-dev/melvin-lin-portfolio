@@ -15,7 +15,7 @@
             "Contributed to the development of POS web application using PHP, MySQL, Vue & Laravel",
             "Developed Inventory mobile application using Flutter",
             "Developed Absence mobile application with fingerprint authentication using Flutter",
-            "Implemented AI Face Recognition in Absence mobile application using Python",
+            "Implemented AI Face Recognition in Absence mobile application using Flutter & Python",
             "Created designs for Pharmacy Business using Figma",
             "Refactored code to improve performance and maintainability across projects",
             "Refined app architecture by structuring services, components, and data handling",
@@ -68,8 +68,8 @@
         "descriptions": [
             "Developed an analysis web application",
             "Created a reusable component library for faster development",
-            "Defined folder/code patterns to maintain project scalability and readability",
-            "Optimized app performance and load time",
+            "Introduced folder/code patterns to maintain project scalability and readability",
+            "Optimized app performance and load time used by the company",
             "Worked on side projects such as admin dashboard and decrypt algorithm",
             "Participated in Scrum practices across the full SDLC, including sprint planning, development, and delivery",
             "Developed using React, TypeScript, PostgreSQL, Java, Python, and CodeIgniter"
