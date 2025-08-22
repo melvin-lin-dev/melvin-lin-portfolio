@@ -37,7 +37,7 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
                     name: entry.title,
                     hovertemplate: `<b>${entry.title}</b><br>${startDate == endDate ? startDate : `${startDate} - ${endDate}`}<extra></extra>`,
                     marker: { color: timelineColorMeta[entry.category].primary },
-                    opacity: 0.6,
+                    opacity: 0.7,
                 };
             }),
         [timeline]
