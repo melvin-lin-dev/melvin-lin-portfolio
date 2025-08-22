@@ -13,7 +13,7 @@ export default function QuoteItem({ quote, isPaused }: QuoteItemProps): ReactEle
             <div className="flex-1">
                 <QuoteIcon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-500" />
                 <div className="mt-3 md:mt-4 space-y-2 md:space-y-3 sm:pl-10 md:pl-16">
-                    <p className="text-lg text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-800 italic tracking-wider leading-[1.45]">{quote.text}</p>
+                    <p className="min-w-[400px]:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-800 italic tracking-wider leading-[1.45]">{quote.text}</p>
                     <p className="text-xs sm:text-base md:text-lg lg:text-xl text-gray-900 font-semibold text-right tracking-wider">— {quote.by}</p>
                 </div>
             </div>

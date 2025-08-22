@@ -63,17 +63,21 @@ export default function GanttChartContainer({ timeline }: GanttChartContainerPro
 
     return (
         <div>
-            <div className="px-5 mb-8 flex items-center space-x-3 justify-center">
-                <Animate variants={popIn} className="py-1.5 px-4 bg-slate-100 text-gray-500 border border-gray-300 rounded-full flex items-center space-x-2 text-sm">
-                    <SquareMousePointer className="w-5 h-5" />
-                    <span>
-                        <b>Drag</b> to zoom chart
-                    </span>
+            <div className="mb-8 flex items-center space-x-3 justify-center">
+                <Animate variants={popIn} className="py-1.5 px-4 bg-slate-100 text-gray-500 border border-gray-300 rounded-lg sm:rounded-full flex items-center space-x-2 text-sm text-center">
+                    <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-2 space-y-2 sm:space-y-0">
+                        <SquareMousePointer className="w-5 h-5" />
+                        <span>
+                            <b>Drag</b> to zoom chart
+                        </span>
+                    </div>
                     <span>•</span>
-                    <MousePointerClick className="w-5 h-5" />
-                    <span>
-                        <b>Click</b> to show timeline detail
-                    </span>
+                    <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-2 space-y-2 sm:space-y-0">
+                        <MousePointerClick className="w-5 h-5" />
+                        <span>
+                            <b>Click</b> to show timeline detail
+                        </span>
+                    </div>
                 </Animate>
             </div>
 
