@@ -1,5 +1,3 @@
-"use client";
-
 import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import type { Project } from "@/lib/modules/project/models/project.model";
@@ -33,9 +31,9 @@ export default function ProjectCodeModal({ project }: ProjectCodeModal): ReactEl
                     </div>
                 </DialogTitle>
 
-                <Tabs defaultValue={project.codeSnippets[0].language}>
+                <Tabs defaultValue={project.codeSnippets![0].language}>
                     <TabsList>
-                        {project.codeSnippets.map((codeSnippet) => (
+                        {project.codeSnippets!.map((codeSnippet) => (
                             <TabsTrigger
                                 key={codeSnippet.language}
                                 value={codeSnippet.language}
@@ -46,7 +44,7 @@ export default function ProjectCodeModal({ project }: ProjectCodeModal): ReactEl
                         ))}
                     </TabsList>
 
-                    {project.codeSnippets.map((codeSnippet, index) => (
+                    {project.codeSnippets!.map((codeSnippet, index) => (
                         <TabsContent key={codeSnippet.language} value={codeSnippet.language}>
                             <SyntaxHighlighter
                                 language={codeSnippet.language}

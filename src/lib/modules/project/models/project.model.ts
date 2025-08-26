@@ -3,10 +3,12 @@ import type { ProjectCodeSnippet } from "./project-code-snippet.model";
 
 export interface Project {
     id: number;
-    thumbnail: string;
     title: string;
     description: string;
     stacks: Partial<Record<Stack, string[]>>;
-    repositoryLink: string;
-    codeSnippets: ProjectCodeSnippet[];
+    thumbnail: string;
+    previews: string[];
+    repositoryLink?: string;
+    codeSnippets?: ProjectCodeSnippet[];
+    isHighlight?: boolean;
 }

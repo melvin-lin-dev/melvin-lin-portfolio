@@ -1,89 +1,44 @@
 [
     {
         "id": 1,
-        "thumbnail": "star-battle.jpg",
-        "title": "Star Battle",
-        "description": "Best Student Award - Jawara Game Indonesia",
+        "title": "Middle Space",
+        "description": "2D mobile space shooter with gasoline, shop, scoring, and boss fights. Best Student Project (HAGO Award, three-person team). Fully playable on mobile.",
         "stacks": {
-            "programmingLanguages": ["JavaScript", "Angular"],
+            "programmingLanguages": ["JavaScript/jQuery"],
             "markupLanguages": ["HTML"],
             "styleLanguages": ["CSS"]
         },
-        "repositoryLink": "",
-        "codeSnippets": [
-            {
-                "language": "markup",
-                "label": "HTML",
-                "source": "<div class=\"game-container\">Star Battle</div>"
-            },
-            {
-                "language": "css",
-                "label": "CSS",
-                "source": ".game-container { font-weight: bold; }"
-            },
-            {
-                "language": "javascript",
-                "label": "JavaScript",
-                "source": "console.log('Game started!');"
-            }
-        ]
+        "thumbnail": "thumbnail.png",
+        "previews": ["gameplay.png", "how-to-play.png", "shop.png"],
+        "repositoryLink": "https://github.com/melvin-lin-dev/middle-space",
+        "isHighlight": true
     },
     {
         "id": 2,
-        "thumbnail": "star-battle.jpg",
-        "title": "Star Battle",
-        "description": "Best Student Award - Jawara Game Indonesia",
+        "title": "Spranch",
+        "description": "Web-based presentation application designed to simplify creating and presenting slides. Focused on branching flows and smooth navigation.",
         "stacks": {
-            "programmingLanguages": ["JavaScript", "Angular"],
-            "markupLanguages": ["HTML"],
-            "styleLanguages": ["CSS"]
+            "frameworks": ["Vue", "Laravel"],
+            "preprocessors": ["Sass"],
+            "cssFrameworks": ["Tailwind CSS"],
+            "databases": ["MySQL"]
         },
-        "repositoryLink": "",
-        "codeSnippets": [
-            {
-                "language": "html",
-                "label": "HTML",
-                "source": "<div class=\"game-container\">Star Battle</div>"
-            },
-            {
-                "language": "css",
-                "label": "CSS",
-                "source": ".game-container { font-weight: bold; }"
-            },
-            {
-                "language": "javascript",
-                "label": "JavaScript",
-                "source": "console.log('Game started!');"
-            }
-        ]
+        "thumbnail": "thumbnail.jpg",
+        "previews": ["dashboard.png", "presentation.png", "presentation-mode.png"],
+        "repositoryLink": "https://github.com/melvin-lin-dev/spranch",
+        "isHighlight": true
     },
     {
         "id": 3,
-        "thumbnail": "star-battle.jpg",
-        "title": "Star Battle",
-        "description": "Best Student Award - Jawara Game Indonesia",
+        "title": "AI Face Recognition",
+        "description": "AI-powered attendance application with face recognition; users register with multiple images for accurate verification and can use the system to log in or mark attendance. Backend ensures secure storage and verification, while the Flutter frontend provides cross-platform access.",
         "stacks": {
-            "programmingLanguages": ["JavaScript", "Angular"],
-            "markupLanguages": ["HTML"],
-            "styleLanguages": ["CSS"]
+            "programmingLanguages": ["Python"],
+            "frameworks": ["Flutter"],
+            "databases": ["MySQL"]
         },
-        "repositoryLink": "",
-        "codeSnippets": [
-            {
-                "language": "html",
-                "label": "HTML",
-                "source": "<div class=\"game-container\">Star Battle</div>"
-            },
-            {
-                "language": "css",
-                "label": "CSS",
-                "source": ".game-container { font-weight: bold; }"
-            },
-            {
-                "language": "javascript",
-                "label": "JavaScript",
-                "source": "console.log('Game started!');"
-            }
-        ]
+        "thumbnail": "thumbnail.png",
+        "previews": ["login.png", "register.png"],
+        "isHighlight": true
     }
 ]

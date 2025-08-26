@@ -10,15 +10,16 @@ A portfolio highlighting my experience and skills as a software engineer, with a
 
 -   **Frontend:** React, Next.js, TypeScript
 -   **Styling:** Tailwind CSS
+-   **UI Components & Animation:** Framer Motion, Radix UI, React Vertical Timeline
 -   **Charts & Data Visualization:** Plotly.js
--   **Deployment:** Vercel App
+-   **Deployment:** Vercel
 
 ## 🚀 Getting Started
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/melvin-lin-dev/melvin-lin.git
+git clone https://github.com/melvin-lin-dev/melvin-lin-portfolio.git
 ```
 
 ### Run Locally

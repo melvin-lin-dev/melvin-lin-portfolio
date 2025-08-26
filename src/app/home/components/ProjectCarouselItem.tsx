@@ -1,9 +1,8 @@
-import ElevatedButton from "@/common/components/buttons/three-dimension-button/elevated-button/ElevatedButton";
 import StackBadges from "@/common/components/StackBadges";
 import type { Project } from "@/lib/modules/project/models/project.model";
 import Image from "next/image";
 import type { ReactElement } from "react";
-import ProjectCodeModal from "./ProjectCodeModal";
+import ProjectPreviewModal from "./ProjectPreviewModal";
 
 type ProjectCarouselItemProps = {
     project: Project;
@@ -12,8 +11,8 @@ type ProjectCarouselItemProps = {
 export default function ProjectCarouselItem({ project }: ProjectCarouselItemProps): ReactElement {
     return (
         <div className="relative h-full group cursor-default">
-            <Image src={`/images/projects/${project.thumbnail}`} alt={`${project.title} Thumbnail`} className="object-cover" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
-            <div className="relative bg-teal-500/20 w-full h-full py-3 px-4 text-white transition delay-[.3s] group-hover:delay-0 group-hover:bg-teal-500/50">
+            <Image src={`/images/projects/${project.title.toLowerCase().replace(/ /g, "-")}/${project.thumbnail}`} alt={`${project.title} Thumbnail`} className="object-cover blur-xs transition-[filter] delay-[.3s] group-hover:delay-0 group-hover:blur-none" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+            <div className="relative bg-cyan-800/50 w-full h-full py-3 px-4 text-white transition delay-[.3s] group-hover:delay-0 group-hover:bg-cyan-700/80">
                 <div className="relative h-full flex flex-col justify-between">
                     <div>
                         <h3 className="mb-3 text-lg sm:text-xl md:text-2xl font-semibold invisible">{project.title}</h3>
@@ -31,13 +30,8 @@ export default function ProjectCarouselItem({ project }: ProjectCarouselItemProp
                         />
                     </div>
                     <div className="ml-auto flex items-center space-x-2">
-                        <div className="scale-0 transition-transform delay-[.1s] group-hover:delay-[.2s] group-hover:scale-100">
-                            <ElevatedButton tag="a" href="" color="gray" className="py-2 px-3.5 sm:py-2.5 sm:px-4 rounded text-sm sm:text-base">
-                                Repository
-                            </ElevatedButton>
-                        </div>
                         <div className="scale-0 transition-transform group-hover:delay-[.3s] group-hover:scale-100">
-                            <ProjectCodeModal project={project}></ProjectCodeModal>
+                            <ProjectPreviewModal project={project}></ProjectPreviewModal>
                         </div>
                     </div>
                 </div>

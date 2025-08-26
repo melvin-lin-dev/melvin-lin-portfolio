@@ -63,7 +63,6 @@ export default function ProjectCarouselContainer(): ReactElement {
                         ))}
                         width={size.width}
                         height={size.height + "px"}
-                        startIndex={0}
                         autoPlay={false}
                         showStatus={false}
                         showIndicators={false}
