@@ -9,7 +9,7 @@ export default function Contact3DContainer(): ReactElement {
     const externalProfiles = useMemo(() => [...getContactLinks(), ...getCodingProfiles()], []);
 
     return (
-        <ul className={`hidden md:flex ${styles.contact3D} absolute top-[80%] md:top-[74%] lg:top-[calc(50%+150px)] right-32.5`}>
+        <ul className={`hidden lg:flex ${styles.contact3D} absolute top-[80%] md:top-[74%] lg:top-[calc(50%+150px)] right-32.5`}>
             {externalProfiles.map((externalProfile) => (
                 <li key={externalProfile.platform}>
                     <a href={externalProfile.url} {...getExternalProfileProps(externalProfile.platform)}>

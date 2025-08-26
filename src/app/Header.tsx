@@ -48,7 +48,7 @@ export default function Header(): ReactElement {
 
     return (
         <>
-            <header className={clsx("py-5 hidden md:block fixed top-0 left-0 w-full z-[60] transition-[background-color,color]", scrolled ? "bg-white/90 text-gray-800 shadow-md" : "text-white")}>
+            <header className={clsx("py-5 hidden md:block fixed top-0 left-0 w-full z-40 transition-[background-color,color]", scrolled ? "bg-white/90 text-gray-800 shadow-md" : "text-white")}>
                 <div className="container min-[1700px]:max-w-[1600px] flex items-center justify-between">
                     <Link href="/home" className={clsx("relative block w-13 h-13 transition-[scale,filter] hover:scale-[1.3]", scrolled ? "brightness-125" : "brightness-[1.75]")}>
                         <Image src="/images/logo.png" alt="Logo" fill className="object-contain" />
@@ -67,7 +67,7 @@ export default function Header(): ReactElement {
                 </div>
             </header>
 
-            <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 shadow-[0_-2px_4px_#ddd] flex justify-around py-2 z-[60] backdrop-blur-sm">
+            <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 shadow-[0_-2px_4px_#ddd] flex justify-around py-2 z-40 backdrop-blur-sm">
                 {menus.map((menu) => {
                     const isActive = pathname === menu.href;
                     return (

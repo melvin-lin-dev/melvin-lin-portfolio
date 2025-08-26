@@ -64,7 +64,7 @@ export default function HeroContainer(): ReactElement {
                                     <TypeAnimation sequence={sequence} wrapper="span" speed={50} repeat={Infinity} />
                                 </Animate>
                             </div>
-                            <div className="mt-8 md:mb-12 space-y-4 text-lg sm:text-[22px]">
+                            <div className="mt-8 lg:mb-12 space-y-4 text-lg sm:text-[22px]">
                                 <Animate variants={horizontalGrow()} delay={0.25} className="flex items-center space-x-3 sm:text-lg">
                                     <MapPin className="w-6.5 h-6.5" />
                                     <p>Indonesia (Willing to Relocate Overseas)</p>
@@ -74,7 +74,7 @@ export default function HeroContainer(): ReactElement {
                                     <p>Available Immediately</p>
                                 </Animate>
                             </div>
-                            <div className="my-8 md:my-0 block md:hidden">
+                            <div className="my-8 lg:my-0 block lg:hidden">
                                 <SimpleContact3DContainer />
                             </div>
                             <div className="flex items-end space-x-4">

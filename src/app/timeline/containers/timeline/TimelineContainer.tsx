@@ -10,6 +10,7 @@ import GanttChartContainer from "./GanttChartContainer";
 import VerticalTimelineContainer from "./VerticalTimelineContainer";
 import type { Timeline } from "@/lib/modules/timeline/models/timeline.model";
 import { TimelineCategory } from "@/lib/modules/timeline/enums/timeline-category.enum";
+import BREAKPOINTS from "@/lib/shared/constants/breakpoints";
 
 const timeline = getTimeline();
 
@@ -66,6 +67,22 @@ export default function TimelineContainer(): ReactElement {
             setFilteredTimeline(timeline.filter((entry) => selectedCategories.has(entry.category)));
         }
     }, [selectedCategories]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            let newTimelineMode = TimelineMode.GANTT_CHART;
+
+            if (window.innerWidth < BREAKPOINTS.lg) {
+                newTimelineMode = TimelineMode.VERTICAL_TIMELINE;
+            }
+
+            setTimelineMode(newTimelineMode);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const TimelineComponent = timelineModeMeta[timelineMode].component;
 
