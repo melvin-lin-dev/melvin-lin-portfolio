@@ -1,8 +1,9 @@
+import { pageTitle } from "@/lib/shared/utils/metadata";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
 import Header from "./Header";
-import type { ReactNode } from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -15,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Melvin Lin Portfolio",
-    description: "A portfolio highlighting my experience and skills as a software engineer, with a strong foundation in frontend development and UI design.",
+    title: pageTitle("Portfolio"),
+    description:
+        "Versatile Software Engineer with practical experience in full-stack development across web and mobile platforms. Adaptable and quick to learn, with a focus on user experience, performance optimization, clean architecture, and building scalable systems. Passionate about solving real-world problems through efficient, maintainable code.",
 };
 
 export default function RootLayout({

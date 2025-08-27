@@ -1,3 +1,5 @@
+"use client";
+
 import TimelineCategoryLegendContainer from "@/common/containers/TimelineCategoryLegendContainer";
 import Animate from "@/components/framer-motion/Animate";
 import AnimateChild from "@/components/framer-motion/AnimateChild";

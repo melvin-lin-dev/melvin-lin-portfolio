@@ -1,10 +1,14 @@
-"use client";
-
 import Text3D from "@/common/components/text-3d/Text3D";
+import Animate from "@/components/framer-motion/Animate";
+import { pageTitle } from "@/lib/shared/utils/metadata";
 import { fadeUp } from "@/utils/framer-motion/motions";
+import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import TimelineContainer from "./containers/timeline/TimelineContainer";
-import Animate from "@/components/framer-motion/Animate";
+
+export const metadata: Metadata = {
+    title: pageTitle("Timeline"),
+};
 
 export default function TimelinePage(): ReactElement {
     return (
