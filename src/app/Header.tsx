@@ -2,6 +2,7 @@
 
 import { IconWrapper } from "@/components/icon/lucide/IconWrapper";
 import clsx from "clsx";
+import { Boxes } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -62,21 +63,39 @@ export default function Header(): ReactElement {
                                     </Link>
                                 </li>
                             ))}
+                            <li>
+                                <Link
+                                    href="https://melvin-lin-dev.github.io/"
+                                    target="_blank"
+                                    className="relative top-0 py-1.5 px-3 flex items-center space-x-2 bg-white text-gray-700 rounded transition-[box-shadow,top] hover:shadow-lg hover:-top-1"
+                                >
+                                    <Boxes /> <span>Collections</span>
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
                 </div>
             </header>
 
-            <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 shadow-[0_-2px_4px_#ddd] flex justify-around py-2 z-40 backdrop-blur-sm">
-                {menus.map((menu) => {
-                    const isActive = pathname === menu.href;
-                    return (
-                        <Link key={menu.href} href={menu.href} className={clsx("flex flex-col items-center justify-center text-sm transition-colors", isActive ? "text-emerald-500" : "text-gray-500")}>
-                            <IconWrapper name={menu.icon} className="w-6 h-6 mb-1" />
-                            <span className="text-xs">{menu.title}</span>
+            <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 shadow-[0_-2px_4px_#ddd] py-2 z-40 backdrop-blur-sm">
+                <ul className="flex justify-around">
+                    {menus.map((menu) => {
+                        const isActive = pathname === menu.href;
+                        return (
+                            <li key={menu.href}>
+                                <Link href={menu.href} className={clsx("py-1 px-2 flex flex-col items-center justify-center text-sm transition-colors", isActive ? "text-emerald-500" : "text-gray-500")}>
+                                    <IconWrapper name={menu.icon} className="w-6 h-6 mb-1" />
+                                    <span className="text-xs">{menu.title}</span>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                    <li>
+                        <Link href="https://melvin-lin-dev.github.io/" target="_blank" className="py-1 px-2 flex flex-col items-center justify-center text-sm transition-colors bg-emerald-500 text-white border rounded transition-colors hover:bg-transparent hover:text-emerald-500 hover:border-emerald-500">
+                            <Boxes /> <span>Collections</span>
                         </Link>
-                    );
-                })}
+                    </li>
+                </ul>
             </nav>
         </>
     );
