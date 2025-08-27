@@ -147,7 +147,7 @@ function AboutFlow(): ReactElement {
             data: {
                 icon: "wrench",
                 label: "Core Strengths",
-                description: "Vue, Angular, Laravel • Open to learn/improve other skills",
+                description: "Vue, React, Angular, Laravel • Open to learn/improve other skills",
                 mainEffectRef: effectRef,
                 parentRef,
             },
