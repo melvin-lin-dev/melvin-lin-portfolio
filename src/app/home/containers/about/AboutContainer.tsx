@@ -195,7 +195,7 @@ function AboutFlow(): ReactElement {
             data: {
                 icon: "book",
                 label: "Daily Learning",
-                description: "React/Next clean code • Competitive programming • Chinese • Psychology & self-discipline",
+                description: "Competitive programming • Chinese • Psychology & self-discipline",
                 mainEffectRef: effectRef,
                 parentRef,
             },
