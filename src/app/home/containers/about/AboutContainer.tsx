@@ -66,13 +66,13 @@ const nodePositions: Record<Screen, Record<string, XYPosition>> = {
     phone: {
         about: { x: 0, y: 0 },
         background: { x: 0, y: nodeHeight / 1.075 },
-        traits: { x: 0, y: nodeHeight / 1.075 * 2 },
-        skills: { x: 0, y: nodeHeight / 1.075 * 3 },
-        work_status: { x: 0, y: nodeHeight / 1.075 * 4 },
-        recent_work: { x: 0, y: nodeHeight / 1.075 * 5 },
-        working_on: { x: 0, y: nodeHeight / 1.075 * 6 },
-        learning: { x: 0, y: nodeHeight / 1.075 * 7 },
-        goal: { x: 0, y: nodeHeight / 1.075 * 8 },
+        traits: { x: 0, y: (nodeHeight / 1.075) * 2 },
+        skills: { x: 0, y: (nodeHeight / 1.075) * 3 },
+        work_status: { x: 0, y: (nodeHeight / 1.075) * 4 },
+        recent_work: { x: 0, y: (nodeHeight / 1.075) * 5 },
+        working_on: { x: 0, y: (nodeHeight / 1.075) * 6 },
+        learning: { x: 0, y: (nodeHeight / 1.075) * 7 },
+        goal: { x: 0, y: (nodeHeight / 1.075) * 8 },
     },
 };
 
@@ -129,31 +129,6 @@ function AboutFlow(): ReactElement {
             },
         },
         {
-            id: "work_status",
-            type: "about",
-            position: nodePositions.desktop.work_status,
-            data: {
-                icon: "briefcase",
-                label: "Current Status",
-                description: "Open to onsite work • Willing to relocate",
-                mainEffectRef: effectRef,
-                parentRef,
-            },
-        },
-
-        {
-            id: "skills",
-            type: "about",
-            position: nodePositions.desktop.skills,
-            data: {
-                icon: "wrench",
-                label: "Core Strengths",
-                description: "Vue, Angular, Laravel • Open to improve other skills",
-                mainEffectRef: effectRef,
-                parentRef,
-            },
-        },
-        {
             id: "traits",
             type: "about",
             position: nodePositions.desktop.traits,
@@ -166,13 +141,37 @@ function AboutFlow(): ReactElement {
             },
         },
         {
+            id: "skills",
+            type: "about",
+            position: nodePositions.desktop.skills,
+            data: {
+                icon: "wrench",
+                label: "Core Strengths",
+                description: "Vue, Angular, Laravel • Open to learn/improve other skills",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
+            id: "work_status",
+            type: "about",
+            position: nodePositions.desktop.work_status,
+            data: {
+                icon: "briefcase",
+                label: "Current Status",
+                description: "Open to onsite work • Willing to relocate",
+                mainEffectRef: effectRef,
+                parentRef,
+            },
+        },
+        {
             id: "recent_work",
             type: "about",
             position: nodePositions.desktop.recent_work,
             data: {
                 icon: "folder",
                 label: "Recent Work",
-                description: "Portfolio rebuild • SPA/state management in vanilla JS",
+                description: "SPA/state management in vanilla JS • Portfolio",
                 mainEffectRef: effectRef,
                 parentRef,
             },
@@ -183,8 +182,8 @@ function AboutFlow(): ReactElement {
             position: nodePositions.desktop.working_on,
             data: {
                 icon: "code",
-                label: "Current Projects",
-                description: "Rebuilding AI face recognition app • Portfolio",
+                label: "Current Activity",
+                description: "Portfolio • Exploring new tech & knowledge • Daily Learning",
                 mainEffectRef: effectRef,
                 parentRef,
             },
