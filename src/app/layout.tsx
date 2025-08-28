@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Header from "./Header";
+import Script from "next/script";
+import PageTracker from "./PageTracker";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -29,6 +31,23 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+                {/* Global Site Tag */}
+                <Script src={`https://www.googletagmanager.com/gtag/js?id=G-0H9P64KG2T`} strategy="afterInteractive" />
+                <Script
+                    id="gtag-init"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-0H9P64KG2T', {
+                                page_path: window.location.pathname,
+                            });
+                        `,
+                    }}
+                />
+                <PageTracker />
                 <Header />
                 <main>{children}</main>
                 <footer className="py-4 text-center text-white bg-teal-700 text-white mb-15 md:mb-0">&copy; {new Date().getFullYear()} Melvin Lin. All rights reserved.</footer>
