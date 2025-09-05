@@ -77,7 +77,7 @@ export default function GanttChartDetailModal({ timeline, closeTimelineDetail }:
                             {timeline.category == TimelineCategory.COMPETITION && <CompetitionTimelineItem competition={timeline as Competition} isActive={isActive} />}
                             {timeline.category == TimelineCategory.TRAINING && <TrainingTimelineItem training={timeline as Training} isActive={isActive} />}
                             {timeline.category == TimelineCategory.CONTINUOUS_LEARNING && <ContinuousLearningTimelineItem continuousLearning={timeline as ContinuousLearning} isActive={isActive} />}
-                            <p className="mt-1 text-gray-700 text-sm sm:text-base text-right font-semibold">{startDate == endDate ? startDate : `${startDate} - ${endDate}`}</p>
+                            <p className={clsx("mt-1 text-sm sm:text-base text-right font-semibold", isActive ? "text-white" : "text-gray-700")}>{startDate == endDate ? startDate : `${startDate} - ${endDate}`}</p>
                         </div>
                     </DialogContent>
                 </Animate>
